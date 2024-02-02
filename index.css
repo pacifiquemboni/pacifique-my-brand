@@ -14,6 +14,7 @@ body{
 .header-body-div{
     margin-left: 150px;
     margin-right: 150px;  
+    display: grid;
 }
 .nav-div{
     display: flex;
@@ -463,4 +464,119 @@ button{
     margin-left: 10px;
     width: 20px;
     height: 20px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+/* --------------------------- ABOUT US PAGE------------------------------------------- */
+.about-header-div{
+    /* background-image: url('images/bg/2.jpg'); */
+    background-color: #1E1C1C;
+    background-position: fixed;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    
+   
+}
+.header-body-div h1{
+    text-align: center;
+     color: #FEA609;
+}
+
+.aboutme-content-div{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.aboutme-content-bg{
+    height:150px;
+}
+.aboutme-content-bg > p{
+    padding: 20px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+
+/* --------------------------- BLOGS PAGE------------------------------------------- */
+
+.myblog-div{
+    background-image: url('images/bg/6.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: auto;
+    margin-top: -35px;
+}
+.myblog-body{
+    
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.myblogs{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.blog{
+    margin-top: 10px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+/* --------------------------- lOGIN PAGE------------------------------------------- */
+
+.login-div{
+    background-image: url('images/bg/7.jpg');
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 580px;
+    margin-top: -35px;
+    background-color: rgb(214, 203, 203);
+}
+.skills-div h1{
+    padding: 10px;
+    color: #FEA609;
+    font-size: 50px;
+}
+.login-body{
+   
+    margin-left: 150px;
+    margin-right: 150px;
+    display: flex;
+    margin-bottom: 10px;
+}
+input{
+    width: 80%;
+    background: none;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid black
+}
+.login{
+    margin-left: 150px;
+    margin-top: 30px;
+    width: 525px;
+    height: 500px;
+    background-color: white;
+    border-radius: 50px;
+    
+}
+.login-form{
+    padding: 50px;
+}
+.login-img img {
+    width: 525px;
+    height: 200px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+.login-form p{
+    float: right;
+    padding-right: 20px;
+}
+.login-btn{
+    margin-top: 40px;
+    padding-left: 80px;
 }
