@@ -6,6 +6,7 @@ body{
     /* background-image: url('images/bg/2.jpg'); */
     background-color: #925d01fa;
     background-position: fixed;
+    background-attachment: fixed;
     background-size: cover;
     color: white;
     height: 588px;
@@ -78,6 +79,16 @@ button{
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+.social{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.social img{
+    width: 20px;
+    height: 20px;
 }
 
 /* ABOUT ME SECTION */
@@ -160,11 +171,127 @@ button{
    
     margin-left: 150px;
     margin-right: 150px;
+    display: flex;
 }
 .skills{
     display: flex;
     justify-content: space-between;
    flex-wrap: wrap;
+}
+.skill-design{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.right-skills{
+    display: grid;
+    gap: 10px;
+}
+
+.html{
+    width: 500px;
+    height: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    font-weight: bold;
+}
+.html5{
+    width: 350px;
+    height: 30px;
+    background-color: #E77E23;
+}
+.html5-cont{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #BD4C00;
+}
+.css3{
+    width: 240px;
+    height: 30px;
+    background-color: #3598DB;
+}
+.css3-cont{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #2673A7;
+}
+.jquery{
+    width: 220px;
+    height: 30px;
+    background-color: #2D3E50;
+}
+.jquery-cont{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #283848;
+}
+.php{
+    width: 180px;
+    height: 30px;
+    background-color: #5A68A5;
+}
+.php-cont{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #3F4055;
+}
+.wordpress{
+    width: 400px;
+    height: 30px;
+    background-color: #525252;
+}
+.wordpress-cont{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #2F2F2F;
+}
+.seo{
+    width: 600px;
+    height: 30px;
+    background-color: #2ECD71;
+}
+.seo-cont{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #239C55;
+}
+.seo p{
+    float: right;
+    margin-top: -23px;
+    
+}
+.ps{
+    width: 300px;
+    height: 30px;
+    background-color: #4288D0;
+}
+.ps-cont{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #11457E;
 }
 .skill{
     color: #FEA609;
@@ -317,12 +444,23 @@ button{
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: -100px;
-    height: 250px;
+    height: 290px;
 }
 .footer-body{
-    padding-top: 170px;
+    padding-top: 180px;
     color: #FEA609;
     text-align: center;
     margin-left: 150px;
     margin-right: 150px;
+}
+.social-footer{
+    
+    display: flex;
+   justify-content: center;
+
+}
+.social-footer img{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
 }
