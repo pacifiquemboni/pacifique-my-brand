@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./responsive.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -10,35 +12,37 @@
         
     </head>
     <body>
-        <div class="about-header-div">
-            <div class="header-body-div">
-                <div class="nav-div">
-                    <div class="logo">A<span>T</span>C<span>.</span> </div>
-                    <nav>
-                        <ul>
-                            <a href="index.html"><li>Home</li> </a>
-                            <a href="about.html"><li>AboutMe</li> </a>
-                            <a href="skills.html"><li>Skills</li> </a>
-                            <a href="mywork.html"><li >MyWork</li> </a>
-                            <a href="blogs.html"><li>Blogs</li> </a>
-                            <a href="login.html"><li class="active">Login</li> </a>
-                        </ul>
-                    </nav>
-                    <a href="contact.html"><button>Contact me</button></a>
+        <div class="body">
+            <div class="mobile-navbar">
+                <div class="logo">A<span>T</span>C<span>.</span></div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <h1>LOGIN PAGE</h1>
-                
+                <ul class="mobile-menu" id="mobileMenu">
+                    <li><a href="" >Home</a></li>
+                    <li><a href="about.html">AboutMe</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="mywork.html">MyWork</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="login.html"><span class="active" >Login</span></a></li>
+                </ul>
+                <a href="contact.html"><button>Contact me</button></a>
             </div>
-        </div>
-
-        <!-- skills section -->
+            
+            <script>
+                function toggleMenu() {
+                    var mobileMenu = document.getElementById("mobileMenu");
+                    mobileMenu.classList.toggle("show");
+                }
+            </script>
+             <!-- skills section -->
         <div class="login-div">
-            <h1></h1> 
+    
             <div class="login-body">
-                <div class="login-body">
+                
                     <div class="login">
                         <div class="login-img">
-                            <img src="images/bg/bg3.jpg">
+                            <center><h1>LOGIN</h1> </center>
                         </div>
                         <div class="login-form">
                             <form>
@@ -50,18 +54,18 @@
                             <p>Forget password?</p>
                             <div class="login-btn">
                                 <a href="#"><button type="button" >Login</button></a> 
-                             </div>    
+                             </div>   
+                             <div class="signup">
+                                If you don’t have account. <a href="">Sign-Up</a>
+                             </div> 
                              
                         </div>
                     </div>
-                </div>
+                
             </div>
             
-            </div>  
-        </div>
-
-       
-        <!-- contact us -->
+            </div>
+            <!-- contact us -->
         <div class="contact-div">
             <div class="address">
                 <i class="material-icons checked">&#xe55f;</i>
@@ -91,6 +95,9 @@
                 <p>pacifiquemboni@gmail.com</p>
             </div>
         </div>
+    </div>  
+        </div>
+        
         <div class="footer">
             <div class="footer-body">
                 <div class="social-footer">
@@ -109,3 +116,4 @@
         
     </body>
 </html>
+       

@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>My-Brand</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./responsive.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -10,54 +12,59 @@
         
     </head>
     <body>
-        <div class="header-div">
-            <div class="header-body-div">
-                <div class="nav-div">
-                    <div class="logo">A<span>T</span>C<span>.</span> </div>
-                    <nav>
-                        <ul>
-                            <a href=""><li class="active">Home</li> </a>
-                            <a href="about.html"><li>AboutMe</li> </a>
-                            <a href="skills.html"><li>Skills</li> </a>
-                            <a href="mywork.html"><li>MyWork</li> </a>
-                            <a href="blogs.html"><li>Blogs</li> </a>
-                            <a href="login.html"><li>Login</li> </a>
-                        </ul>
-                    </nav>
-                    <a href="contact.html"><button>Contact me</button></a>
+        <div class="body">
+            <div class="mobile-navbar">
+                <div class="logo">A<span>T</span>C<span>.</span></div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <div class="main-div">
-                    <div class="left-content">
-                        <h3>Hello There</h3>
-                        <p class="left-p1">The best web 
-                            applications  & mobile apps  are made by me.
-                        </p>
-                        <p class="left-p2">Are You Looking For a Software Engineer Who Can Help You  Grow your business?
-                             Let’s Shake Hands!.
-                         </p>
-                        
-                         <a href=""><button>
-                            <i class="fa fa-download"></i>
-                            Download cv</button></a>
-                            <br><br>
-                            <div class="social">
-                                <img src="images/social/github.png">
-                                <img src="images/social/gmail.png">
-                                <img src="images/social/facebook.png">
-                                <img src="images/social/discord.png">
-                                <img src="images/social/linkedin.png">
-                            </div>
-                    </div>
-                    <div class="right-image">
-                        <img src="images/image.png">
-                        
-                    </div>
+                <ul class="mobile-menu" id="mobileMenu">
+                    <li><a href="" ><span class="active" >Home</span></a></li>
+                    <li><a href="about.html">AboutMe</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="mywork.html">MyWork</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                <a href="contact.html"><button>Contact me</button></a>
+            </div>
+            
+            <script>
+                function toggleMenu() {
+                    var mobileMenu = document.getElementById("mobileMenu");
+                    mobileMenu.classList.toggle("show");
+                }
+            </script>
+            
+            <div class="main-div">
+                <div class="left-content">
+                    <h3>Hello There</h3>
+                    <p class="left-p1">The best web 
+                        applications  & mobile apps  are made by me.
+                    </p>
+                    <p class="left-p2">Are You Looking For a Software Engineer Who Can Help You  Grow your business?
+                         Let’s Shake Hands!.
+                     </p>
+                    
+                     <a href=""><button>
+                        <i class="fa fa-download"></i>
+                        Download cv</button></a>
+                        <br><br>
+                        <div class="social">
+                            <img src="images/social/github.png">
+                            <img src="images/social/gmail.png">
+                            <img src="images/social/facebook.png">
+                            <img src="images/social/discord.png">
+                            <img src="images/social/linkedin.png">
+                        </div>
+                </div>
+                <div class="right-image">
+                    <img src="images/image.png">
+                    
                 </div>
             </div>
-        </div>
-
-        <!-- about section -->
-        <div class="about-div">
+            <hr>
+            <!-- about section -->
             <div class="about-body-div">
                 <div class="about-img-div">
                     <img src="images/me.jpg">
@@ -72,8 +79,8 @@
                     <div class="experience">
                         <div class="vl"></div>
                         <div class="clients">
-                          <h3>100 +</h3>
-                         <p class="client-p">Happy clients</p>  
+                        <h3>100 +</h3>
+                        <p class="client-p">Happy clients</p>  
                         </div>
                         
                         <div class="vl"></div>
@@ -87,269 +94,267 @@
                             <a href="about.html"><button>Read more</button></a>
                 </div>
             </div>
-        </div>
-        <!-- skills section -->
-        <div class="skills-div">
-            <center><h1>My Skills</h1> </center>
-            <div class="skills-body">
-                <div class="left-skills">
-                    <div class="skill-design">
-                        <i class="fa fa-paint-brush" style="font-size:36px; color:#FEA609;"></i>
-                        <div class="skill-design-content">
-                            <h2>Design + Development</h2>
-                            <p>Clean, modern designs - optimized for performance, search engines, and converting users to customers.</p>
-                        </div>
-                    </div>
-                    <div class="skill-design">
-                        <i class="fas fa-code" style='font-size:36px; color:#FEA609;'></i>
-                        <div class="skill-design-content">
-                            <h2>Technology</h2>
-                            <p>Combined all the latest technologies to a progressive website.</p>
-                        </div>
-                    </div>
-                    <div class="skill-design">
-                        <i class="material-icons" style='font-size:36px; color:#FEA609;' >&#xe331;</i>
-                        <div class="skill-design-content">
-                            <h2>Always Resposnive</h2>
-                            <p>A responsive design makes your website accessible to all users, regardless of their device.</p>
-                        </div>
-                    </div>
-                   
-                </div>
-                <div class="right-skills">
-                    <div class="html">
-                        <div class="html5">
-                            <div class="html5-cont">HTML 5</div>
-                        </div>
-                        <p>70%</p>
-                    </div>
-                    <div class="html">
-                        <div class="css3">
-                            <div class="css3-cont">CSS 3</div>
-                        </div>
-                        <p>55%</p>
-                    </div>
-                    <div class="html">
-                        <div class="jquery">
-                            <div class="jquery-cont">jQuery</div>
-                        </div>
-                        <p>50%</p>
-                    </div>
-                    <div class="html">
-                        <div class="php">
-                            <div class="php-cont">PHP</div>
-                        </div>
-                        <p>40%</p>
-                    </div>
-                    <div class="html">
-                        <div class="wordpress">
-                            <div class="wordpress-cont">WORDPRESS</div>
-                        </div>
-                        <p>75%</p>
-                    </div>
-                    <div class="html">
-                        <div class="seo">
-                            <div class="seo-cont">SEO</div>
-                            <p>100%</p>
-                        </div>
-                        
-                    </div>
-                    <div class="html">
-                        <div class="ps">
-                            <div class="ps-cont">PhotoShop</div>
-                        </div>
-                        <p>70%</p>
-                    </div>
-                </div>
-            </div>
-             
-            </div>  
-        </div>
-
-        
-        <!-- blogs section -->
-        <div class="blog-div">
-            <div class="blog-body">
-               <center> <h1>Blogs</h1></center>
-                <div class="blogs">
-                    <div class="blog">
-                        <img src="images/blog/node.png">
-                        <h4>Node.Js Explained: Architecture, Benefits, And Real-World Applications</h4>
-                        <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
-                        <p>Dive deep into the world of Node.js with our comprehensive guide. Discover its unique architecture,
-                            benefits, and how top-tier platforms like Netflix and</p>
-                        <div class="blog-footer">
-                            <div class="like">
-                                <i class="fa fa-thumbs-up"></i>
-                                <p>Like</p>
-                            </div>
-                            <div class="like">
-                                <i class="fa fa-comment"></i>
-                                <p>comment</p>
+            <hr>
+            <!-- skils section -->
+            <div class="skills-div">
+                <center><h1>My Skills</h1> </center>
+                <div class="skills-body">
+                    <div class="left-skills">
+                        <div class="skill-design">
+                            <i class="fa fa-paint-brush" style="font-size:36px; color:#FEA609;"></i>
+                            <div class="skill-design-content">
+                                <h2>Design + Development</h2>
+                                <p>Clean, modern designs - optimized for performance, search engines, and converting users to customers.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="blog">
-                        <img src="images/blog/docker.png">
-                        <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
-                        <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
-                        <p>Unlock the full potential of Docker in your app development journey. Learn how Docker streamlines deployment,
-                            its advantages, real-world examples, and</p>
-                            <div class="blog-footer">
-                                <div class="like">
-                                    <i class="fa fa-thumbs-up"></i>
-                                    <p>Like</p>
-                                </div>
-                                <div class="like">
-                                    <i class="fa fa-comment"></i>
-                                    <p>comment</p>
-                                </div>
+                        <div class="skill-design">
+                            <i class="fas fa-code" style='font-size:36px; color:#FEA609;'></i>
+                            <div class="skill-design-content">
+                                <h2>Technology</h2>
+                                <p>Combined all the latest technologies to a progressive website.</p>
                             </div>
-                    </div>
-                    <div class="blog">
-                        <img src="images/blog/mapp.png">
-                        <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
-                        <h5>By Aashi Gupta • 20 Oct, 2023</h5>
-                        <p>In the tech-driven world of today, mobile app quality assurance is essential. To guarantee that the functioning 
-                            and user experience of your application are exceptional.</p>
-                            <div class="blog-footer">
-                                <div class="like">
-                                    <i class="fa fa-thumbs-up"></i>
-                                    <p>Like</p>
-                                </div>
-                                <div class="like">
-                                    <i class="fa fa-comment"></i>
-                                    <p>comment</p>
-                                </div>
+                        </div>
+                        <div class="skill-design">
+                            <i class="material-icons" style='font-size:36px; color:#FEA609;' >&#xe331;</i>
+                            <div class="skill-design-content">
+                                <h2>Always Resposnive</h2>
+                                <p>A responsive design makes your website accessible to all users, regardless of their device.</p>
                             </div>
+                        </div>
+                       
+                    </div>
+                    <div class="right-skills">
+                        <div class="html">
+                            <div class="html5">
+                                <div class="html5-cont">HTML 5</div>
+                            </div>
+                            <p>70%</p>
+                        </div>
+                        <div class="html">
+                            <div class="css3">
+                                <div class="css3-cont">CSS 3</div>
+                            </div>
+                            <p>55%</p>
+                        </div>
+                        <div class="html">
+                            <div class="jquery">
+                                <div class="jquery-cont">jQuery</div>
+                            </div>
+                            <p>50%</p>
+                        </div>
+                        <div class="html">
+                            <div class="php">
+                                <div class="php-cont">PHP</div>
+                            </div>
+                            <p>40%</p>
+                        </div>
+                        <div class="html">
+                            <div class="wordpress">
+                                <div class="wordpress-cont">WORDPRESS</div>
+                            </div>
+                            <p>75%</p>
+                        </div>
+                        <div class="html">
+                            <div class="seo">
+                                <div class="seo-cont">SEO</div>
+                                <p>100%</p>
+                            </div>
+                            
+                        </div>
+                        <div class="html">
+                            <div class="ps">
+                                <div class="ps-cont">PhotoShop</div>
+                            </div>
+                            <p>70%</p>
+                        </div>
                     </div>
                 </div>
-            <div class="blog-btn">
-                   <a href="blogs.html"><button type="button" >Read more</button></a> 
-                </div>    
+                 
                 
             </div>
-            
-        </div>
+            <hr>
 
-        <!-- comment section -->
-        <div class="comment-div">
-            <div class="comment-bg">
-                <center><h1>Clients’ Experience</h1> </center>
-            <div class="comments">
-                <div class="back-arrow"><i class="fa fa-angle-double-left checked"></i></div>
-                <div class="comment">
-                    <div class="top">
-                        <div class="img">
-                            <img src="images/comment/conso.jpg">
+            <!-- blog section -->
+            <div class="blog-div">
+                <div class="blog-body">
+                   <center> <h1>Blogs</h1></center>
+                    <div class="blogs">
+                        <div class="blog">
+                            <img src="images/blog/node.png">
+                            <h4>Node.Js Explained: Architecture, Benefits, And Real-World Applications</h4>
+                            <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
+                            <p>Dive deep into the world of Node.js with our comprehensive guide. Discover its unique architecture,
+                                benefits, and how top-tier platforms like Netflix and</p>
+                            <div class="blog-footer">
+                                <div class="like">
+                                    <i class="fa fa-thumbs-up"></i>
+                                    <p>Like</p>
+                                </div>
+                                <div class="like">
+                                    <i class="fa fa-comment"></i>
+                                    <p>comment</p>
+                                </div>
+                            </div>
                         </div>
-                        <h1>’’</h1>
-                    </div>
-                    <p>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                    </p>
-                    <h3>Consolee Musanabera</h3>
-                    <p>
-                        thank you for your exceptional work on our 
-                        software project. Your expertise shines through,
-                        and the final product exceeds our expectations.
-                        Great job!
-                    </p>
-                </div>
-                <div class="comment">
-                    <div class="top">
-                        <div class="img">
-                            <img src="images/comment/facy.jpg">
+                        <div class="blog">
+                            <img src="images/blog/docker.png">
+                            <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
+                            <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
+                            <p>Unlock the full potential of Docker in your app development journey. Learn how Docker streamlines deployment,
+                                its advantages, real-world examples, and</p>
+                                <div class="blog-footer">
+                                    <div class="like">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        <p>Like</p>
+                                    </div>
+                                    <div class="like">
+                                        <i class="fa fa-comment"></i>
+                                        <p>comment</p>
+                                    </div>
+                                </div>
                         </div>
-                        <h1>’’</h1>
-                    </div>
-                    <p>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                    </p>
-                    <h3>Brendah Facy</h3>
-                    <p>
-                        A big thank you for your hard work and innovation on our software development project. 
-                        Your commitment to excellence truly made a difference, and the results speak for themselves.
-                    </p>
-                </div>
-                <div class="comment">
-                    <div class="top">
-                        <div class="img">
-                            <img src="images/comment/sando.jpg">
+                        <div class="blog">
+                            <img src="images/blog/mapp.png">
+                            <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
+                            <h5>By Aashi Gupta • 20 Oct, 2023</h5>
+                            <p>In the tech-driven world of today, mobile app quality assurance is essential. To guarantee that the functioning 
+                                and user experience of your application are exceptional.</p>
+                                <div class="blog-footer">
+                                    <div class="like">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        <p>Like</p>
+                                    </div>
+                                    <div class="like">
+                                        <i class="fa fa-comment"></i>
+                                        <p>comment</p>
+                                    </div>
+                                </div>
                         </div>
-                        <h1>’’</h1>
                     </div>
-                    <p>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                    </p>
-                    <h3>Mukamuhire Sandrine</h3>
-                    <p>
-                        I wanted to express my gratitude for your outstanding contributions to our recent software updates.
-                         Clients are thrilled, and it's all thanks to your dedication. Well done!
-                    </p>
+                <div class="blog-btn">
+                       <a href="blogs.html"><button type="button" >Read more</button></a> 
+                    </div>    
+                    
                 </div>
-                <div class="go-arrow"><i class="fa fa-angle-double-right checked"></i></div>
+                
             </div>
+            <br><br><br>
+            <hr>
+            <!-- comment section -->
+                <div class="comment-bg">
+                    <center><h1>Clients’ Experience</h1> </center>
+                <div class="comments">
+                    <div class="back-arrow"><i class="fa fa-angle-double-left checked"></i></div>
+                    <div class="comment">
+                        <div class="top">
+                            <div class="img">
+                                <img src="images/comment/conso.jpg">
+                            </div>
+                            <h1>’’</h1>
+                        </div>
+                        <p>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </p>
+                        <h3>Consolee Musanabera</h3>
+                        <p>
+                            thank you for your exceptional work on our 
+                            software project. Your expertise shines through,
+                            and the final product exceeds our expectations.
+                            Great job!
+                        </p>
+                    </div>
+                    <div class="comment ">
+                        <div class="top">
+                            <div class="img">
+                                <img src="images/comment/facy.jpg">
+                            </div>
+                            <h1>’’</h1>
+                        </div>
+                        <p>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </p>
+                        <h3>Brendah Facy</h3>
+                        <p>
+                            A big thank you for your hard work and innovation on our software development project. 
+                            Your commitment to excellence truly made a difference, and the results speak for themselves.
+                        </p>
+                    </div>
+                    <div class="comment">
+                        <div class="top">
+                            <div class="img">
+                                <img src="images/comment/sando.jpg">
+                            </div>
+                            <h1>’’</h1>
+                        </div>
+                        <p>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </p>
+                        <h3>Mukamuhire Sandrine</h3>
+                        <p>
+                            I wanted to express my gratitude for your outstanding contributions to our recent software updates.
+                            Clients are thrilled, and it's all thanks to your dedication. Well done!
+                        </p>
+                    </div>
+                    <div class="go-arrow"><i class="fa fa-angle-double-right checked"></i></div>
+                </div>
+                </div>
+                <!-- contact us -->
+            <div class="contact-div">
+                <div class="address">
+                    <i class="material-icons checked">&#xe55f;</i>
+                    <h2>ADDRESS</h2>
+                    <p>+250,KIAGALI CITY,
+                        NYARUGENGE</p>
+                </div>
+                <div class="verticle">
+                    <div class="val1"> </div>
+                    <div class="val"> </div>
+                    <div class="val1"> </div>
+                </div>
+                <div class="phone-num">
+                    <i class="material-icons checked">&#xe551;</i>
+                    <h2>PHONE NUMBER</h2>
+                    <p>+250787299001,
+                        +250729981083</p>
+                </div>
+                <div class="verticle">
+                    <div class="val1"> </div>
+                    <div class="val"> </div>
+                    <div class="val1"> </div>
+                </div>
+                <div class="email">
+                    <i class="material-icons checked">&#xe554;</i>
+                    <h2>EMAIL-ADDRESS</h2>
+                    <p>pacifiquemboni@gmail.com</p>
+                </div>
             </div>
         </div>
+            <div class="footer">
+                <div class="footer-body">
+                    <div class="social-footer">
+                        <img src="images/social/github.png">
+                        <img src="images/social/gmail.png">
+                        <img src="images/social/facebook.png">
+                        <img src="images/social/discord.png">
+                        <img src="images/social/linkedin.png">
+                    </div>
+                    <br>
+                    <hr>
+                    <h1>2024 pacifiquemboni. All Rights Reserved</h1>
+                </div>
+            </div>
 
-        <!-- contact us -->
-        <div class="contact-div">
-            <div class="address">
-                <i class="material-icons checked">&#xe55f;</i>
-                <h2>ADDRESS</h2>
-                <p>+250,KIAGALI CITY,
-                    NYARUGENGE</p>
-            </div>
-            <div class="verticle">
-                <div class="val1"> </div>
-                <div class="val"> </div>
-                <div class="val1"> </div>
-            </div>
-            <div class="phone-num">
-                <i class="material-icons checked">&#xe551;</i>
-                <h2>PHONE NUMBER</h2>
-                <p>+250787299001,
-                    +250729981083</p>
-            </div>
-            <div class="verticle">
-                <div class="val1"> </div>
-                <div class="val"> </div>
-                <div class="val1"> </div>
-            </div>
-            <div class="email">
-                <i class="material-icons checked">&#xe554;</i>
-                <h2>EMAIL-ADDRESS</h2>
-                <p>pacifiquemboni@gmail.com</p>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="footer-body">
-                <div class="social-footer">
-                    <img src="images/social/github.png">
-                    <img src="images/social/gmail.png">
-                    <img src="images/social/facebook.png">
-                    <img src="images/social/discord.png">
-                    <img src="images/social/linkedin.png">
-                </div>
-                <br>
-                <hr>
-                <h1>2024 pacifiquemboni. All Rights Reserved</h1>
-            </div>
-        </div>
-
-        
-    </body>
+    </body> 
 </html>

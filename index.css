@@ -1,28 +1,47 @@
 body{
     font-family: "iceland", sans-serif;
+    background-color: #00171F;
+    color: white;
+    box-sizing: border-box;
     
 }
-.header-div{
-    /* background-image: url('images/bg/2.jpg'); */
-    background-color: #925d01fa;
-    background-position: fixed;
-    background-attachment: fixed;
-    background-size: cover;
-    color: white;
-    height: 588px;
-}
-.header-body-div{
+.body{
     margin-left: 150px;
-    margin-right: 150px;  
-    display: grid;
+    margin-right: 150px;
+    
 }
-.nav-div{
+.mobile-navbar {
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
-    background-color: #1E1C1C;
-    height: 100px;
     align-items: center;
-    flex-shrink: 0;
+    padding: 10px 20px;
+    background-color: #00171F;
+    box-shadow: 0px 0px 2px 0px #FEA609 ;
+    height: 100px;
+}
+.menu-icon {
+    display: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.mobile-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.mobile-menu li {
+    margin-right: 15px;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
 }
 .logo{
     color: white;
@@ -35,36 +54,23 @@ body{
     color:#FEA609;
 
 }
+
 .active{
     color:#FEA609;
 }
-nav a{
-    text-decoration: none;
-}
-nav ul li{
-    margin-left: 20px;
-    color: white;
-}
-nav ul{
-    display: flex;
-    list-style: none;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal; 
-}
+
 button{
     width: 105px;
     height: 35px;
     border-radius: 10px;
-    background: #090C5C;
+    background:#00171F;
     color: white;
     font-size: 10px;
-    border: solid #090C5C;
+    border: solid #FEA609;
 }
 .main-div{
     display: flex;
-    gap: 50px;
+   
 }
 .main-div img{
     height: 530px;
@@ -95,25 +101,19 @@ button{
 /* ABOUT ME SECTION */
 
 .about-div{
-    
-    background-image: url('images/bg/5.jpg');
     height: 540px;
     color: white;
     padding-top: 50px;
-    background-position: center;
-    background-size: cover; 
-    background-attachment: fixed;
 }
 .about-img-div img{
-    width: 460px;
-    height: 509px;
+    width: 400px;
+    height: 459px;
     border-radius: 40px;
 }
 .about-body-div{
     display: flex;
     justify-content: space-between;
-    margin-left: 150px;
-    margin-right: 150px;
+    padding-top: 10px;
 }
 .about-content-div{
     padding-left: 50px;
@@ -154,24 +154,12 @@ button{
 
 /* skills section */
 
-.skills-div{
-    /* background-image: url('images/bg/2.jpg'); */
-    background-position: center ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 580px;
-    margin-top: -35px;
-    background-color: rgb(214, 203, 203);
-}
 .skills-div h1{
     padding: 10px;
     color: #FEA609;
     font-size: 50px;
 }
 .skills-body{
-   
-    margin-left: 150px;
-    margin-right: 150px;
     display: flex;
 }
 .skills{
@@ -193,6 +181,7 @@ button{
     width: 500px;
     height: 30px;
     background-color: white;
+    color: #00171F;
     display: flex;
     justify-content: space-between;
     align-items:center ;
@@ -308,18 +297,10 @@ button{
 /* blog section */
 
 .blog-div{
-    background-image: url('images/bg/6.jpg');
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 580px;
+    
     margin-top: -35px;
 }
-.blog-body{
-    
-    margin-left: 150px;
-    margin-right: 150px;
-}
+
 .blog-body h1{
     padding: 10px;
     color: #FEA609;
@@ -332,7 +313,8 @@ button{
 }
 .blog{
     width: 300px;
-    background: white;
+    background:#00171F;
+    border:  1px solid white;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
 }
@@ -364,25 +346,19 @@ button{
 
 /* comment section */
 
-.comment-div{
-    margin-left: 150px;
-    margin-right: 150px;
-}
-
 .comments{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 20px;
 }
-.comment-bg{
-    height:450px;
-}
+
 .comment{
     width: 290px;
-    height: 310px;
     padding: 05px;
     border-radius: 35px;
-    background-color: #D9D9D9;;
+    background-color:#00171F;
+    border: 1px solid white;
 }
 
 .top{
@@ -410,15 +386,14 @@ button{
 /* contact section */
 
 .contact-div{
-    margin-left: 150px;
-    margin-right: 150px;
-    background-color: black;
-    height: 190px;
+    background-color:#00171F;
+    border: 1px solid #FEA609;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     text-align: center;
-    color: white;
+    color:white;
     position: relative;
 }
 .val {
@@ -439,20 +414,16 @@ button{
 /* footer */
 
 .footer{
-    background-image: url('images/bg/2.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: -100px;
-    height: 290px;
+    border: 1px solid;
+    margin-top: -60px;
+    min-height: 290px;
 }
 .footer-body{
     padding-top: 180px;
     color: #FEA609;
     text-align: center;
-    margin-left: 150px;
     margin-right: 150px;
+    margin-left: 150px;
 }
 .social-footer{
     
@@ -526,28 +497,22 @@ button{
 /* --------------------------- lOGIN PAGE------------------------------------------- */
 
 .login-div{
-    background-image: url('images/bg/7.jpg');
-    background-position: center ;
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 580px;
-    margin-top: -35px;
-    background-color: rgb(214, 203, 203);
+    margin-top: 35px;
+    color: #00171F;
+    font-size: 30px;
 }
-.skills-div h1{
-    padding: 10px;
-    color: #FEA609;
-    font-size: 50px;
-}
+
 .login-body{
+   background-color: #00171F;
    
-    margin-left: 150px;
-    margin-right: 150px;
     display: flex;
     margin-bottom: 10px;
+    justify-content: center;
+
 }
 input{
-    width: 80%;
+    width: 60%;
     background: none;
     margin: 8px 0;
     box-sizing: border-box;
@@ -555,23 +520,23 @@ input{
     border-bottom: 2px solid black
 }
 .login{
-    margin-left: 150px;
+    
     margin-top: 30px;
     width: 525px;
-    height: 500px;
-    background-color: white;
+    color: white;
     border-radius: 50px;
+    border: 1px solid #FEA609;
     
+} 
+.login-img{
+    border: 1px solid #FEA609;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 .login-form{
     padding: 50px;
 }
-.login-img img {
-    width: 525px;
-    height: 200px;
-    border-top-right-radius: 50px;
-    border-top-left-radius: 50px;
-}
+
 .login-form p{
     float: right;
     padding-right: 20px;
@@ -580,3 +545,12 @@ input{
     margin-top: 40px;
     padding-left: 80px;
 }
+.signup a{
+    color: #FEA609;
+}
+
+
+
+
+
+

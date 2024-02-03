@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>About me</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./responsive.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -10,29 +12,31 @@
         
     </head>
     <body>
-        <div class="about-header-div">
-            <div class="header-body-div">
-                <div class="nav-div">
-                    <div class="logo">A<span>T</span>C<span>.</span> </div>
-                    <nav>
-                        <ul>
-                            <a href="index.html"><li>Home</li> </a>
-                            <a href="about.html"><li class="active">AboutMe</li> </a>
-                            <a href="skills.html"><li>Skills</li> </a>
-                            <a href="mywork.html"><li>MyWork</li> </a>
-                            <a href="blogs.html"><li>Blogs</li> </a>
-                            <a href="login.html"><li>Login</li> </a>
-                        </ul>
-                    </nav>
+        <div class="body">
+            
+                <div class="mobile-navbar">
+                    <div class="logo">A<span>T</span>C<span>.</span></div>
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <ul class="mobile-menu" id="mobileMenu">
+                        <li><a href="" >Home</a></li>
+                        <li><a href="about.html"><span class="active" >AboutMe</span></a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="mywork.html">MyWork</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
                     <a href="contact.html"><button>Contact me</button></a>
                 </div>
-                <h1>ABOUT ME PAGE</h1>
                 
-            </div>
-        </div>
-
-        <!-- about section -->
-        <div class="about-div">
+                <script>
+                    function toggleMenu() {
+                        var mobileMenu = document.getElementById("mobileMenu");
+                        mobileMenu.classList.toggle("show");
+                    }
+                </script>
+                <!-- about section -->
             <div class="about-body-div">
                 <div class="about-img-div">
                     <img src="images/me.jpg">
@@ -47,8 +51,8 @@
                     <div class="experience">
                         <div class="vl"></div>
                         <div class="clients">
-                          <h3>100 +</h3>
-                         <p class="client-p">Happy clients</p>  
+                        <h3>100 +</h3>
+                        <p class="client-p">Happy clients</p>  
                         </div>
                         
                         <div class="vl"></div>
@@ -59,26 +63,24 @@
                         <div class="vl"></div>
                         
                     </div>
+                            <a href="about.html"><button>Read more</button></a>
                 </div>
             </div>
-        </div>
-       
-
-        <!-- about content section -->
-        <div class="aboutme-content-div">
-            <div class="aboutme-content-bg">
-                <p>
-                    Software developer with a passion for coding and a strong foundation in
-                     programming languages such as Python, Java, and JavaScript. Looking to 
-                     leverage my skills and knowledge to contribute to a dynamic team and gain experience in the field. 
-                    Working as software developer is my passion as I love to work on exciting projects
-                </p>
-            
+            <hr>
+            <!-- about content section -->
+            <div class="aboutme-content-div">
+                <div class="aboutme-content-bg">
+                    <p>
+                        Software developer with a passion for coding and a strong foundation in
+                        programming languages such as Python, Java, and JavaScript. Looking to 
+                        leverage my skills and knowledge to contribute to a dynamic team and gain experience in the field. 
+                        Working as software developer is my passion as I love to work on exciting projects
+                    </p>
+                
+                </div>
             </div>
-        </div>
-
-        <!-- contact us -->
-        <div class="contact-div">
+           <!-- contact us -->
+           <div class="contact-div">
             <div class="address">
                 <i class="material-icons checked">&#xe55f;</i>
                 <h2>ADDRESS</h2>
@@ -107,6 +109,7 @@
                 <p>pacifiquemboni@gmail.com</p>
             </div>
         </div>
+    </div>
         <div class="footer">
             <div class="footer-body">
                 <div class="social-footer">
@@ -121,7 +124,6 @@
                 <h1>2024 pacifiquemboni. All Rights Reserved</h1>
             </div>
         </div>
-
-        
+       
     </body>
 </html>
