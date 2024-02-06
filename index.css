@@ -8,7 +8,6 @@ body{
 .body{
     margin-left: 150px;
     margin-right: 150px;
-    
 }
 .mobile-navbar {
     overflow: hidden;
@@ -500,38 +499,63 @@ button{
     height: 580px;
     margin-top: 35px;
     color: #00171F;
-    font-size: 30px;
+    
+    
 }
 
 .login-body{
    background-color: #00171F;
-   
+
     display: flex;
     margin-bottom: 10px;
     justify-content: center;
 
 }
 input{
-    width: 60%;
-    background: none;
+    width: 100%;
     margin: 8px 0;
     box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid black
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 12px 20px 12px 40px;
+    /* border-bottom: 2px solid black */
 }
-.login{
+#username{
+    background-image: url('images/formicon/User.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 10px 10px;
+    background-color: white;
+    border: 1px solid white;
     
+}
+#password{
+    background-image: url('images/formicon/File.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 10px 10px;
+    background-color: white;
+    border: 1px solid white;
+}
+
+.login{
+    /* background-color: white; */
     margin-top: 30px;
     width: 525px;
     color: white;
-    border-radius: 50px;
-    border: 1px solid #FEA609;
+    border-radius: 10px;
+    
     
 } 
 .login-img{
-    border: 1px solid #FEA609;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    background-image: url('images/5.jpg');
+    background-size: cover;
+    background-position: center;background-repeat: no-repeat;
+    border: 1px solid #00171F;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 30px;
 }
 .login-form{
     padding: 50px;
@@ -549,8 +573,139 @@ input{
     color: #FEA609;
 }
 
+/* ------------------------------------------------------------------------------------- */
+
+/* --------------------------- CONTACT  PAGE------------------------------------------- */
+
+.contact-page{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.contact-page h1{
+    text-align: center;
+   
+}
+.contact-page hr{
+    width: 100px;
+}
+.send-message{
+    background-image: url('images/5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    width: 450px;
+    color: white;
+}
+.sign-up{
+    background-image: url('images/5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    width: 450px;
+    color: white;
+}
+#email{
+    background-image: url('images/formicon/Message.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 10px 10px;
+    background-color: white;
+    border: 1px solid white;
+}
+textarea{
+    width: 83%;
+    background-image: url('images/formicon/Messageopen.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 8px 8px;
+    border-radius: 10px;
+    padding: 12px 20px 12px 40px;
+    color: #00171F;
+    background-color: white;
+}
 
 
 
+/* ------------------------------------------------------------------------------------- */
 
+/* --------------------------- DashBoard  PAGE------------------------------------------- */
 
+.dash-header{
+    grid-area: header;
+    border: 1px #FEA609 solid;
+}
+.dash-nav{
+    width: 200px;
+    grid-area: nav;
+    font-size: 20px;
+    padding-top: 40px;
+    padding-left: 2px;
+    background-color: white;
+}
+.dash-nav i{
+    font-size:18px;
+    color:#FEA609;
+    
+}
+.dash-nav li{
+    list-style: none;
+    padding: 15px;
+}
+.dash-nav li a{
+    color:#FEA609 ;
+    text-decoration: none;
+    font-weight: bold;
+}
+.dash-active{
+    background-color: #00171F;
+    
+    
+}.dash-active li{
+    color:white;
+}
+.dash-body{
+    grid-area: body;
+    height: 500px;
+}
+.dashboard{
+    display: grid;
+    grid-template-areas: 'header header header header header header'
+                          'nav body  body body body body';
+}
+.dash-body textarea{
+    width: 92%;
+    height: 90px;
+    background-image: url('images/formicon/Messageopen.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 8px 8px;
+    border-radius: 10px;
+    padding: 12px 20px 12px 40px;
+    color: #00171F;
+    background-color: white;
+}
+.dash-form{
+    display: flex;
+    padding-top: 20px;
+}
+.dash-btn{
+    display: flex;
+    justify-content: space-between;
+}
+.dash-btn a{
+    color: white;
+    text-decoration: none;
+}
+.dash-right{
+    height: auto;
+    width: 450px;
+    text-align: center;
+    padding: 40px;
+    font-size: 60px;
+    background-image: url('images/10.jpg');
+    background-position: center;
+    background-size: cover;
+    
+}
