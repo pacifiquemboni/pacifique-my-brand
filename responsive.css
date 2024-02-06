@@ -1,9 +1,5 @@
 @media (max-width: 1024px){
-    
-    
-    nav ul {
-        font-size: 15px;
-    }
+
     .logo{
         font-size: 30px;
     }
@@ -57,7 +53,6 @@
         width: 210px;
         height: 270px;
     }
-   
 }
 @media (max-width: 952px){
     .body{
@@ -74,8 +69,7 @@
     }
     .main-div{
         display: flex;
-        justify-content: space-around;
-       
+        justify-content: space-around;  
     }
     .right-image img{
         width: 300px;
@@ -97,8 +91,10 @@
     .blog img{
         width: 200px;
     }
-    
-
+    .contact-page{
+        flex-wrap: wrap;
+    }
+   
 }
 @media (max-width: 858px){
     .body{
@@ -134,9 +130,7 @@
     .main-div{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
-        
-       
+        justify-content: space-around;   
     }
     .skills-body{
         display: flex;
@@ -163,7 +157,6 @@
     }
     .login-div{
         padding-bottom: 10px;
-     
      }
     .footer-body{
         margin-right: 20px;
@@ -172,8 +165,13 @@
     .footer-body h1{
         font-size: 20px;
     }
+    .contact-page{
+        flex-wrap: wrap;
+    }
+    .send-messege{
+        width: 250px;
+    }
 }
-
 @media (max-width: 425px){
     .body{
         margin-left: 10px;
@@ -182,7 +180,6 @@
     .menu-icon {
         display: block;
     }
-
     .mobile-menu {
         display: none;
         flex-direction: column;
@@ -194,6 +191,21 @@
         background-color: #00171F;
         opacity: 97%;
         box-shadow: 0px 0px 2px 0px #FEA609 ;
+    }
+
+    .mobile-menu.show {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .mobile-menu li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .main-div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; 
     }
     .html{
         width: 60%;

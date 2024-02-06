@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>Blogs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./responsive.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -10,184 +12,186 @@
         
     </head>
     <body>
-        <div class="about-header-div">
-            <div class="header-body-div">
-                <div class="nav-div">
-                    <div class="logo">A<span>T</span>C<span>.</span> </div>
-                    <nav>
-                        <ul>
-                            <a href="index.html"><li>Home</li> </a>
-                            <a href="about.html"><li>AboutMe</li> </a>
-                            <a href="skills.html"><li>Skills</li> </a>
-                            <a href="mywork.html"><li>MyWork</li> </a>
-                            <a href="blogs.html"><li class="active">Blogs</li> </a>
-                            <a href="login.html"><li>Login</li> </a>
-                        </ul>
-                    </nav>
-                    <a href="contact.html"><button>Contact me</button></a>
+        <div class="body">
+            <div class="mobile-navbar">
+                <div class="logo">A<span>T</span>C<span>.</span></div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <h1>MY BLOGS PAGE</h1>
+                <ul class="mobile-menu" id="mobileMenu">
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="about.html">AboutMe</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="mywork.html">MyWork</a></li>
+                    <li><a href="blogs.html"><span class="active" >Blogs</span></a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                <a href="contact.html"><button>Contact me</button></a>
+            </div>
+            <script>
+                function toggleMenu() {
+                    var mobileMenu = document.getElementById("mobileMenu");
+                    mobileMenu.classList.toggle("show");
+                }
+            </script>
+            <!-- blogs section -->
+            <div class="myblog-div">
+                <div class="myblog-body">
+                <h1></h1>
+                    <div class="blogs myblogs">
+                        <div class="blog">
+                            <img src="images/blog/node.png">
+                            <h4>Node.Js Explained: Architecture, Benefits, And Real-World Applications</h4>
+                            <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
+                            <p>Dive deep into the world of Node.js with our comprehensive guide. Discover its unique architecture,
+                                benefits, and how top-tier platforms like Netflix and</p>
+                            <div class="blog-footer">
+                                <div class="like">
+                                    <i class="fa fa-thumbs-up"></i>
+                                    <p>Like</p>
+                                </div>
+                                <div class="like">
+                                    <i class="fa fa-comment"></i>
+                                    <p>comment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog">
+                            <img src="images/blog/docker.png">
+                            <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
+                            <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
+                            <p>Unlock the full potential of Docker in your app development journey. Learn how Docker streamlines deployment,
+                                its advantages, real-world examples, and</p>
+                                <div class="blog-footer">
+                                    <div class="like">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        <p>Like</p>
+                                    </div>
+                                    <div class="like">
+                                        <i class="fa fa-comment"></i>
+                                        <p>comment</p>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="blog">
+                            <img src="images/blog/mapp.png">
+                            <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
+                            <h5>By Aashi Gupta • 20 Oct, 2023</h5>
+                            <p>In the tech-driven world of today, mobile app quality assurance is essential. To guarantee that the functioning 
+                                and user experience of your application are exceptional.</p>
+                                <div class="blog-footer">
+                                    <div class="like">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        <p>Like</p>
+                                    </div>
+                                    <div class="like">
+                                        <i class="fa fa-comment"></i>
+                                        <p>comment</p>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="blog">
+                            <img src="images/blog/node.png">
+                            <h4>Node.Js Explained: Architecture, Benefits, And Real-World Applications</h4>
+                            <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
+                            <p>Dive deep into the world of Node.js with our comprehensive guide. Discover its unique architecture,
+                                benefits, and how top-tier platforms like Netflix and</p>
+                            <div class="blog-footer">
+                                <div class="like">
+                                    <i class="fa fa-thumbs-up"></i>
+                                    <p>Like</p>
+                                </div>
+                                <div class="like">
+                                    <i class="fa fa-comment"></i>
+                                    <p>comment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog">
+                            <img src="images/blog/docker.png">
+                            <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
+                            <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
+                            <p>Unlock the full potential of Docker in your app development journey. Learn how Docker streamlines deployment,
+                                its advantages, real-world examples, and</p>
+                                <div class="blog-footer">
+                                    <div class="like">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        <p>Like</p>
+                                    </div>
+                                    <div class="like">
+                                        <i class="fa fa-comment"></i>
+                                        <p>comment</p>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="blog">
+                            <img src="images/blog/mapp.png">
+                            <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
+                            <h5>By Aashi Gupta • 20 Oct, 2023</h5>
+                            <p>In the tech-driven world of today, mobile app quality assurance is essential. To guarantee that the functioning 
+                                and user experience of your application are exceptional.</p>
+                                <div class="blog-footer">
+                                    <div class="like">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        <p>Like</p>
+                                    </div>
+                                    <div class="like">
+                                        <i class="fa fa-comment"></i>
+                                        <p>comment</p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>  
+                </div>
                 
             </div>
-        </div>
-
-        <!-- blogs section -->
-        <div class="myblog-div">
-            <div class="myblog-body">
-               <h1></h1>
-                <div class="blogs myblogs">
-                    <div class="blog">
-                        <img src="images/blog/node.png">
-                        <h4>Node.Js Explained: Architecture, Benefits, And Real-World Applications</h4>
-                        <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
-                        <p>Dive deep into the world of Node.js with our comprehensive guide. Discover its unique architecture,
-                            benefits, and how top-tier platforms like Netflix and</p>
-                        <div class="blog-footer">
-                            <div class="like">
-                                <i class="fa fa-thumbs-up"></i>
-                                <p>Like</p>
-                            </div>
-                            <div class="like">
-                                <i class="fa fa-comment"></i>
-                                <p>comment</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="images/blog/docker.png">
-                        <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
-                        <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
-                        <p>Unlock the full potential of Docker in your app development journey. Learn how Docker streamlines deployment,
-                            its advantages, real-world examples, and</p>
-                            <div class="blog-footer">
-                                <div class="like">
-                                    <i class="fa fa-thumbs-up"></i>
-                                    <p>Like</p>
-                                </div>
-                                <div class="like">
-                                    <i class="fa fa-comment"></i>
-                                    <p>comment</p>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="blog">
-                        <img src="images/blog/mapp.png">
-                        <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
-                        <h5>By Aashi Gupta • 20 Oct, 2023</h5>
-                        <p>In the tech-driven world of today, mobile app quality assurance is essential. To guarantee that the functioning 
-                            and user experience of your application are exceptional.</p>
-                            <div class="blog-footer">
-                                <div class="like">
-                                    <i class="fa fa-thumbs-up"></i>
-                                    <p>Like</p>
-                                </div>
-                                <div class="like">
-                                    <i class="fa fa-comment"></i>
-                                    <p>comment</p>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="blog">
-                        <img src="images/blog/node.png">
-                        <h4>Node.Js Explained: Architecture, Benefits, And Real-World Applications</h4>
-                        <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
-                        <p>Dive deep into the world of Node.js with our comprehensive guide. Discover its unique architecture,
-                            benefits, and how top-tier platforms like Netflix and</p>
-                        <div class="blog-footer">
-                            <div class="like">
-                                <i class="fa fa-thumbs-up"></i>
-                                <p>Like</p>
-                            </div>
-                            <div class="like">
-                                <i class="fa fa-comment"></i>
-                                <p>comment</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="images/blog/docker.png">
-                        <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
-                        <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
-                        <p>Unlock the full potential of Docker in your app development journey. Learn how Docker streamlines deployment,
-                            its advantages, real-world examples, and</p>
-                            <div class="blog-footer">
-                                <div class="like">
-                                    <i class="fa fa-thumbs-up"></i>
-                                    <p>Like</p>
-                                </div>
-                                <div class="like">
-                                    <i class="fa fa-comment"></i>
-                                    <p>comment</p>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="blog">
-                        <img src="images/blog/mapp.png">
-                        <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
-                        <h5>By Aashi Gupta • 20 Oct, 2023</h5>
-                        <p>In the tech-driven world of today, mobile app quality assurance is essential. To guarantee that the functioning 
-                            and user experience of your application are exceptional.</p>
-                            <div class="blog-footer">
-                                <div class="like">
-                                    <i class="fa fa-thumbs-up"></i>
-                                    <p>Like</p>
-                                </div>
-                                <div class="like">
-                                    <i class="fa fa-comment"></i>
-                                    <p>comment</p>
-                                </div>
-                            </div>
-                    </div>
-                </div>  
-            </div>
-            
-        </div>
 
 
-       
-        <!-- contact us -->
-        <div class="contact-div">
-            <div class="address">
-                <i class="material-icons checked">&#xe55f;</i>
-                <h2>ADDRESS</h2>
-                <p>+250,KIAGALI CITY,
-                    NYARUGENGE</p>
-            </div>
-            <div class="verticle">
-                <div class="val1"> </div>
-                <div class="val"> </div>
-                <div class="val1"> </div>
-            </div>
-            <div class="phone-num">
-                <i class="material-icons checked">&#xe551;</i>
-                <h2>PHONE NUMBER</h2>
-                <p>+250787299001,
-                    +250729981083</p>
-            </div>
-            <div class="verticle">
-                <div class="val1"> </div>
-                <div class="val"> </div>
-                <div class="val1"> </div>
-            </div>
-            <div class="email">
-                <i class="material-icons checked">&#xe554;</i>
-                <h2>EMAIL-ADDRESS</h2>
-                <p>pacifiquemboni@gmail.com</p>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="footer-body">
-                <div class="social-footer">
-                    <img src="images/social/github.png">
-                    <img src="images/social/gmail.png">
-                    <img src="images/social/facebook.png">
-                    <img src="images/social/discord.png">
-                    <img src="images/social/linkedin.png">
+        
+                <!-- contact us -->
+                <div class="contact-div">
+                    <div class="address">
+                        <i class="material-icons checked">&#xe55f;</i>
+                        <h2>ADDRESS</h2>
+                        <p>+250,KIAGALI CITY,
+                            NYARUGENGE</p>
+                    </div>
+                    <div class="verticle">
+                        <div class="val1"> </div>
+                        <div class="val"> </div>
+                        <div class="val1"> </div>
+                    </div>
+                    <div class="phone-num">
+                        <i class="material-icons checked">&#xe551;</i>
+                        <h2>PHONE NUMBER</h2>
+                        <p>+250787299001,
+                            +250729981083</p>
+                    </div>
+                    <div class="verticle">
+                        <div class="val1"> </div>
+                        <div class="val"> </div>
+                        <div class="val1"> </div>
+                    </div>
+                    <div class="email">
+                        <i class="material-icons checked">&#xe554;</i>
+                        <h2>EMAIL-ADDRESS</h2>
+                        <p>pacifiquemboni@gmail.com</p>
+                    </div>
                 </div>
-                <br>
-                <hr>
-                <h1>2024 pacifiquemboni. All Rights Reserved</h1>
             </div>
+            <div class="footer">
+                <div class="footer-body">
+                    <div class="social-footer">
+                        <img src="images/social/github.png">
+                        <img src="images/social/gmail.png">
+                        <img src="images/social/facebook.png">
+                        <img src="images/social/discord.png">
+                        <img src="images/social/linkedin.png">
+                    </div>
+                    <br>
+                    <hr>
+                    <h1>2024 pacifiquemboni. All Rights Reserved</h1>
+                </div>
         </div>
 
         
