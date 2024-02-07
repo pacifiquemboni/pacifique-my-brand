@@ -472,10 +472,6 @@ button{
 /* --------------------------- BLOGS PAGE------------------------------------------- */
 
 .myblog-div{
-    background-image: url('images/bg/6.jpg');
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
     height: auto;
 }
 

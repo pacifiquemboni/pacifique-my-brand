@@ -10,39 +10,32 @@
         
     </head>
     <body>
-        <div class="about-header-div">
-            <div class="header-body-div">
-                <div class="nav-div">
-                    <div class="logo">A<span>T</span>C<span>.</span> </div>
-                    <nav>
-                        <ul>
-                            <a href="index.html"><li>Home</li> </a>
-                            <a href="about.html"><li>AboutMe</li> </a>
-                            <a href="skills.html"><li>Skills</li> </a>
-                            <a href="mywork.html"><li class="active">MyWork</li> </a>
-                            <a href="blogs.html"><li>Blogs</li> </a>
-                            <a href="login.html"><li>Login</li> </a>
-                        </ul>
-                    </nav>
-                    <a href="contact.html"><button>Contact me</button></a>
+        <div class="body">
+            <div class="mobile-navbar">
+                <div class="logo">A<span>T</span>C<span>.</span></div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <h1>MY WORK PAGE</h1>
-                
+                <ul class="mobile-menu" id="mobileMenu">
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="about.html">AboutMe</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="mywork.html"><span class="active" >MyWork</span></a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                <a href="contact.html"><button>Contact me</button></a>
             </div>
-        </div>
-
-        <!-- skills section -->
-        <div class="skills-div">
-            <h1></h1> 
-            <div class="skills-body">
-            
+            <script>
+                function toggleMenu() {
+                    var mobileMenu = document.getElementById("mobileMenu");
+                    mobileMenu.classList.toggle("show");
+                }
+            </script>
+            <div class="mywork">
+                <h1>My Work</h1>
             </div>
-            
-            </div>  
-        </div>
-
-       
-        <!-- contact us -->
+            <!-- contact us -->
         <div class="contact-div">
             <div class="address">
                 <i class="material-icons checked">&#xe55f;</i>
@@ -71,6 +64,8 @@
                 <h2>EMAIL-ADDRESS</h2>
                 <p>pacifiquemboni@gmail.com</p>
             </div>
+        </div>
+       
         </div>
         <div class="footer">
             <div class="footer-body">
