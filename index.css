@@ -177,7 +177,7 @@ button{
 }
 
 .html{
-    width: 500px;
+    width: 450px;
     height: 30px;
     background-color: white;
     color: #00171F;
@@ -309,6 +309,7 @@ button{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding-top: 20;
 }
 .blog{
     width: 300px;
@@ -476,13 +477,8 @@ button{
     background-size: cover;
     background-attachment: fixed;
     height: auto;
-    margin-top: -35px;
 }
-.myblog-body{
-    
-    margin-left: 150px;
-    margin-right: 150px;
-}
+
 .myblogs{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -579,7 +575,7 @@ input{
 
 .contact-page{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -598,6 +594,40 @@ input{
     width: 450px;
     color: white;
 }
+.contact-icon{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.contact-left{
+    color: #00171F;
+    background-color: white;
+    padding: 15px;
+}
+.contact-right{
+    border: solid;
+}
+.icon{
+    border: #00171F solid;
+    border-radius: 50px;
+}
+.icon img{
+    width: 40px;
+    height: 40px;
+   
+}
+.sign-up-bg{
+    background-image: url('images/5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 400px;
+    color: white;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    font-size: 30px;
+}
 .sign-up{
     background-image: url('images/5.jpg');
     background-repeat: no-repeat;
@@ -615,7 +645,7 @@ input{
     border: 1px solid white;
 }
 textarea{
-    width: 83%;
+    width: 85%;
     background-image: url('images/formicon/Messageopen.png');
     background-repeat: no-repeat;
     background-size: 25px;
@@ -657,6 +687,11 @@ textarea{
     color:#FEA609 ;
     text-decoration: none;
     font-weight: bold;
+    display: flex;
+    gap: 10px;
+}
+.dash-nav img{
+    width: 20px;
 }
 .dash-active{
     background-color: #00171F;
@@ -685,6 +720,9 @@ textarea{
     padding: 12px 20px 12px 40px;
     color: #00171F;
     background-color: white;
+}
+.dash-body button{
+    float: right;
 }
 .dash-form{
     display: flex;

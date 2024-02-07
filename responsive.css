@@ -58,6 +58,7 @@
     .body{
         margin-left: 100px;
         margin-right: 100px;
+        
     }
     nav ul {
         font-size: 15px;
@@ -80,10 +81,12 @@
     .left-p2{
         font-size: 20px;
     }
+    
     .blogs{
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        
     }
     .blog{
         width: 200px;
@@ -91,12 +94,16 @@
     .blog img{
         width: 200px;
     }
+    
     .contact-page{
         flex-wrap: wrap;
     }
-   
+   .dash-right{
+    width: auto;
+   }
 }
 @media (max-width: 858px){
+    
     .body{
         margin-left: 20px;
         margin-right: 20px;
@@ -132,10 +139,23 @@
         flex-wrap: wrap;
         justify-content: space-around;   
     }
+    .blogs{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .blog{
+        width: 200px;
+    }
+    .blog img{
+        width: 200px;
+    }
     .skills-body{
         display: flex;
         flex-wrap: wrap;
         justify-content:flex-start;
+    }
+    .right-skills{
+        width: auto;
     }
     .contact-div{
         display: flex;
@@ -170,6 +190,22 @@
     }
     .send-messege{
         width: 250px;
+    }
+    .dash-form{
+        flex-wrap: wrap;
+    }
+    .dash-nav{
+        width: 100px;
+        font-size: 13px;
+    }
+    .dash-nav img{
+        width: 15px;
+        height: 15px;
+    }
+    .dash-right{
+        height: 15px;
+        width: 300px;
+        font-size: smaller;
     }
 }
 @media (max-width: 425px){
