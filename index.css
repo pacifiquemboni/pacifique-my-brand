@@ -839,6 +839,9 @@ input{
     display: flex;
     align-items: center;
 }
+.heading h1{
+    color: rgb(254, 166, 9);
+}
 .heading img{
     width: 20px;
     height: 20px;
