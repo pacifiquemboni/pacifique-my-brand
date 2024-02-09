@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
         
     </head>
     <body>
@@ -45,15 +46,19 @@
                             <center><h1>LOGIN</h1> </center>
                         </div>
                         <div class="login-form">
-                            <form>
+                            <form name="myloginform" onsubmit="return validateloginform()">
                                 
-                                <input type="text" placeholder="Enter username" id="username" name="fname">
-                                <input type="password" placeholder="Enter password" id="password" name="lname">
-                            </form>
+                                <input type="text" placeholder="Enter username" id="username" name="name">
+                                <input type="password" placeholder="Enter password" id="password" name="password">
+                                <!-- <input type="submit" value="register">   -->
+                            
                             <p>Forget password?</p>
+                            
                             <div class="login-btn">
-                                <a href="board.html"><button type="button" >Login</button></a> 
+                                <button type="submit">Login</button>
+                                <a href="board.html">Login</a> 
                              </div>   
+                            </form>
                              <div class="signup">
                                 If you don’t have account. <a href="signup.html">Sign-Up</a>
                              </div> 

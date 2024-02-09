@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./responsive.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
+        
+    </head>
+    <body>
+        <div class="dashboard">
+                
+                <div class="dash-nav">
+                    <li  ><a href="newBlog.html"><img src="images/formicon/Add.png" alt="">  New Blog</a></li>
+                    <li ><a href="stats.html"><img src="images/formicon/stats.png" alt="">  Stats</a></li>
+                    <li ><a href="users.html"><img src="images/formicon/User.png" alt="">  Users</a></li>
+                    <li class="dash-active"><a href="dashmessages.html"><img src="images/formicon/Message.png" alt="">  Messages</a></li>
+                    <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt="">  All Blogs</a></li>
+                    <li><a href="dashsettings.html"><img src="images/formicon/Setting.png" alt="">  Settings</a></li>
+                    
+                    <a href="board.html">
+                    <div class="dash-nav-footer">
+                        <h3>DASHBOARD</h3>
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="images/me.jpg" alt="">
+                            </div>
+                            <p>Admin</p>
+                        </div>
+                        
+                    </div>
+                    </a>
+                    
+                </div>
+            
+            <div class="dash-main">
+                <div class="user-table">
+                    <div class="heading">
+                        <h1>All Messages  </h1>
+                        <img src="images/formicon/Message.png" alt="">
+                    </div>
+                    
+                    <hr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Reply</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample data (replace with your actual data) -->
+                            <tr>
+                                <td>John Doe</td>
+                                <td>john.doe@example.com</td>
+                                <td>Hello, I have a question...</td>
+                                <td class="action-buttons">
+                                    <button onclick="replyMessage('john.doe@example.com')">Reply</button>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="delete-button" onclick="deleteMessage('john.doe@example.com')">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>jane.smith@example.com</td>
+                                <td>Need assistance with my account...</td>
+                                <td class="action-buttons">
+                                    <button onclick="replyMessage('jane.smith@example.com')">Reply</button>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="delete-button" onclick="deleteMessage('jane.smith@example.com')">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Alice Johnson</td>
+                                <td>alice.johnson@example.com</td>
+                                <td>Feedback on your services...</td>
+                                <td class="action-buttons">
+                                    <button onclick="replyMessage('alice.johnson@example.com')">Reply</button>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="delete-button" onclick="deleteMessage('alice.johnson@example.com')">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bob Thompson</td>
+                                <td>bob.thompson@example.com</td>
+                                <td>Issue with my recent order...</td>
+                                <td class="action-buttons">
+                                    <button onclick="replyMessage('bob.thompson@example.com')">Reply</button>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="delete-button" onclick="deleteMessage('bob.thompson@example.com')">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Emma Davis</td>
+                                <td>emma.davis@example.com</td>
+                                <td>Question about upcoming events...</td>
+                                <td class="action-buttons">
+                                    <button onclick="replyMessage('emma.davis@example.com')">Reply</button>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="delete-button" onclick="deleteMessage('emma.davis@example.com')">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Michael Wilson</td>
+                                <td>michael.wilson@example.com</td>
+                                <td>Thank you for your excellent service...</td>
+                                <td class="action-buttons">
+                                    <button onclick="replyMessage('michael.wilson@example.com')">Reply</button>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="delete-button" onclick="deleteMessage('michael.wilson@example.com')">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sophia Brown</td>
+                                <td>sophia.brown@example.com</td>
+                                <td>Inquiry about product availability...</td>
+                                <td class="action-buttons">
+                                    <button onclick="replyMessage('sophia.brown@example.com')">Reply</button>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="delete-button" onclick="deleteMessage('sophia.brown@example.com')">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>William Miller</td>
+                                <td>william.miller@example.com</td>
+                                <td>Complaint about delivery delay...</td>
+                                <td class="action-buttons">
+                                    <button onclick="replyMessage('william.miller@example.com')">Reply</button>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="delete-button" onclick="deleteMessage('william.miller@example.com')">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>    
+    </body>
+</html>

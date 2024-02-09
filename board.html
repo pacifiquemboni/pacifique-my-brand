@@ -9,51 +9,99 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="validate.js"></script>
         
     </head>
     <body>
-        
-           <div class="dashboard">
-            <div class="dash-header">
-                <h5>DASHBOARD</h5>
-            </div>
-            <div class="dash-nav">
-                <li class="dash-active"><a href="board.html"><img src="images/formicon/Add.png" alt="">  New Blog</a></li>
-                <li><a href="stats.html"><img src="images/formicon/stats.png" alt="">  Stats</a></li>
-                <li><a href=""><img src="images/formicon/User.png" alt="">  Users</a></li>
-                <li><a href=""><img src="images/formicon/Message.png" alt="">  Messages</a></li>
-                <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt="">  All Blogs</a></li>
-                <li><a href=""><img src="images/formicon/Setting.png" alt="">  Settings</a></li>
+        <div class="dashboard">
                 
-            </div>
-            <div class="dash-body">
-                <div class="dash-form">
-                    <div class="login-form">
-                        <form>
-                            
-                            <input type="text" placeholder="Enter Blog Title" id="password" name="fname">
-                            <input type="Text" placeholder="Enter Blog Author" id="username" name="lname">
-                            <textarea  placeholder="blog body"></textarea>
-                        </form>
-                         
-                        <div class="dash-btn">
-                            <a href="">Upload Image<img src="images/formicon/Upload.png"></a>
-                            <a href="#"><button type="button" >Post Blog</button></a>
-                         </div>
-                         
+                <div class="dash-nav">
+                    <li ><a href="newBlog.html"><img src="images/formicon/Add.png" alt="">  New Blog</a></li>
+                    <li class="dash-active"><a href="stats.html"><img src="images/formicon/stats.png" alt="">  Stats</a></li>
+                    <li><a href="users.html"><img src="images/formicon/User.png" alt="">  Users</a></li>
+                    <li><a href="dashmessages.html"><img src="images/formicon/Message.png" alt="">  Messages</a></li>
+                    <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt="">  All Blogs</a></li>
+                    <li><a href="dashsettings.html"><img src="images/formicon/Setting.png" alt="">  Settings</a></li>
+                    
+                    
+                    <div class="dash-nav-footer dash-active">
+                       <h3>DASHBOARD</h3>
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="images/me.jpg" alt="">
+                            </div>
+                            <p>Admin</p>
+                        </div>
+                        
                     </div>
-                    <div class="dash-right">
-                     <h2>Add New Blog</h2>
+                    
+                </div>
+            
+            <div class="dash-main">
+                <div class="profile-section">
+                    <h1>Profile</h1>
+                    <hr>
+                    <div class="board-profile">
+                        <img src="images/me.jpg" alt="profile">
+                        <div class="profile-details">
+                            <h3>Name: Pacifique mbonimana</h3>
+                            <h4>E-mail: pacifiquemboni@gmail.com</h4>
+                        </div>
                     </div>
                 </div>
-                
+                <div class="stats-section">
+                    <div class="heading">
+                        <h1>Statistics</h1>
+                        <img src="images/formicon/stats.png" alt=""> 
+                    </div>
+                    <hr><br><br>
+                    <div class="cards">
+                            <div class="users-stats card">
+                                <img src="images/formicon/Group.png" alt="">
+                            <h1>Clients</h1>
+                            <h3>200</h3>
+                        </div>
+                        <div class="blogs-stats card">
+                            <img src="images/formicon/allblogs.png" alt="">
+                            <h1>Blogs</h1>
+                            <H3>100</H3>
+                        </div>
+                        <div class="reaction-stats card">
+                            <img src="images/formicon/social.png" alt="">
+                            <h1>Reactions</h1>
+                            <h3>500</h3>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                        <script>
+                            const xValues = ["Clients", "Blogs", "Reaction", ""];
+                            const yValues = [200, 100, 500, 0];
+                            const barColors = ["yellow", "green","white","blue"];
+                            
+                            new Chart("myChart", {
+                              type: "bar",
+                              data: {
+                                labels: xValues,
+                                datasets: [{
+                                  backgroundColor: barColors,
+                                  data: yValues
+                                }]
+                              },
+                              options: {
+                                legend: {display: false},
+                                title: {
+                                  display: true,
+                                  text: "World Wine Production 2018"
+                                }
+                              }
+                            });
+                            </script>
+                    </div>
+                    
+                </div>
             </div>
-            
-           </div>
-
-
-           
-
-        
+        </div>    
     </body>
 </html>

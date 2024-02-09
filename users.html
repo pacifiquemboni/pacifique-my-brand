@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./responsive.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
+        
+    </head>
+    <body>
+        <div class="dashboard">
+                
+                <div class="dash-nav">
+                    <li  ><a href="newBlog.html"><img src="images/formicon/Add.png" alt="">  New Blog</a></li>
+                    <li ><a href="stats.html"><img src="images/formicon/stats.png" alt="">  Stats</a></li>
+                    <li class="dash-active"><a href="users.html"><img src="images/formicon/User.png" alt="">  Users</a></li>
+                    <li><a href="dashmessages.html"><img src="images/formicon/Message.png" alt="">  Messages</a></li>
+                    <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt="">  All Blogs</a></li>
+                    <li><a href="dashsettings.html"><img src="images/formicon/Setting.png" alt="">  Settings</a></li>
+                    
+                    <a href="board.html">
+                    <div class="dash-nav-footer">
+                        <h3>DASHBOARD</h3>
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="images/me.jpg" alt="">
+                            </div>
+                            <p>Admin</p>
+                        </div>
+                        
+                    </div>
+                    </a>
+                    
+                </div>
+            
+            <div class="dash-main">
+                
+               <div class="user-table">
+                <div class="heading">
+                    <h1>Registered Users</h1>
+                    <img src="images/formicon/User.png" alt="">
+                </div>
+                
+                <hr>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>FullName</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Reset Password</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>john.doe@example.com</td>
+                            <td>password123</td>
+                            <td class="action-buttons">
+                                <button onclick="resetPassword('john.doe@example.com')">Reset</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button onclick="editUser('john.doe@example.com')">Edit</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="delete-button" onclick="deleteUser('john.doe@example.com')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>jane.smith@example.com</td>
+                            <td>securepass456</td>
+                            <td class="action-buttons">
+                                <button onclick="resetPassword('jane.smith@example.com')">Reset</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button onclick="editUser('jane.smith@example.com')">Edit</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="delete-button" onclick="deleteUser('jane.smith@example.com')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 3</td>
+                            <td>user3@example.com</td>
+                            <td>userpass3</td>
+                            <td class="action-buttons">
+                                <button onclick="resetPassword('user3@example.com')">Reset</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button onclick="editUser('user3@example.com')">Edit</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="delete-button" onclick="deleteUser('user3@example.com')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 4</td>
+                            <td>user4@example.com</td>
+                            <td>userpass4</td>
+                            <td class="action-buttons">
+                                <button onclick="resetPassword('user4@example.com')">Reset</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button onclick="editUser('user4@example.com')">Edit</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="delete-button" onclick="deleteUser('user4@example.com')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 5</td>
+                            <td>user5@example.com</td>
+                            <td>userpass5</td>
+                            <td class="action-buttons">
+                                <button onclick="resetPassword('user5@example.com')">Reset</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button onclick="editUser('user5@example.com')">Edit</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="delete-button" onclick="deleteUser('user5@example.com')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 6</td>
+                            <td>user6@example.com</td>
+                            <td>userpass6</td>
+                            <td class="action-buttons">
+                                <button onclick="resetPassword('user6@example.com')">Reset</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button onclick="editUser('user6@example.com')">Edit</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="delete-button" onclick="deleteUser('user6@example.com')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 7</td>
+                            <td>user7@example.com</td>
+                            <td>userpass7</td>
+                            <td class="action-buttons">
+                                <button onclick="resetPassword('user7@example.com')">Reset</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button onclick="editUser('user7@example.com')">Edit</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="delete-button" onclick="deleteUser('user7@example.com')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 8</td>
+                            <td>user8@example.com</td>
+                            <td>userpass8</td>
+                            <td class="action-buttons">
+                                <button onclick="resetPassword('user8@example.com')">Reset</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button onclick="editUser('user8@example.com')">Edit</button>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="delete-button" onclick="deleteUser('user8@example.com')">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+               </div>
+            </div>
+        </div>    
+    </body>
+</html>

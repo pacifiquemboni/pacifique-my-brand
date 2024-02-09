@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
         
     </head>
     <body>
@@ -82,17 +83,18 @@
                 <div class="contact-right">
                     <h1>Get in touch</h1>
                     <hr>
-                    <div class="login-form">
-                        <form>
+                    <div class="sign-up-form">
+                        <form name="mycontactform" onsubmit="return validatecontactform()">
                             
-                            <input type="text" placeholder="Your names" id="username" name="fname"><br>
-                            <input type="email" placeholder="E-mail" id="email" name="lname"><br>
-                            <textarea rows="5" cols="50" placeholder="message"></textarea>
+                            <input type="text" placeholder="Your names" id="username" name="name"><br>
+                            <input type="email" placeholder="E-mail" id="email" name="email"><br>
+                            <textarea  placeholder="message" name="message"></textarea>
+                            <div class="login-btn">
+                            <button type="submit" >Send</button>
+                         </div> 
                         </form>
                        
-                        <div class="login-btn">
-                            <a href="#"><button type="button" >Send Message</button></a> 
-                         </div>     
+                            
                     </div>
                 </div>
                 </div>

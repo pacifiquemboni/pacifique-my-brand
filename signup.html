@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
         
     </head>
     <body>
@@ -44,18 +45,16 @@
                    
                     
                     <div class="login-form">
-                        <form>
-                            <input type="text" placeholder="Your names" id="username" name="fname"><br>
-                            <input type="email" placeholder="E-mail" id="email" name="lname"><br>
-                            <input type="password" placeholder="your password" id="password" name="lname"><br>
-                            <input type="password" placeholder="confirm password" id="password" name="lname">
-                            
-                        </form>
-                       
+                        <form name="mysignupform" onsubmit="return matchpass() && validatesignupform()">
+                            <input type="text" placeholder="Your names" id="username" name="name"><br>
+                            <input type="email" placeholder="E-mail" id="email" name="email"><br>
+                            <input type="password" placeholder="your password" id="password" name="password"><br>
+                            <input type="password" placeholder="confirm password" id="password2" name="password2">
+                         
                         <div class="login-btn">
-                            <a href="#"><button type="button" >Sign-Up</button></a> 
+                            <a href="#"><button type="submit" >Sign-Up</button></a> 
                          </div>   
-                        
+                        </form>
                          
                     </div>
 
