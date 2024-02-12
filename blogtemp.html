@@ -12,28 +12,29 @@
         
     </head>
     <body>
-        <div class="body">
-            <div class="mobile-navbar">
-                <div class="logo">A<span>T</span>C<span>.</span></div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="mobile-menu" id="mobileMenu">
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="about.html">AboutMe</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="mywork.html">MyWork</a></li>
-                    <li><a href="blogs.html"><span class="active" >Blogs</span></a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-                <a href="contact.html"><button>Contact me</button></a>
+        <div class="mobile-navbar" id="mobile-navbar">
+            <div class="logo">A<span>T</span>C<span>.</span></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
-            <script>
-                function toggleMenu() {
-                    var mobileMenu = document.getElementById("mobileMenu");
-                    mobileMenu.classList.toggle("show");
-                }
-            </script>
+            <ul class="mobile-menu" id="mobileMenu">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html">AboutMe</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="mywork.html">MyWork</a></li>
+                <li><a href="blogs.html"><span class="active" >Blogs</span></a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <a href="contact.html"><button>Contact me</button></a>
+        </div>
+        <script>
+            function toggleMenu() {
+                var mobileMenu = document.getElementById("mobileMenu");
+                mobileMenu.classList.toggle("show");
+            }
+        </script>
+        <div class="body">
+            
             <!-- blogs section -->
             <div class="myblogtemp-div">
                 <h1>Node.Js Explained: Architecture, Benefits, And Real-World Applications</h1>
@@ -87,8 +88,50 @@
 
                 Unique Case Study: Starbucks’ PWA ensures customers can browse the menu, customize orders, and add
                  to the cart even without an internet connection.</p>
-                                        
+                 <div class="blog-footer">
+                    <div class="like">
+                        <i class="fa fa-thumbs-up"></i>
+                        <p>Like</p>
+                    </div>
+                    <div class="like">
+                        <i class="fa fa-comment"></i>
+                        <p>comment</p>
+                    </div>
+                </div>
+                     <hr>                   
             </div>
+            <div class="comment-form">
+                <h2>Comment:</h2>
+                <form action="">
+                    <input type="text" placeholder="Names">
+                    <textarea name="" id="" cols="30" rows="5" placeholder="Your comment"></textarea>
+                </form>
+            </div>
+            <fieldset>
+                <legend>Comments:</legend>
+            <div class="comment-results">
+                <div class="comment-profile">
+                    <img src="images/profile/mucyo.png" alt="">
+                </div>
+                <div class="comment-name">pacifique mbonimana</div>
+                <div class="comment-message">that is incredible👍👍👍</div>
+                <div class="comment-like">like</div>
+                <div class="comment-reply">reply</div>
+                <div class="comment-time">07:30am</div>
+
+            </div>
+            <div class="comment-results">
+                <div class="comment-profile">
+                    <img src="images/profile/mucyo.png" alt="">
+                </div>
+                <div class="comment-name">pacifique mbonimana</div>
+                <div class="comment-message">that is incredible👍👍👍</div>
+                <div class="comment-like">like</div>
+                <div class="comment-reply">reply</div>
+                <div class="comment-time">07:30am</div>
+            </div>
+        </fieldset>
+
 
 
         
@@ -137,7 +180,22 @@
                     <h1>2024 pacifiquemboni. All Rights Reserved</h1>
                 </div>
         </div>
-
+        <script>
+            // fixing header
+        window.onscroll = function(){myFunction()};
+        
+        var header = document.getElementById("mobile-navbar");
+        var sticky = header.offsetTop;
+        
+        function myFunction(){
+            if (window.pageYOffset > sticky){
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+        
+        </script>
         
     </body>
 </html>

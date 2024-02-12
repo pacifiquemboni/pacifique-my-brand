@@ -5,12 +5,19 @@ body{
     box-sizing: border-box;
     
 }
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 95%;
+}
+
 .body{
     margin-left: 150px;
     margin-right: 150px;
+    /* border: solid; */
 }
 .mobile-navbar {
-    overflow: hidden;
+    overflow:visible;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,6 +25,7 @@ body{
     background-color: #00171F;
     box-shadow: 0px 0px 2px 0px #FEA609 ;
     height: 100px;
+    max-height: 200px;
 }
 .menu-icon {
     display: none;
@@ -49,6 +57,10 @@ body{
     font-weight: 400;
     line-height: normal;
 }
+.dash-logo{
+    font-size: 20px;
+    color:#FEA609;
+}
 .logo span{
     color:#FEA609;
 
@@ -56,6 +68,7 @@ body{
 
 .active{
     color:#FEA609;
+    text-decoration: overline;
 }
 
 button{
@@ -394,7 +407,8 @@ button{
     justify-content: space-around;
     text-align: center;
     color:white;
-    position: relative;
+    
+    
 }
 .val {
     border-left: 2px solid white;
@@ -414,16 +428,16 @@ button{
 /* footer */
 
 .footer{
-    border: 1px solid;
-    margin-top: -60px;
-    min-height: 290px;
+    
+    margin-top: 0px;
+  
 }
 .footer-body{
-    padding-top: 180px;
+    padding-top: 100px;
     color: #FEA609;
     text-align: center;
-    margin-right: 150px;
-    margin-left: 150px;
+
+   
 }
 .social-footer{
     
@@ -537,16 +551,22 @@ input{
     
 } 
 .login-img{
-    background-image: url('images/5.jpg');
-    background-size: cover;
-    background-position: center;background-repeat: no-repeat;
-    border: 1px solid #00171F;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    font-size: 30px;
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+.login-img img{
+   
+    width: 50%;
+    height: 200px;
 }
 .login-form{
-    padding: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .login-form p{
@@ -555,7 +575,7 @@ input{
 }
 .login-btn{
     margin-top: 40px;
-    padding-left: 80px;
+    padding-left: 0px;
 }
 .signup a{
     color: #FEA609;
@@ -597,7 +617,7 @@ input{
     padding: 15px;
 }
 .contact-right{
-    border: solid;
+    width: 50%;
 }
 .icon{
     border: #00171F solid;
@@ -608,17 +628,8 @@ input{
     height: 40px;
    
 }
-.sign-up-bg{
-    background-image: url('images/5.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.sign-up-bg img{
     width: 400px;
-    color: white;
-    text-align: center;
-    display: grid;
-    align-items: center;
-    font-size: 30px;
 }
 .sign-up{
     width: 450px;
@@ -651,6 +662,9 @@ input{
     padding-left: 2px;
     background-color: white;
     height: 527px;
+}
+.dash-hr{
+    display: none;
 }
 .dash-nav i{
     font-size:18px;
@@ -689,11 +703,12 @@ input{
 }
 .profile{
     display: flex;
+    align-items: center;
 }
 .avatar  img{
     background-color: white;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 50px;
     border: #00171F solid 1px;
   }
@@ -708,7 +723,7 @@ input{
 }
 .dash-textarea{
     width: 94%;
-    height: 200px;
+    height: 150px;
     padding: 12px 20px 12px 10px;
     color: #00171F;
     background-color: white;
@@ -716,15 +731,18 @@ input{
 }
 .dash-body button{
     float: right;
+    padding-top: 05px;
 }
 .dash-form{
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 .dash-btn{
     display: flex;
     justify-content: space-between;
+    padding-top: 10px;
+    align-items: center;
 }
 .dash-btn img{
     height: 30px;
@@ -741,22 +759,15 @@ input{
 }
 .dash-right{
     height: auto;
-    width: 450px;
+    width: auto;
+    max-width: 450px;
+    min-width: 0px;
     text-align: center;
     padding: 40px;
     font-size: 60px;
-    background-image: url('images/10.jpg');
-    background-position: center;
-    background-size: cover;
     
 }
-.login-form >textarea> ::placeholder {
-    font-size: small;
-    color: #239C55;
-    opacity: 100; /* Firefox */
-  }
-
-  .board-profile{
+.board-profile{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
@@ -821,6 +832,7 @@ input{
     text-align: left;
     padding: 8px;
   }
+
   .dash-main hr{
     width: 300px;
     float: left;
@@ -852,4 +864,57 @@ input{
 .myblogtemp-div img{
     width: 100%;
     height: 300px;
+}
+.action-buttons img{
+    width: 20px;
+    border: rgb(254, 166, 9) solid 1px;
+}
+
+
+.comment-profile{
+    grid-area: profile;
+    border-radius: 50px;
+    height: fit-content;
+    width: fit-content;
+    align-self: center;
+
+}
+.comment-name{
+    grid-area: name;
+}
+.comment-message{
+    grid-area: message;
+    font-family: 'Courier New', Courier, monospace;
+   
+}
+.comment-like{
+    grid-area: like;
+}
+.comment-reply{
+    grid-area: reply;
+}
+.comment-time{
+    grid-area: time;
+}
+.comment-results{
+    display: grid;
+    width: fit-content;
+    grid-template-areas: 'profile name name time'
+    'profile message message message'
+    'prifile like like reply';
+    grid-gap: 0px;
+    box-shadow: 0 2px 0px  rgb(254, 166, 9);
+    padding-top: 20px;
+}
+fieldset{
+    width: fit-content;
+}
+legend{
+    background-color: rgb(254, 166, 9);
+    color: #00171F;
+    font-size: 20px;
+}
+.status img{
+    width: 5px;
+    height: 5px;
 }

@@ -9,25 +9,27 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
         
     </head>
-    <body>
-        <div class="body">
-            <div class="mobile-navbar">
-                <div class="logo">A<span>T</span>C<span>.</span></div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="mobile-menu" id="mobileMenu">
-                    <li><a href="" ><span class="active" >Home</span></a></li>
-                    <li><a href="about.html">AboutMe</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="mywork.html">MyWork</a></li>
-                    <li><a href="blogs.html">Blogs</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-                <a href="contact.html"><button>Contact me</button></a>
+    <body onload="runAnimations()">
+        <div class="mobile-navbar" id="mobile-navbar">
+            <div class="logo">A<span>T</span>C<span>.</span></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
+            <ul class="mobile-menu" id="mobileMenu">
+                <li><a href="" ><span class="active" >Home</span></a></li>
+                <li><a href="about.html">AboutMe</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="mywork.html">MyWork</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <a href="contact.html"><button>Contact me</button></a>
+        </div>
+        <div class="body">
+            
             
             <script>
                 function toggleMenu() {
@@ -79,13 +81,15 @@
                     <div class="experience">
                         <div class="vl"></div>
                         <div class="clients">
-                        <h3>100 +</h3>
+                            <h3> <span class="countup">100</span> +</h3>
+
                         <p class="client-p">Happy clients</p>  
                         </div>
                         
                         <div class="vl"></div>
                         <div class="clients">
-                            <h3>2 +</h3>
+                            <h3> <span class="countup">2</span> +</h3>
+
                             <p>Years of experience</p>
                         </div>
                         <div class="vl"></div>
@@ -355,6 +359,22 @@
                     <h1>2024 pacifiquemboni. All Rights Reserved</h1>
                 </div>
             </div>
-
+            <script>
+                // fixing header
+            window.onscroll = function(){myFunction()};
+            
+            var header = document.getElementById("mobile-navbar");
+            var navbar = document.getElementById("mobilemenu");
+            var sticky = header.offsetTop;
+            
+            function myFunction(){
+                if (window.pageYOffset > sticky){
+                    header.classList.add("sticky");
+                } else {
+                    header.classList.remove("sticky");
+                }
+            }
+            
+            </script>
     </body> 
 </html>

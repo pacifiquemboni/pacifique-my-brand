@@ -53,11 +53,15 @@
         width: 210px;
         height: 270px;
     }
+    .dash-nav{
+        background: none;
+    }
 }
 @media (max-width: 952px){
     .body{
         margin-left: 100px;
         margin-right: 100px;
+        /* border: solid; */
         
     }
     nav ul {
@@ -102,6 +106,14 @@
    .dash-right{
     width: auto;
    }
+   .dash-nav{
+    background: none;
+    }
+    .sticky{
+        position: fixed;
+        top: 0;
+        width: 93%;
+    }
 }
 @media (max-width: 858px){
     
@@ -109,8 +121,14 @@
         margin-left: 20px;
         margin-right: 20px;
     }
+    .dash-nav{
+        background: none;
+    }
     .menu-icon {
         display: block;
+    }
+    .cards{
+        flex-wrap: wrap;
     }
 
     .mobile-menu {
@@ -135,6 +153,53 @@
         margin-right: 0;
         margin-bottom: 10px;
     }
+    
+
+
+    .dash-mobile-menu {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        position: absolute;
+        width: 90%;
+        top: 110px;
+        right: 5px;
+        background-color: white;
+        opacity: 97%;
+        /* box-shadow: 0px 0px 2px 0px #FEA609 ; */
+    }
+
+    .dash-mobile-menu.show {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .dash-mobile-menu li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .dash-mobile-menu li a{
+        margin-right: 0;
+        margin-bottom: 10px;
+        display: flex;
+    }
+    .dash-mobile-navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 55%;
+    }
+    .dash-hr{
+        display: inline;
+        width: 100%;
+    }
+    .dash-main hr{
+        width: 30%;
+        height: 4px;
+        background: #FEA609;
+        border: none;
+    }
+
     .main-div{
         display: flex;
         flex-wrap: wrap;
@@ -161,6 +226,10 @@
     .contact-div{
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
+    }
+    .address, .phone-number, .email{
+        width: 100%;
     }
     .address{
         width: 100%;
@@ -200,12 +269,9 @@
         font-size: 13px;
         display: flex;
         flex-wrap: wrap;
-        height: 100px;
+        height: 50px;
     }
-    .dash-nav li a{
-        display: grid;
-        align-self: center;
-    }
+    
     .profile{
         display: flex;
         align-items:end;
@@ -223,18 +289,14 @@
        height: 50px;
        position: absolute;
        right: 0px;
-       top: 0px;
-       padding: 5px;
+       top: 08%;
         
     }
     .dash-form{
         flex-wrap: wrap;
     }
     
-    .dash-nav li img{
-        width: 15px;
-        height: 15px;
-    }
+    
     .dash-right{
         align-items: center;
         height: 15px;
@@ -257,11 +319,45 @@
     .settings-section{
         padding-left: 0px;
     }
+    .action-buttons{
+        display: grid;
+    }
+    .sticky{
+        position: fixed;
+        top: 0;
+        width: 90%;
+    }
+    .contact-right{
+        width: 100%;
+    }
+    .login-form{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    table{
+        width: 100%;
+    }
+    .aboutme-content-div{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .comment-results{
+        width: 100%;
+    }
+    fieldset{
+        width: fit-content;
+    }
 }
-@media (max-width: 425px){
+@media (max-width: 504px){
     .body{
         margin-left: 10px;
         margin-right: 10px;
+        /* border: #FEA609 solid; */
+    }
+    .sticky{
+        position: fixed;
+        top: 0;
+        width: 88%;
     }
     .menu-icon {
         display: block;

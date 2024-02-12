@@ -10,55 +10,91 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
         <script src="validate.js"></script>
+        <script src="tinymce/tinymce.min.js"></script>
+
+    <script>
+        tinymce.init({
+          selector: 'textarea#dash-textarea',
+          plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+          mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+          ],
+          ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+      </script>
         
     </head>
     <body>
         <div class="dashboard">
                 
-                <div class="dash-nav">
-                    <li class="dash-active" ><a href="newBlog.html"><img src="images/formicon/Add.png" alt="">  New Blog</a></li>
-                    <li><a href="stats.html"><img src="images/formicon/stats.png" alt="">  Stats</a></li>
-                    <li><a href="users.html"><img src="images/formicon/User.png" alt="">  Users</a></li>
-                    <li><a href="dashmessages.html"><img src="images/formicon/Message.png" alt="">  Messages</a></li>
-                    <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt="">  All Blogs</a></li>
-                    <li><a href="dashsettings.html"><img src="images/formicon/Setting.png" alt="">  Settings</a></li>
-                    
-                    <a href="board.html">
-                    <div class="dash-nav-footer">
-                        <h3>DASHBOARD</h3>
-                        <div class="profile">
-                            <div class="avatar">
-                                <img src="images/me.jpg" alt="">
-                            </div>
-                            <p>Admin</p>
-                        </div>
-                        
+            <div class="dash-nav">
+                <div class="dash-mobile-navbar">
+                    <div class="dash-logo"><h3>DASHBOARD</h3></div>
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
                     </div>
-                    </a>
+                    <ul class="dash-mobile-menu" id="dash-mobileMenu">
+                <li class="dash-active"><a href="newBlog.html"><img src="images/formicon/Add.png" alt=""> New Blog</a></li>
+                <li ><a href="stats.html"><img src="images/formicon/stats.png" alt=""> Stats</a></li>
+                <li><a href="users.html"><img src="images/formicon/User.png" alt=""> Users</a></li>
+                <li><a href="dashmessages.html"><img src="images/formicon/Message.png" alt=""> Messages</a></li>
+                <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt=""> All Blogs</a></li>
+                <li> <a href="dashsettings.html"><img src="images/formicon/Setting.png" alt=""> Settings</a></li>
+    
+                    </ul>
+                    <div class="dash-nav-footer ">
+                        <a href="board.html">
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="images/me.jpg" alt="">
+                        </div>
+                        <p>Admin</p>
+                    </div>
+                        </a>
+                    </div>
                     
                 </div>
+                
+                <script>
+                    function toggleMenu() {
+                        var mobileMenu = document.getElementById("dash-mobileMenu");
+                        mobileMenu.classList.toggle("show");
+                    }
+                </script>
+                
+                
+            </div>
+            <hr class="dash-hr">
             
             <div class="dash-main">
+                <div class="heading">
+                        <h1>Add New Blog</h1> 
+                     </div>
                 <div class="dash-form">
+                    
                     <div class="login-form">
                         <form name="myblogform" onsubmit="return validateblogform()">
-                            <label for="message">Blog Title :</label>
-                            <input type="text" placeholder="Enter Blog Title" id="password" name="fname">
-                            <label for="message">Blog Body :</label>
-                            <textarea  placeholder="blog body" name="message" class="dash-textarea"></textarea>
-                        
-                         
-                        <div class="dash-btn">
-                            <div>
-                             <img src="images/formicon/Upload.png"><input type="file" class="dash-upload">   
+                                <label for="message">Blog Title :</label>
+                                <input type="text" placeholder="Enter Blog Title" id="password" name="fname">
+                                <label for="message">Blog Body :</label>
+                                <textarea  placeholder="blog body" name="message" id="dash-textarea" class="dash-textarea"></textarea>
+                            
+                            
+                            <div class="dash-btn">
+                                <div>
+                                <img src="images/formicon/Upload.png"><input type="file" class="dash-upload">   
+                                </div>
+                            
+                                <a href="#"><button type="submit" >Post Blog</button></a>
                             </div>
-                        
-                            <a href="#"><button type="submit" >Post Blog</button></a>
-                         </div>
-                         </form>
+                        </form>
                     </div>
                     <div class="dash-right">
-                     <h4>image preview</h4>
+                     
                     </div>
                 </div>
             </div>

@@ -15,28 +15,44 @@
     <body>
         <div class="dashboard">
                 
-                <div class="dash-nav">
-                    <li  ><a href="newBlog.html"><img src="images/formicon/Add.png" alt="">  New Blog</a></li>
-                    <li ><a href="stats.html"><img src="images/formicon/stats.png" alt="">  Stats</a></li>
-                    <li class="dash-active"><a href="users.html"><img src="images/formicon/User.png" alt="">  Users</a></li>
-                    <li><a href="dashmessages.html"><img src="images/formicon/Message.png" alt="">  Messages</a></li>
-                    <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt="">  All Blogs</a></li>
-                    <li><a href="dashsettings.html"><img src="images/formicon/Setting.png" alt="">  Settings</a></li>
-                    
-                    <a href="board.html">
-                    <div class="dash-nav-footer">
-                        <h3>DASHBOARD</h3>
-                        <div class="profile">
-                            <div class="avatar">
-                                <img src="images/me.jpg" alt="">
-                            </div>
-                            <p>Admin</p>
-                        </div>
-                        
+            <div class="dash-nav">
+                <div class="dash-mobile-navbar">
+                    <div class="dash-logo"><h3>DASHBOARD</h3></div>
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
                     </div>
-                    </a>
+                    <ul class="dash-mobile-menu" id="dash-mobileMenu">
+                <li><a href="newBlog.html"><img src="images/formicon/Add.png" alt=""> New Blog</a></li>
+                <li ><a href="stats.html"><img src="images/formicon/stats.png" alt=""> Stats</a></li>
+                <li class="dash-active"><a href="users.html"><img src="images/formicon/User.png" alt=""> Users</a></li>
+                <li><a href="dashmessages.html"><img src="images/formicon/Message.png" alt=""> Messages</a></li>
+                <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt=""> All Blogs</a></li>
+                <li> <a href="dashsettings.html"><img src="images/formicon/Setting.png" alt=""> Settings</a></li>
+    
+                    </ul>
+                    <div class="dash-nav-footer ">
+                        <a href="board.html">
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="images/me.jpg" alt="">
+                        </div>
+                        <p>Admin</p>
+                    </div>
+                        </a>
+                    </div>
                     
                 </div>
+                
+                <script>
+                    function toggleMenu() {
+                        var mobileMenu = document.getElementById("dash-mobileMenu");
+                        mobileMenu.classList.toggle("show");
+                    }
+                </script>
+                
+                
+            </div>
+            <hr class="dash-hr">
             
             <div class="dash-main">
                 
@@ -53,9 +69,7 @@
                             <th>FullName</th>
                             <th>Email</th>
                             <th>Password</th>
-                            <th>Reset Password</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,13 +78,9 @@
                             <td>john.doe@example.com</td>
                             <td>password123</td>
                             <td class="action-buttons">
-                                <button onclick="resetPassword('john.doe@example.com')">Reset</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button onclick="editUser('john.doe@example.com')">Edit</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button class="delete-button" onclick="deleteUser('john.doe@example.com')">Delete</button>
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -78,13 +88,9 @@
                             <td>jane.smith@example.com</td>
                             <td>securepass456</td>
                             <td class="action-buttons">
-                                <button onclick="resetPassword('jane.smith@example.com')">Reset</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button onclick="editUser('jane.smith@example.com')">Edit</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button class="delete-button" onclick="deleteUser('jane.smith@example.com')">Delete</button>
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -92,13 +98,9 @@
                             <td>user3@example.com</td>
                             <td>userpass3</td>
                             <td class="action-buttons">
-                                <button onclick="resetPassword('user3@example.com')">Reset</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button onclick="editUser('user3@example.com')">Edit</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button class="delete-button" onclick="deleteUser('user3@example.com')">Delete</button>
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -106,13 +108,9 @@
                             <td>user4@example.com</td>
                             <td>userpass4</td>
                             <td class="action-buttons">
-                                <button onclick="resetPassword('user4@example.com')">Reset</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button onclick="editUser('user4@example.com')">Edit</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button class="delete-button" onclick="deleteUser('user4@example.com')">Delete</button>
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -120,13 +118,9 @@
                             <td>user5@example.com</td>
                             <td>userpass5</td>
                             <td class="action-buttons">
-                                <button onclick="resetPassword('user5@example.com')">Reset</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button onclick="editUser('user5@example.com')">Edit</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button class="delete-button" onclick="deleteUser('user5@example.com')">Delete</button>
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -134,13 +128,9 @@
                             <td>user6@example.com</td>
                             <td>userpass6</td>
                             <td class="action-buttons">
-                                <button onclick="resetPassword('user6@example.com')">Reset</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button onclick="editUser('user6@example.com')">Edit</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button class="delete-button" onclick="deleteUser('user6@example.com')">Delete</button>
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -148,13 +138,9 @@
                             <td>user7@example.com</td>
                             <td>userpass7</td>
                             <td class="action-buttons">
-                                <button onclick="resetPassword('user7@example.com')">Reset</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button onclick="editUser('user7@example.com')">Edit</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button class="delete-button" onclick="deleteUser('user7@example.com')">Delete</button>
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -162,13 +148,9 @@
                             <td>user8@example.com</td>
                             <td>userpass8</td>
                             <td class="action-buttons">
-                                <button onclick="resetPassword('user8@example.com')">Reset</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button onclick="editUser('user8@example.com')">Edit</button>
-                            </td>
-                            <td class="action-buttons">
-                                <button class="delete-button" onclick="deleteUser('user8@example.com')">Delete</button>
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
                             </td>
                         </tr>
                     </tbody>

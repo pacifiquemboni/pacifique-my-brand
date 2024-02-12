@@ -12,29 +12,30 @@
         
     </head>
     <body>
-        <div class="body">
-            <div class="mobile-navbar">
-                <div class="logo">A<span>T</span>C<span>.</span></div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="mobile-menu" id="mobileMenu">
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="about.html">AboutMe</a></li>
-                    <li><a href="skills.html"><span class="active" >Skills</span></a></li>
-                    <li><a href="mywork.html">MyWork</a></li>
-                    <li><a href="blogs.html">Blogs</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-                <a href="contact.html"><button>Contact me</button></a>
+        <div class="mobile-navbar" id="mobile-navbar">
+            <div class="logo">A<span>T</span>C<span>.</span></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
+            <ul class="mobile-menu" id="mobileMenu">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html">AboutMe</a></li>
+                <li><a href="skills.html"><span class="active" >Skills</span></a></li>
+                <li><a href="mywork.html">MyWork</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <a href="contact.html"><button>Contact me</button></a>
+        </div>
+        
+        <script>
+            function toggleMenu() {
+                var mobileMenu = document.getElementById("mobileMenu");
+                mobileMenu.classList.toggle("show");
+            }
+        </script>
+        <div class="body">
             
-            <script>
-                function toggleMenu() {
-                    var mobileMenu = document.getElementById("mobileMenu");
-                    mobileMenu.classList.toggle("show");
-                }
-            </script>
              <!-- skils section -->
              <div class="skills-div">
                 <center><h1>My Skills</h1> </center>
@@ -162,7 +163,23 @@
                 <h1>2024 pacifiquemboni. All Rights Reserved</h1>
             </div>
         </div>
-
+        <script>
+            // fixing header
+        window.onscroll = function(){myFunction()};
+        
+        var header = document.getElementById("mobile-navbar");
+        var navbar = document.getElementById("mobilemenu");
+        var sticky = header.offsetTop;
+        
+        function myFunction(){
+            if (window.pageYOffset > sticky){
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+        
+        </script>
         
     </body>
 </html>
