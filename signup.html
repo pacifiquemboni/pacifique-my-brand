@@ -9,53 +9,50 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
         
     </head>
     <body>
-        <div class="body">
-            <div class="mobile-navbar">
-                <div class="logo">A<span>T</span>C<span>.</span></div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="mobile-menu" id="mobileMenu">
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="about.html">AboutMe</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="mywork.html">MyWork</a></li>
-                    <li><a href="blogs.html">Blogs</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-                <a href="contact.html"><button><span class="active" >Contact me</span></button></a>
+        <div class="mobile-navbar" id="mobile-navbar">
+            <div class="logo">A<span>T</span>C<span>.</span></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
-            
-            <script>
-                function toggleMenu() {
-                    var mobileMenu = document.getElementById("mobileMenu");
-                    mobileMenu.classList.toggle("show");
-                }
-            </script>
-
+            <ul class="mobile-menu" id="mobileMenu">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html">AboutMe</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="mywork.html">MyWork</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <a href="contact.html"><button><span class="active" >Contact me</span></button></a>
+        </div>
+        
+        <script>
+            function toggleMenu() {
+                var mobileMenu = document.getElementById("mobileMenu");
+                mobileMenu.classList.toggle("show");
+            }
+        </script>
+        <div class="body">
             <div class="contact-page">
                 <div class="contact-left sign-up-bg">
-                    <h1>Sign-Up</h1>
+                    
+                    <img src="images/profile/signin.jpg" alt="">
                 </div>
                 <div class="contact-right">
-                   
-                    
                     <div class="login-form">
-                        <form>
-                            <input type="text" placeholder="Your names" id="username" name="fname"><br>
-                            <input type="email" placeholder="E-mail" id="email" name="lname"><br>
-                            <input type="password" placeholder="your password" id="password" name="lname"><br>
-                            <input type="password" placeholder="confirm password" id="password" name="lname">
-                            
-                        </form>
-                       
+                        <form name="mysignupform" onsubmit="return matchpass() && validatesignupform()">
+                            <input type="text" placeholder="Your names" id="username" name="name"><br>
+                            <input type="email" placeholder="E-mail" id="email" name="email"><br>
+                            <input type="password" placeholder="your password" id="password" name="password"><br>
+                            <input type="password" placeholder="confirm password" id="password2" name="password2">
+                         
                         <div class="login-btn">
-                            <a href="#"><button type="button" >Sign-Up</button></a> 
+                            <a href="#"><button type="submit" >Sign-Up</button></a> 
                          </div>   
-                        
+                        </form>
                          
                     </div>
 
@@ -136,7 +133,23 @@
                 <h1>2024 pacifiquemboni. All Rights Reserved</h1><a href="board.html">dash</a>
             </div>
         </div>
-
+        <script>
+            // fixing header
+        window.onscroll = function(){myFunction()};
+        
+        var header = document.getElementById("mobile-navbar");
+        var navbar = document.getElementById("mobilemenu");
+        var sticky = header.offsetTop;
+        
+        function myFunction(){
+            if (window.pageYOffset > sticky){
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+        
+        </script>
         
     </body>
 </html>

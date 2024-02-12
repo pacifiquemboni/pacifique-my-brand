@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./responsive.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
+        
+    </head>
+    <body>
+        <div class="dashboard">
+                
+            <div class="dash-nav">
+                <div class="dash-mobile-navbar">
+                    <div class="dash-logo"><h3>DASHBOARD</h3></div>
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <ul class="dash-mobile-menu" id="dash-mobileMenu">
+                <li><a href="newBlog.html"><img src="images/formicon/Add.png" alt=""> New Blog</a></li>
+                <li ><a href="stats.html"><img src="images/formicon/stats.png" alt=""> Stats</a></li>
+                <li class="dash-active"><a href="users.html"><img src="images/formicon/User.png" alt=""> Users</a></li>
+                <li><a href="dashmessages.html"><img src="images/formicon/Message.png" alt=""> Messages</a></li>
+                <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt=""> All Blogs</a></li>
+                <li> <a href="dashsettings.html"><img src="images/formicon/Setting.png" alt=""> Settings</a></li>
+    
+                    </ul>
+                    <div class="dash-nav-footer ">
+                        <a href="board.html">
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="images/me.jpg" alt="">
+                        </div>
+                        <p>Admin</p>
+                    </div>
+                        </a>
+                    </div>
+                    
+                </div>
+                
+                <script>
+                    function toggleMenu() {
+                        var mobileMenu = document.getElementById("dash-mobileMenu");
+                        mobileMenu.classList.toggle("show");
+                    }
+                </script>
+                
+                
+            </div>
+            <hr class="dash-hr">
+            
+            <div class="dash-main">
+                
+               <div class="user-table">
+                <div class="heading">
+                    <h1>Registered Users</h1>
+                    <img src="images/formicon/User.png" alt="">
+                </div>
+                
+                <hr>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>FullName</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>john.doe@example.com</td>
+                            <td>password123</td>
+                            <td class="action-buttons">
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>jane.smith@example.com</td>
+                            <td>securepass456</td>
+                            <td class="action-buttons">
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 3</td>
+                            <td>user3@example.com</td>
+                            <td>userpass3</td>
+                            <td class="action-buttons">
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 4</td>
+                            <td>user4@example.com</td>
+                            <td>userpass4</td>
+                            <td class="action-buttons">
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 5</td>
+                            <td>user5@example.com</td>
+                            <td>userpass5</td>
+                            <td class="action-buttons">
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 6</td>
+                            <td>user6@example.com</td>
+                            <td>userpass6</td>
+                            <td class="action-buttons">
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 7</td>
+                            <td>user7@example.com</td>
+                            <td>userpass7</td>
+                            <td class="action-buttons">
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User 8</td>
+                            <td>user8@example.com</td>
+                            <td>userpass8</td>
+                            <td class="action-buttons">
+                                <img src="images/formicon/reset.png" alt="">
+                                <img src="images/formicon/Edit.png" alt="">
+                                <img src="images/formicon/Trash.png" alt="">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+               </div>
+            </div>
+        </div>    
+    </body>
+</html>

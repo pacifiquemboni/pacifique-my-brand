@@ -5,12 +5,19 @@ body{
     box-sizing: border-box;
     
 }
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 95%;
+}
+
 .body{
     margin-left: 150px;
     margin-right: 150px;
+    /* border: solid; */
 }
 .mobile-navbar {
-    overflow: hidden;
+    overflow:visible;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,6 +25,7 @@ body{
     background-color: #00171F;
     box-shadow: 0px 0px 2px 0px #FEA609 ;
     height: 100px;
+    max-height: 200px;
 }
 .menu-icon {
     display: none;
@@ -49,6 +57,10 @@ body{
     font-weight: 400;
     line-height: normal;
 }
+.dash-logo{
+    font-size: 20px;
+    color:#FEA609;
+}
 .logo span{
     color:#FEA609;
 
@@ -56,6 +68,7 @@ body{
 
 .active{
     color:#FEA609;
+    text-decoration: overline;
 }
 
 button{
@@ -394,7 +407,8 @@ button{
     justify-content: space-around;
     text-align: center;
     color:white;
-    position: relative;
+    
+    
 }
 .val {
     border-left: 2px solid white;
@@ -414,16 +428,16 @@ button{
 /* footer */
 
 .footer{
-    border: 1px solid;
-    margin-top: -60px;
-    min-height: 290px;
+    
+    margin-top: 0px;
+  
 }
 .footer-body{
-    padding-top: 180px;
+    padding-top: 100px;
     color: #FEA609;
     text-align: center;
-    margin-right: 150px;
-    margin-left: 150px;
+
+   
 }
 .social-footer{
     
@@ -472,10 +486,6 @@ button{
 /* --------------------------- BLOGS PAGE------------------------------------------- */
 
 .myblog-div{
-    background-image: url('images/bg/6.jpg');
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
     height: auto;
 }
 
@@ -513,28 +523,24 @@ input{
     box-sizing: border-box;
     height: 50px;
     border: 1px solid white;
-    border-radius: 20px;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     /* border-bottom: 2px solid black */
 }
 #username{
-    background-image: url('images/formicon/User.png');
-    background-repeat: no-repeat;
-    background-size: 30px;
-    background-position: 10px 10px;
     background-color: white;
     border: 1px solid white;
+    text-transform: capitalize;
     
 }
 #password{
-    background-image: url('images/formicon/File.png');
-    background-repeat: no-repeat;
-    background-size: 25px;
-    background-position: 10px 10px;
     background-color: white;
     border: 1px solid white;
 }
-
+#password2{
+    
+    background-color: white;
+    border: 1px solid white;
+}
 .login{
     /* background-color: white; */
     margin-top: 30px;
@@ -545,16 +551,22 @@ input{
     
 } 
 .login-img{
-    background-image: url('images/5.jpg');
-    background-size: cover;
-    background-position: center;background-repeat: no-repeat;
-    border: 1px solid #00171F;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    font-size: 30px;
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+.login-img img{
+   
+    width: 50%;
+    height: 200px;
 }
 .login-form{
-    padding: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .login-form p{
@@ -563,7 +575,7 @@ input{
 }
 .login-btn{
     margin-top: 40px;
-    padding-left: 80px;
+    padding-left: 0px;
 }
 .signup a{
     color: #FEA609;
@@ -605,7 +617,7 @@ input{
     padding: 15px;
 }
 .contact-right{
-    border: solid;
+    width: 50%;
 }
 .icon{
     border: #00171F solid;
@@ -616,72 +628,56 @@ input{
     height: 40px;
    
 }
-.sign-up-bg{
-    background-image: url('images/5.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.sign-up-bg img{
     width: 400px;
-    color: white;
-    text-align: center;
-    display: grid;
-    align-items: center;
-    font-size: 30px;
 }
 .sign-up{
-    background-image: url('images/5.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position:center;
     width: 450px;
     color: white;
 }
+.sign-up-form{
+    padding: 50px;
+}
+.sign-up-form textarea{
+    width: 85%;
+    height: 50px;
+    padding: 12px 20px 12px 10px;
+    color: #00171F;
+    background-color: white;
+    text-transform: capitalize;
+}
 #email{
-    background-image: url('images/formicon/Message.png');
-    background-repeat: no-repeat;
-    background-size: 25px;
-    background-position: 10px 10px;
     background-color: white;
     border: 1px solid white;
 }
-textarea{
-    width: 85%;
-    background-image: url('images/formicon/Messageopen.png');
-    background-repeat: no-repeat;
-    background-size: 25px;
-    background-position: 8px 8px;
-    border-radius: 10px;
-    padding: 12px 20px 12px 40px;
-    color: #00171F;
-    background-color: white;
-}
-
-
 
 /* ------------------------------------------------------------------------------------- */
 
 /* --------------------------- DashBoard  PAGE------------------------------------------- */
 
-.dash-header{
-    grid-area: header;
-    border: 1px #FEA609 solid;
-}
 .dash-nav{
-    width: 200px;
-    grid-area: nav;
+    width: 15%;
     font-size: 20px;
     padding-top: 40px;
     padding-left: 2px;
     background-color: white;
+    height: 527px;
+}
+.dash-hr{
+    display: none;
 }
 .dash-nav i{
     font-size:18px;
-    color:#FEA609;
-    
+    color:#FEA609; 
 }
 .dash-nav li{
     list-style: none;
-    padding: 15px;
+    padding: 10px;
+}
+.dash-nav li a:hover{
+    border: #00171F solid 1px;
+    padding: 2px;
+  
 }
 .dash-nav li a{
     color:#FEA609 ;
@@ -691,46 +687,71 @@ textarea{
     gap: 10px;
 }
 .dash-nav img{
-    width: 20px;
+    width: 18px;
+    height: 18px;
 }
-.dash-active{
+.dash-nav-footer{
+    display: grid;
+    width: 200px;
+    color: #FEA609;
+    position: absolute;
+    bottom: 15px;
+    padding: 10px;
+}
+.dash-nav-footer :hover{
     background-color: #00171F;
-    
-    
-}.dash-active li{
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.avatar  img{
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    border: #00171F solid 1px;
+  }
+.dash-active{
+    background-color: #00171F;   
+}
+.dash-active li{
     color:white;
 }
-.dash-body{
-    grid-area: body;
-    height: 500px;
-}
 .dashboard{
-    display: grid;
-    grid-template-areas: 'header header header header header header'
-                          'nav body  body body body body';
+    display: flex;
 }
-.dash-body textarea{
-    width: 92%;
-    height: 90px;
-    background-image: url('images/formicon/Messageopen.png');
-    background-repeat: no-repeat;
-    background-size: 25px;
-    background-position: 8px 8px;
-    border-radius: 10px;
-    padding: 12px 20px 12px 40px;
+.dash-textarea{
+    width: 94%;
+    height: 150px;
+    padding: 12px 20px 12px 10px;
     color: #00171F;
     background-color: white;
+    text-transform: capitalize;
 }
 .dash-body button{
     float: right;
+    padding-top: 05px;
 }
 .dash-form{
     display: flex;
-    padding-top: 20px;
+    justify-content: center;
+    padding-top: 0px;
 }
 .dash-btn{
     display: flex;
     justify-content: space-between;
+    padding-top: 10px;
+    align-items: center;
+}
+.dash-btn img{
+    height: 30px;
+    width: auto;
+}
+.dash-upload{
+    border: none;
+    height: 34px;
+    width: 209px;
 }
 .dash-btn a{
     color: white;
@@ -738,12 +759,162 @@ textarea{
 }
 .dash-right{
     height: auto;
-    width: 450px;
+    width: auto;
+    max-width: 450px;
+    min-width: 0px;
     text-align: center;
     padding: 40px;
     font-size: 60px;
-    background-image: url('images/10.jpg');
-    background-position: center;
-    background-size: cover;
     
+}
+.board-profile{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+  }
+  .board-profile img{
+    width: 100%;
+  }
+.dash-main{
+    width: 84%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.dash-main hr{
+    width: 150px;
+    float: left;
+}
+  .profile-section{
+    width: 50%;
+  }
+  .stats-section{
+    margin: auto;
+    width: 50%;
+
+  }
+  .cards{
+    display: flex;
+    justify-content: space-around;
+  }
+  .card{
+    background-color: white;
+    color: #00171F;
+    height: 150px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: #FEA609 04px 8px 8px 0px;
+    text-align: center;
+  }
+  .card img{
+    width: 24px;
+  }
+  .chart{
+    padding-top: 10px;
+  }
+.user-table{
+    width: 84%;
+    padding-left: 70px;
+}
+  .user-table table{
+    border-collapse: collapse;
+  width: 100%;
+  }
+  .user-table h1{
+    color: #FEA609;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2 ;
+    color: #00171F;
+
+}
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  .dash-main hr{
+    width: 300px;
+    float: left;
+  }
+  th {
+    background-color: #f2f2f2;
+    color: #00171F;
+}
+.settings-section{
+    padding-left: 70px;
+}
+.settings-section h1{
+    color: rgb(254, 166, 9);
+}
+.heading{
+    display: flex;
+    align-items: center;
+}
+.heading h1{
+    color: rgb(254, 166, 9);
+}
+.heading img{
+    width: 20px;
+    height: 20px;
+}
+.myblogtemp-div{
+    width: 100%;
+}
+.myblogtemp-div img{
+    width: 100%;
+    height: 300px;
+}
+.action-buttons img{
+    width: 20px;
+    border: rgb(254, 166, 9) solid 1px;
+}
+
+
+.comment-profile{
+    grid-area: profile;
+    border-radius: 50px;
+    height: fit-content;
+    width: fit-content;
+    align-self: center;
+
+}
+.comment-name{
+    grid-area: name;
+}
+.comment-message{
+    grid-area: message;
+    font-family: 'Courier New', Courier, monospace;
+   
+}
+.comment-like{
+    grid-area: like;
+}
+.comment-reply{
+    grid-area: reply;
+}
+.comment-time{
+    grid-area: time;
+}
+.comment-results{
+    display: grid;
+    width: fit-content;
+    grid-template-areas: 'profile name name time'
+    'profile message message message'
+    'prifile like like reply';
+    grid-gap: 0px;
+    box-shadow: 0 2px 0px  rgb(254, 166, 9);
+    padding-top: 20px;
+}
+fieldset{
+    width: fit-content;
+}
+legend{
+    background-color: rgb(254, 166, 9);
+    color: #00171F;
+    font-size: 20px;
+}
+.status img{
+    width: 5px;
+    height: 5px;
 }

@@ -12,28 +12,29 @@
         
     </head>
     <body>
-        <div class="body">
-            <div class="mobile-navbar">
-                <div class="logo">A<span>T</span>C<span>.</span></div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="mobile-menu" id="mobileMenu">
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="about.html">AboutMe</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="mywork.html">MyWork</a></li>
-                    <li><a href="blogs.html"><span class="active" >Blogs</span></a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-                <a href="contact.html"><button>Contact me</button></a>
+        <div class="mobile-navbar" id="mobile-navbar">
+            <div class="logo">A<span>T</span>C<span>.</span></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
-            <script>
-                function toggleMenu() {
-                    var mobileMenu = document.getElementById("mobileMenu");
-                    mobileMenu.classList.toggle("show");
-                }
-            </script>
+            <ul class="mobile-menu" id="mobileMenu">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html">AboutMe</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="mywork.html">MyWork</a></li>
+                <li><a href="blogs.html"><span class="active" >Blogs</span></a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <a href="contact.html"><button>Contact me</button></a>
+        </div>
+        <script>
+            function toggleMenu() {
+                var mobileMenu = document.getElementById("mobileMenu");
+                mobileMenu.classList.toggle("show");
+            }
+        </script>
+        <div class="body">
+            
             <!-- blogs section -->
             <div class="myblog-div">
                 
@@ -43,7 +44,7 @@
                             <h4>Node.Js Explained: Architecture, Benefits, And Real-World Applications</h4>
                             <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
                             <p>Dive deep into the world of Node.js with our comprehensive guide. Discover its unique architecture,
-                                benefits, and how top-tier platforms like Netflix and</p>
+                                benefits, and how top-tier platforms like Netflix and <a href="blogtemp.html">read more...</a> </p>
                             <div class="blog-footer">
                                 <div class="like">
                                     <i class="fa fa-thumbs-up"></i>
@@ -60,7 +61,7 @@
                             <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
                             <h5>By Karan Chaudhary • 20 Oct, 2023</h5>
                             <p>Unlock the full potential of Docker in your app development journey. Learn how Docker streamlines deployment,
-                                its advantages, real-world examples, and</p>
+                                its advantages, real-world examples, and<a href="blogtemp.html">read more...</a> </p>
                                 <div class="blog-footer">
                                     <div class="like">
                                         <i class="fa fa-thumbs-up"></i>
@@ -77,7 +78,7 @@
                             <h4>The Comprehensive Guide To Mobile App Quality Assurance</h4>
                             <h5>By Aashi Gupta • 20 Oct, 2023</h5>
                             <p>In the tech-driven world of today, mobile app quality assurance is essential. To guarantee that the functioning 
-                                and user experience of your application are exceptional.</p>
+                                and user experience of your application are exceptional<a href="blogtemp.html">read more...</a> p>
                                 <div class="blog-footer">
                                     <div class="like">
                                         <i class="fa fa-thumbs-up"></i>
@@ -190,6 +191,23 @@
                     <h1>2024 pacifiquemboni. All Rights Reserved</h1>
                 </div>
         </div>
+        <script>
+            // fixing header
+        window.onscroll = function(){myFunction()};
+        
+        var header = document.getElementById("mobile-navbar");
+        var navbar = document.getElementById("mobilemenu");
+        var sticky = header.offsetTop;
+        
+        function myFunction(){
+            if (window.pageYOffset > sticky){
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+        
+        </script>
 
         
     </body>

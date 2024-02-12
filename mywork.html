@@ -3,6 +3,7 @@
     <head>
         <title>my work</title>
         <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./responsive.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -10,39 +11,33 @@
         
     </head>
     <body>
-        <div class="about-header-div">
-            <div class="header-body-div">
-                <div class="nav-div">
-                    <div class="logo">A<span>T</span>C<span>.</span> </div>
-                    <nav>
-                        <ul>
-                            <a href="index.html"><li>Home</li> </a>
-                            <a href="about.html"><li>AboutMe</li> </a>
-                            <a href="skills.html"><li>Skills</li> </a>
-                            <a href="mywork.html"><li class="active">MyWork</li> </a>
-                            <a href="blogs.html"><li>Blogs</li> </a>
-                            <a href="login.html"><li>Login</li> </a>
-                        </ul>
-                    </nav>
-                    <a href="contact.html"><button>Contact me</button></a>
-                </div>
-                <h1>MY WORK PAGE</h1>
-                
+        <div class="mobile-navbar" id="mobile-navbar">
+            <div class="logo">A<span>T</span>C<span>.</span></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
+            <ul class="mobile-menu" id="mobileMenu">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html">AboutMe</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="mywork.html"><span class="active" >MyWork</span></a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <a href="contact.html"><button>Contact me</button></a>
         </div>
-
-        <!-- skills section -->
-        <div class="skills-div">
-            <h1></h1> 
-            <div class="skills-body">
+        <script>
+            function toggleMenu() {
+                var mobileMenu = document.getElementById("mobileMenu");
+                mobileMenu.classList.toggle("show");
+            }
+        </script>
+        <div class="body">
             
+            <div class="mywork">
+                <h1>My Work</h1>
             </div>
-            
-            </div>  
-        </div>
-
-       
-        <!-- contact us -->
+            <!-- contact us -->
         <div class="contact-div">
             <div class="address">
                 <i class="material-icons checked">&#xe55f;</i>
@@ -72,6 +67,8 @@
                 <p>pacifiquemboni@gmail.com</p>
             </div>
         </div>
+       
+        </div>
         <div class="footer">
             <div class="footer-body">
                 <div class="social-footer">
@@ -86,6 +83,23 @@
                 <h1>2024 pacifiquemboni. All Rights Reserved</h1>
             </div>
         </div>
+        <script>
+            // fixing header
+        window.onscroll = function(){myFunction()};
+        
+        var header = document.getElementById("mobile-navbar");
+        var navbar = document.getElementById("mobilemenu");
+        var sticky = header.offsetTop;
+        
+        function myFunction(){
+            if (window.pageYOffset > sticky){
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+        
+        </script>
 
         
     </body>

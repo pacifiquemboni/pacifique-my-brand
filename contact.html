@@ -9,32 +9,50 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
+        <script src="tinymce/tinymce.min.js"></script>
+
+        <script>
+            tinymce.init({
+              selector: 'textarea#message',
+              plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+              toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+              tinycomments_mode: 'embedded',
+              tinycomments_author: 'Author name',
+              mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+              ],
+              ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+            });
+          </script>
         
     </head>
     <body>
-        <div class="body">
-            <div class="mobile-navbar">
-                <div class="logo">A<span>T</span>C<span>.</span></div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="mobile-menu" id="mobileMenu">
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="about.html">AboutMe</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="mywork.html">MyWork</a></li>
-                    <li><a href="blogs.html">Blogs</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-                <a href="contact.html"><button><span class="active" >Contact me</span></button></a>
+        <div class="mobile-navbar" id="mobile-navbar">
+            <div class="logo">A<span>T</span>C<span>.</span></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
+            <ul class="mobile-menu" id="mobileMenu">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html">AboutMe</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="mywork.html">MyWork</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <a href="contact.html"><button><span class="active" >Contact me</span></button></a>
+        </div>
+        
+        <script>
+            function toggleMenu() {
+                var mobileMenu = document.getElementById("mobileMenu");
+                mobileMenu.classList.toggle("show");
+            }
+        </script>
+        <div class="body">
             
-            <script>
-                function toggleMenu() {
-                    var mobileMenu = document.getElementById("mobileMenu");
-                    mobileMenu.classList.toggle("show");
-                }
-            </script>
 
             <div class="contact-page">
                 <div class="contact-left">
@@ -82,18 +100,20 @@
                 <div class="contact-right">
                     <h1>Get in touch</h1>
                     <hr>
-                    <div class="login-form">
-                        <form>
+                    <div class="sign-up-form">
+                        <form name="mycontactform" onsubmit="return validatecontactform()">
                             
-                            <input type="text" placeholder="Your names" id="username" name="fname"><br>
-                            <input type="email" placeholder="E-mail" id="email" name="lname"><br>
-                            <textarea rows="5" cols="50" placeholder="Message"></textarea>
+                            <input type="text" placeholder="Your names" id="username" name="name"><br>
+                            <input type="email" placeholder="E-mail" id="email" name="email"><br>
+                            <textarea  placeholder="message" id="message"  name="message"></textarea>
+                            <div class="login-btn">
+                            <button type="submit" >Send</button>
+                         </div> 
                         </form>
                        
-                        <div class="login-btn">
-                            <a href="#"><button type="button" >Send Message</button></a> 
-                         </div>     
+                            
                     </div>
+                </div>
                 </div>
            
              <!-- contact us -->
@@ -138,8 +158,25 @@
                 </div>
                 <br>
                 <hr>
-                <h1>2024 pacifiquemboni. All Rights Reserved</h1><a href="board.html">dash</a>
+                <h1>2024 pacifiquemboni. All Rights Reserved</h1>
             </div>
-        </div>   
+        </div>  
+        <script>
+            // fixing header
+        window.onscroll = function(){myFunction()};
+        
+        var header = document.getElementById("mobile-navbar");
+        var navbar = document.getElementById("mobilemenu");
+        var sticky = header.offsetTop;
+        
+        function myFunction(){
+            if (window.pageYOffset > sticky){
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+        
+        </script> 
     </body>
 </html>
