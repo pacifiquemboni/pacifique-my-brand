@@ -1,63 +1,107 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Contact us</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./index.css">
-        <link rel="stylesheet" href="./responsive.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
-        <script src="validate.js"></script>
-        
-    </head>
-    <body>
-        <div class="mobile-navbar" id="mobile-navbar">
-            <div class="logo">A<span>T</span>C<span>.</span></div>
-            <div class="menu-icon" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="mobile-menu" id="mobileMenu">
-                <li><a href="index.html" >Home</a></li>
-                <li><a href="about.html">AboutMe</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="mywork.html">MyWork</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-            <a href="contact.html"><button><span class="active" >Contact me</span></button></a>
-        </div>
-        
-        <script>
-            function toggleMenu() {
-                var mobileMenu = document.getElementById("mobileMenu");
-                mobileMenu.classList.toggle("show");
-            }
-        </script>
-        <div class="body">
-            <div class="contact-page">
-                <div class="contact-left sign-up-bg">
-                    
-                    <img src="images/profile/signin.jpg" alt="">
-                </div>
-                <div class="contact-right">
-                    <div class="login-form">
-                        <form name="mysignupform" onsubmit="return matchpass() && validatesignupform()">
-                            <input type="text" placeholder="Your names" id="username" name="name"><br>
-                            <input type="email" placeholder="E-mail" id="email" name="email"><br>
-                            <input type="password" placeholder="your password" id="password" name="password"><br>
-                            <input type="password" placeholder="confirm password" id="password2" name="password2">
-                         
-                        <div class="login-btn">
-                            <a href="#"><button type="submit" >Sign-Up</button></a> 
-                         </div>   
-                        </form>
-                         
-                    </div>
+  <head>
+    <title>Sign-Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Iceland"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c8abb356dd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="validate.js"></script>
+  </head>
+  <body>
+    <div class="mobile-navbar" id="mobile-navbar">
+      <div class="logo">A<span>T</span>C<span>.</span></div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="mobile-menu" id="mobileMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">AboutMe</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="mywork.html">MyWork</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+      <h1 class="active">Sign-Up</h1>
+    </div>
 
-                </div>
-                <!-- <div class="send-message">
+    <script>
+      function toggleMenu() {
+        var mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("show");
+      }
+    </script>
+    <div class="body">
+      <div class="contact-page">
+        <div class="contact-left sign-up-bg">
+          <img src="images/profile/signin.jpg" alt="" />
+        </div>
+        <div class="contact-right">
+          <div class="login-form">
+            <form
+              id="sign-upForm"
+              onsubmit="return validateSignForm()"
+              oninput="return validateSignForm()"
+            >
+              
+              <input
+                type="text"
+                placeholder="Your names"
+                id="signUserName"
+                name="name"
+              /><br />
+              <div id="signUserNameError"></div>
+              <input
+                type="text"
+                placeholder="E-mail"
+                id="signEmail"
+                name="email"
+                oninput="firstPassValidate()"
+              /><br />
+              <div id="emailError"></div>
+              <input type="text" placeholder="password" id="password" oninput="firstPassValidate()"/>
+                <div id="signPasswordError"></div>
+                <div id="upper" class="rederror"></div>
+                <div id="upperyes" class="greenerror"></div>
+                <div id="lower" class="rederror"></div>
+                <div id="loweryes" class="greenerror"></div>
+                <div id="specialchar" class="rederror"></div>
+                <div id="specialcharyes" class="greenerror"></div>
+                <div id="number" class="rederror"></div>
+                <div id="numberyes" class="greenerror"></div>
+                <div id="space" class="rederror"></div>
+                <div id="spaceyes" class="greenerror"></div>
+              <input
+                type="text"
+                placeholder="confirm password"
+                id="password2"
+                name="password2"
+                oninput="firstPassValidate()"
+              />
+              <div id="signConfirmPasswordError"></div>
+
+              <div class="login-btn">
+                <a href="#"><button type="submit">Sign-Up</button></a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- <div class="send-message">
                     <h1>SEND US MESSAGE</h1>
                     <hr>
                     <div class="login-form">
@@ -76,80 +120,74 @@
                     </div>
 
                 </div> -->
-                <!-- <div class="sign-up">
+        <!-- <div class="sign-up">
                     <h1>SIGN-UP</h1>
                     <hr>
                     
                 </div> -->
-            </div>
+      </div>
 
-
-
-
-
-
-             <!-- contact us -->
-        <div class="contact-div">
-            <div class="address">
-                <i class="material-icons checked">&#xe55f;</i>
-                <h2>ADDRESS</h2>
-                <p>+250,KIAGALI CITY,
-                    NYARUGENGE</p>
-            </div>
-            <div class="verticle">
-                <div class="val1"> </div>
-                <div class="val"> </div>
-                <div class="val1"> </div>
-            </div>
-            <div class="phone-num">
-                <i class="material-icons checked">&#xe551;</i>
-                <h2>PHONE NUMBER</h2>
-                <p>+250787299001,
-                    +250729981083</p>
-            </div>
-            <div class="verticle">
-                <div class="val1"> </div>
-                <div class="val"> </div>
-                <div class="val1"> </div>
-            </div>
-            <div class="email">
-                <i class="material-icons checked">&#xe554;</i>
-                <h2>EMAIL-ADDRESS</h2>
-                <p>pacifiquemboni@gmail.com</p>
-            </div>
+      <!-- contact us -->
+      <div class="contact-div">
+        <div class="address">
+          <i class="material-icons checked">&#xe55f;</i>
+          <h2>ADDRESS</h2>
+          <p>+250,KIAGALI CITY, NYARUGENGE</p>
         </div>
+        <div class="verticle">
+          <div class="val1"></div>
+          <div class="val"></div>
+          <div class="val1"></div>
         </div>
-        <div class="footer">
-            <div class="footer-body">
-                <div class="social-footer">
-                    <img src="images/social/github.png">
-                    <img src="images/social/gmail.png">
-                    <img src="images/social/facebook.png">
-                    <img src="images/social/discord.png">
-                    <img src="images/social/linkedin.png">
-                </div>
-                <br>
-                <hr>
-                <h1>2024 pacifiquemboni. All Rights Reserved</h1><a href="board.html">dash</a>
-            </div>
+        <div class="phone-num">
+          <i class="material-icons checked">&#xe551;</i>
+          <h2>PHONE NUMBER</h2>
+          <p>+250787299001, +250729981083</p>
         </div>
-        <script>
-            // fixing header
-        window.onscroll = function(){myFunction()};
-        
-        var header = document.getElementById("mobile-navbar");
-        var navbar = document.getElementById("mobilemenu");
-        var sticky = header.offsetTop;
-        
-        function myFunction(){
-            if (window.pageYOffset > sticky){
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
-            }
+        <div class="verticle">
+          <div class="val1"></div>
+          <div class="val"></div>
+          <div class="val1"></div>
+        </div>
+        <div class="email">
+          <i class="material-icons checked">&#xe554;</i>
+          <h2>EMAIL-ADDRESS</h2>
+          <p>pacifiquemboni@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-body">
+        <div class="social-footer">
+          <img src="images/social/github.png" />
+          <img src="images/social/gmail.png" />
+          <img src="images/social/facebook.png" />
+          <img src="images/social/discord.png" />
+          <img src="images/social/linkedin.png" />
+        </div>
+        <br />
+        <hr />
+        <h1>2024 pacifiquemboni. All Rights Reserved</h1>
+        <a href="board.html">dash</a>
+      </div>
+    </div>
+    <script>
+      // fixing header
+      window.onscroll = function () {
+        myFunction();
+      };
+
+      var header = document.getElementById("mobile-navbar");
+      var navbar = document.getElementById("mobilemenu");
+      var sticky = header.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
         }
-        
-        </script>
-        
-    </body>
+      }
+    </script>
+  </body>
 </html>

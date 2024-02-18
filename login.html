@@ -44,13 +44,15 @@
                 
                     <div class="login">
                         <div class="login-img">
-                            <img src="images/profile/login.jpg" alt="">
+                            <h1>LOGIN</h1>
                         </div>
                         <div class="login-form">
-                            <form name="myloginform" onsubmit="return validateloginform()">
+                            <form id="LoginForm" onsubmit="return validateLoginForm()" oninput="validateLoginForm()">
                                 
-                                <input type="text" placeholder="Enter username" id="username" name="name">
-                                <input type="password" placeholder="Enter password" id="password" name="password">
+                                <input type="text" placeholder="Enter userName" id="loginUserName" name="name" oninput="validateLoginForm()">
+                                <div id="userNameError"></div>
+                                <input type="password" placeholder="Enter password" id="loginPassword" name="password" oninput="return validateLoginForm()">
+                                <div id="passwordError"></div>
                                 <!-- <input type="submit" value="register">   -->
                             
                             <p>Forget password?</p>

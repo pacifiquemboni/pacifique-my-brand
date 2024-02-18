@@ -56,6 +56,7 @@
     .dash-nav{
         background: none;
     }
+    
 }
 @media (max-width: 952px){
     .body{
@@ -114,6 +115,15 @@
         top: 0;
         width: 93%;
     }
+    .cards{
+        flex-wrap: wrap;
+    }
+    .card{
+        width: 100%;
+       margin-left: 100px;
+       margin-right: 100px;
+       margin-bottom: 10px;
+    }
 }
 @media (max-width: 858px){
     
@@ -130,7 +140,16 @@
     .cards{
         flex-wrap: wrap;
     }
-
+    .card{
+        width: 100%;
+       margin: 10px;
+    }
+    .dash-active{
+        background-color: #00171F;
+   }
+   .dash-mobile-navbar ul li a{
+    margin-left: 0px;
+}
     .mobile-menu {
         display: none;
         flex-direction: column;

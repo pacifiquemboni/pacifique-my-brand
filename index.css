@@ -18,6 +18,7 @@ body{
 }
 .mobile-navbar {
     overflow:visible;
+    z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,6 +50,9 @@ body{
     text-decoration: none;
     color: white;
     font-size: 1.2em;
+}
+.mobile-menu li a:hover{
+    color: #FEA609;
 }
 .logo{
     color: white;
@@ -553,16 +557,16 @@ input{
 .login-img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: white;
+    background-image: url('images/5.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-weight: bolder;
     width: 100%;
-    height: 200px;
+    height: 100px;
     display: flex;
     justify-content: center;
-}
-.login-img img{
-   
-    width: 50%;
-    height: 200px;
 }
 .login-form{
     padding-left: 10px;
@@ -637,14 +641,17 @@ input{
 }
 .sign-up-form{
     padding: 50px;
+   
 }
-.sign-up-form textarea{
-    width: 85%;
-    height: 50px;
+.sign-up-form >textarea{
+   
     padding: 12px 20px 12px 10px;
     color: #00171F;
-    background-color: white;
+    background-color: red;
     text-transform: capitalize;
+}
+#message{
+    border: solid red 3px;
 }
 #email{
     background-color: white;
@@ -659,9 +666,11 @@ input{
     width: 15%;
     font-size: 20px;
     padding-top: 40px;
-    padding-left: 2px;
     background-color: white;
-    height: 527px;
+    height: 543px; 
+}
+.dash-mobile-navbar ul li a {
+    margin-left: -50px;
 }
 .dash-hr{
     display: none;
@@ -672,19 +681,20 @@ input{
 }
 .dash-nav li{
     list-style: none;
-    padding: 10px;
+    padding: 15px;
+
 }
 .dash-nav li a:hover{
-    border: #00171F solid 1px;
-    padding: 2px;
-  
+    border: #00171F solid 2px;
+    padding: 5px; 
 }
 .dash-nav li a{
-    color:#FEA609 ;
+    color: #FEA609;
     text-decoration: none;
     font-weight: bold;
     display: flex;
     gap: 10px;
+    
 }
 .dash-nav img{
     width: 18px;
@@ -713,11 +723,10 @@ input{
     border: #00171F solid 1px;
   }
 .dash-active{
-    background-color: #00171F;   
+     padding: 10px;
+     background-color: #00171F;
 }
-.dash-active li{
-    color:white;
-}
+
 .dashboard{
     display: flex;
 }
@@ -778,8 +787,10 @@ input{
   }
 .dash-main{
     width: 84%;
+    height: 550px;
     display: flex;
     flex-wrap: wrap;
+    overflow: auto;
 }
 .dash-main hr{
     width: 150px;
@@ -790,24 +801,40 @@ input{
   }
   .stats-section{
     margin: auto;
-    width: 50%;
+    width: 84%;
 
   }
   .cards{
     display: flex;
     justify-content: space-around;
+     flex-wrap: wrap;
+     width: 100%;
   }
   .card{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: white;
     color: #00171F;
-    height: 150px;
+    height: 120px;
     width: 30%;
     border-radius: 10px;
     box-shadow: #FEA609 04px 8px 8px 0px;
     text-align: center;
   }
+  .card-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    box-shadow: #FEA609 0px 4px 4px 0px;
+    background-color: #00171F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .card img{
     width: 24px;
+    height: 24px;
   }
   .chart{
     padding-top: 10px;
@@ -842,7 +869,8 @@ input{
     color: #00171F;
 }
 .settings-section{
-    padding-left: 70px;
+    padding-left: 0px;
+    width: 50%;
 }
 .settings-section h1{
     color: rgb(254, 166, 9);
@@ -918,3 +946,72 @@ legend{
     width: 5px;
     height: 5px;
 }
+#errorMessage{
+    background-color: yellow;
+    color: red;
+    width: 100%;
+    height: fit-content;
+}
+.rederror{
+    color: red;
+    display: flex;
+    align-items: center;
+    gap: 05px;
+  }
+  .rederror img{
+    width: 13px;
+    height: 13px;
+  }
+  .greenerror{
+    color: goldenrod;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .greenerror img{
+    width: 13px;
+    height: 13px;
+  }
+  .alert{
+    border: red solid 1px;
+  }
+  #userNameError{
+    color: red;
+    font-size: small;
+  }
+  #passwordError{
+    color: red;
+    font-size: small;
+  }
+  #signUserNameError{
+    color: red;
+    font-size: small;
+  }
+  #emailError{
+    color: red;
+    font-size: small;
+  }
+  #signPasswordError{
+    color: red;
+    font-size: small;
+  }
+  #signConfirmPasswordError{
+    color: red;
+    font-size: small;
+  }
+  #contactNameError{
+    color: red;
+    font-size: small;
+  }
+  #contactEmailError{
+    color: red;
+    font-size: small;
+  }
+  #dashBodyError{
+    color: red;
+    font-size: small;
+  }
+  #blogTitleError{
+    color: red;
+    font-size: small;
+  }
