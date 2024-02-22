@@ -54,7 +54,7 @@
         height: 270px;
     }
     .dash-nav{
-        background: none;
+        background: white;
     }
     
 }
@@ -108,7 +108,9 @@
     width: auto;
    }
    .dash-nav{
-    background: none;
+    background: white;
+    width: 15%;
+    font-size: small;
     }
     .sticky{
         position: fixed;
@@ -144,12 +146,27 @@
         width: 100%;
        margin: 10px;
     }
-    .dash-active{
+ .dash-active{
         background-color: #00171F;
    }
+   .dash-active {
+    width:120%;
+   padding-top: 10px;
+   padding-bottom: 10px;
+    background-color:#00171F;
+    
+}
    .dash-mobile-navbar ul li a{
     margin-left: 0px;
 }
+#blog-table{
+    margin-top: 0px;
+}
+#new-div{
+    width: 100%;
+  
+}
+
     .mobile-menu {
         display: none;
         flex-direction: column;
@@ -313,18 +330,27 @@
     }
     .dash-form{
         flex-wrap: wrap;
+        width: 100%;
+        overflow: hidden;
     }
+   
     
     
     .dash-right{
         align-items: center;
-        height: 15px;
-        width: 300px;
+        height: auto;
+        width: 100%;
         font-size: smaller;
     }
     .dash-main{
         width: 100%;
+        height: auto;
         flex-wrap: wrap;
+        margin-left: 0px;
+        overflow: hidden;
+    }
+    .dash-textarea{
+        width: 93%;
     }
     .profile-section{
         width: 100%;

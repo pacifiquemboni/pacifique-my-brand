@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 function validateSignForm() {
   const form = document.getElementById("form");
@@ -31,7 +31,7 @@ function validateSignForm() {
   if (
     atposition < 1 ||
     dotposition < atposition + 2 ||
-    dotposition + 2 >= x.length
+    dotposition + 2 >= email.length
   ) {
     document.getElementById("emailError").innerHTML =
       "Please enter a valid e-mail address";
@@ -127,9 +127,6 @@ function firstPassValidate() {
   return false; // Prevent form submission for testing purposes
 }
 
-
-
-
 // Login Validation function
 function validateLoginForm() {
   var loginUserName = document.getElementById("loginUserName").value;
@@ -158,32 +155,32 @@ function validateLoginForm() {
 }
 
 // Contact form validation
-function validatecontactform(){
-  
-
+function validatecontactform() {
   var contactUserName = document.getElementById("contactUserName").value;
   var contactEmail = document.getElementById("contactEmail").value;
   var message = document.getElementById("message").value;
   var atposition = contactEmail.indexOf("@");
   var dotposition = contactEmail.lastIndexOf(".");
 
-  document.getElementById("contactNameError").innerHTML ="";
+  document.getElementById("contactNameError").innerHTML = "";
   document.getElementById("contactEmailError").innerHTML = "";
   document.getElementById("contactMessageError").innerHTML = "";
 
-  if( contactUserName === ""){
-    document.getElementById("contactNameError").innerHTML = "Your Names are Required";
-    document.getElementById("contactUserName").style.border='2px solid red';
+  if (contactUserName === "") {
+    document.getElementById("contactNameError").innerHTML =
+      "Your Names are Required";
+    document.getElementById("contactUserName").style.border = "2px solid red";
     return false;
-  }else {
+  } else {
     document.getElementById("contactUserName").style.border = "4px solid gold";
   }
 
-  if(contactEmail === ""){
-    document.getElementById("contactEmailError").innerHTML = "Email is Required";
-    document.getElementById("contactEmail").style.border='2px solid red';
+  if (contactEmail === "") {
+    document.getElementById("contactEmailError").innerHTML =
+      "Email is Required";
+    document.getElementById("contactEmail").style.border = "2px solid red";
     return false;
-  }else {
+  } else {
     document.getElementById("contactEmail").style.border = "4px solid gold";
   }
   if (
@@ -211,16 +208,18 @@ function validatecontactform(){
   return false;
 }
 
+// document.getElementById()
+
 function validateblogform() {
   const form2 = document.getElementById("blogform");
   form2.addEventListener("submit", (event) => {
-    event.preventDefault();
+    event.preventDefault;
   });
-  document.getElementById("dashBodyError").innerHTML="";
-  document.getElementById("blogTitleError").innerHTML ="";
+  document.getElementById("dashBodyError").innerHTML = "";
+  document.getElementById("blogTitleError").innerHTML = "";
+  
   var title = document.getElementById("blogTitle").value;
-  var blogBody = document.getElementById("dash-textarea").value;
-  document.getElementById("upload").required = true;
+  var blogBody = document.getElementById("dashtextarea").value;
 
   if (title === "") {
     document.getElementById("blogTitleError").innerHTML =
@@ -229,11 +228,16 @@ function validateblogform() {
   }
 
   if (blogBody === "") {
-    document.getElementById("dashBodyError").innerHTML = "Blog Body Is required";
+    document.getElementById("dashBodyError").innerHTML =
+      "Blog Body Is required";
     return false;
   }
-
+  
   return true;
+  
+}
+function myResetFunction() {
+  document.getElementById("blogform").reset();
 }
 // How long you want the animation to take, in ms
 const animationDuration = 2000;

@@ -22,8 +22,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="validate.js"></script>
+    <script src="message.js"></script>
   </head>
-  <body>
+  <body onload=" readMessage()">
     <div class="dashboard">
       <div class="dash-nav">
         <div class="dash-mobile-navbar">
@@ -99,83 +100,14 @@
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="message-table">
               <!-- Sample data (replace with your actual data) -->
-              <tr>
-                <td>John Doe</td>
-                <td>john.doe@example.com</td>
-                <td>Hello, I have a question...</td>
-                <td class="action-buttons">
-                  <img src="images/formicon/reply.png" alt="" />
-                  <img src="images/formicon/Trash.png" alt="" />
-                </td>
-              </tr>
-              <tr>
-                <td>Jane Smith</td>
-                <td>jane.smith@example.com</td>
-                <td>Need assistance with my account...</td>
-                <td class="action-buttons">
-                  <img src="images/formicon/reply.png" alt="" />
-                  <img src="images/formicon/Trash.png" alt="" />
-                </td>
-              </tr>
-              <tr>
-                <td>Alice Johnson</td>
-                <td>alice.johnson@example.com</td>
-                <td>Feedback on your services...</td>
-                <td class="action-buttons">
-                  <img src="images/formicon/reply.png" alt="" />
-                  <img src="images/formicon/Trash.png" alt="" />
-                </td>
-              </tr>
-              <tr>
-                <td>Bob Thompson</td>
-                <td>bob.thompson@example.com</td>
-                <td>Issue with my recent order...</td>
-                <td class="action-buttons">
-                  <img src="images/formicon/reply.png" alt="" />
-                  <img src="images/formicon/Trash.png" alt="" />
-                </td>
-              </tr>
-              <tr>
-                <td>Emma Davis</td>
-                <td>emma.davis@example.com</td>
-                <td>Question about upcoming events...</td>
-                <td class="action-buttons">
-                  <img src="images/formicon/reply.png" alt="" />
-                  <img src="images/formicon/Trash.png" alt="" />
-                </td>
-              </tr>
-              <tr>
-                <td>Michael Wilson</td>
-                <td>michael.wilson@example.com</td>
-                <td>Thank you for your excellent service...</td>
-                <td class="action-buttons">
-                  <img src="images/formicon/reply.png" alt="" />
-                  <img src="images/formicon/Trash.png" alt="" />
-                </td>
-              </tr>
-              <tr>
-                <td>Sophia Brown</td>
-                <td>sophia.brown@example.com</td>
-                <td>Inquiry about product availability...</td>
-                <td class="action-buttons">
-                  <img src="images/formicon/reply.png" alt="" />
-                  <img src="images/formicon/Trash.png" alt="" />
-                </td>
-              </tr>
-              <tr>
-                <td>William Miller</td>
-                <td>william.miller@example.com</td>
-                <td>Complaint about delivery delay...</td>
-                <td class="action-buttons">
-                  <img src="images/formicon/reply.png" alt="" />
-                  <img src="images/formicon/Trash.png" alt="" />
-                </td>
-              </tr>
-              <!-- Add more rows as needed -->
+             
             </tbody>
           </table>
+          <div id="smsError">
+            
+          </div>
         </div>
       </div>
     </div>

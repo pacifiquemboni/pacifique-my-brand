@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Iceland"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c8abb356dd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="validate.js"></script>
+  
+    <script src="addblog.js"></script>
+  </head>
+  <body>
+    <div class="mobile-navbar" id="mobile-navbar">
+      <div class="logo">A<span>T</span>C<span>.</span></div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="mobile-menu" id="mobileMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">AboutMe</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="mywork.html">MyWork</a></li>
+        <li class="active"><a href="blogs.html">Blogs</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+      <a href="contact.html"
+        ><button><span>Contact me</span></button></a
+      >
+    </div>
+
+    <script>
+      function toggleMenu() {
+        var mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("show");
+      }
+    </script>
+    <div class="body">
+      <div class="single-blog">
+        <h1 id="title"></h1>
+
+        <div id="blog-Image"></div>
+        <!-- <img src="images/blog/node.png" alt="" /> -->
+        <h2>Blogs > <span id="title2" class="active"></span></h2>
+
+        <h1>By <span id="blog-author"></span></h1>
+
+        <div id="blogbody"></div>
+        <div class="blog-footer">
+          <div class="like">
+            <i class="fa fa-comment" ></i>
+            <p >comment</p>
+          </div>
+          <div class="like">
+            <i class="fa fa-thumbs-up"></i>
+            <p>Like</p>
+          </div>
+        </div>
+        <hr />
+        <div class="blogcomment">
+          <div class="formcomment">
+            <form action="">
+              <input type="text" id="name" placeholder="names" />
+              <input type="text" id="email" placeholder="email" />
+              <textarea
+                name=""
+                id="blogcomment"
+                style="width: 100%; height: 100px"
+              >
+              </textarea>
+            </form>
+          </div>
+
+          <fieldset>
+            <legend>Comments:</legend>
+            <div class="comment-results">
+              <div class="comment-profile">
+                <img src="images/profile/mucyo.png" alt="" />
+              </div>
+              <div class="comment-name">pacifique mbonimana</div>
+              <div class="comment-message">that is incredible👍👍👍</div>
+              <div class="comment-like">like</div>
+              <div class="comment-reply">reply</div>
+              <div class="comment-time">07:30am</div>
+            </div>
+            <div class="comment-results">
+              <div class="comment-profile">
+                <img src="images/profile/mucyo.png" alt="" />
+              </div>
+              <div class="comment-name">pacifique mbonimana</div>
+              <div class="comment-message">that is incredible👍👍👍</div>
+              <div class="comment-like">like</div>
+              <div class="comment-reply">reply</div>
+              <div class="comment-time">07:30am</div>
+            </div>
+          </fieldset>
+          <!-- <div id="blog-comments">
+            <h2>Comments</h2>
+            <ul id="comments-list"></ul>
+            <textarea id="dashtextarea" placeholder="Add a comment"></textarea>
+            <button onclick="addComment()">Add Comment</button>
+          </div>
+          
+          <div id="blog-likes">
+            <h2>Likes</h2>
+            <p id="likes-count">0 Likes</p>
+            <button onclick="likeBlog()">Like</button>
+          </div> -->
+        </div>
+      </div>
+      <script>
+        var file = document.getElementById("blog-Image");
+        var author = document.getElementById("blog-author");
+        var blogbody = document.getElementById("blogbody");
+        let urlParams = new URLSearchParams(window.location.search);
+        const id = parseInt(urlParams.get("id"));
+       
+        document.addEventListener("DOMContentLoaded", () => {
+           let data = JSON.parse(localStorage.getItem("object"));
+
+          
+          let targetBlog = data.find((blog) => {
+            return blog.id === id;
+          });
+          document.getElementById("title").innerHTML = targetBlog.title;
+          document.getElementById("title2").innerHTML = targetBlog.title;
+          var img = new Image();
+          img.src = targetBlog.file;
+          img.alt = "Blog Image";
+          file.appendChild(img);
+
+          author.innerHTML = targetBlog.author;
+          blogbody.innerHTML = targetBlog.body;
+         
+        });
+  //       let currentBlogData = data.find((blog) => blog.id === id);
+  //       let commentsList = (currentBlogData && currentBlogData.comments) || [];
+  //       let likesCount = (currentBlogData && currentBlogData.likes) || 0;
+
+  //       displayComments();
+  //      displayLikes();
+
+  //      function addComment() {
+  //   const commentInput = document.getElementById("dashtextarea");
+  //  const comment = commentInput.value;
+
+  //   if (commentInput !== "") {
+  //     commentsList.push(comment);
+  //     saveDataToLocalStorage();
+  //     displayComments();
+  //     commentInput.value = "";
+  //   }
+  // }
+  // function displayComments() {
+  //   const commentsListElement = document.getElementById("blog-comments");
+  //   const commentsUl = commentsListElement.querySelector("#comments-list");
+  //   commentsUl.innerHTML = "";
+
+  //   commentsList.forEach((comment) => {
+  //     const li = document.createElement("li");
+  //     li.textContent = comment;
+  //     commentsUl.appendChild(li);
+  //   });
+  // }
+
+  // function likeBlog() {
+  //   likesCount++;
+  //   saveDataToLocalStorage();
+  //   displayLikes();
+  // }
+
+  // function displayLikes() {
+  //   const likesCountElement = document.getElementById("likes-count");
+  //   likesCountElement.textContent = `${likesCount} Likes`;
+  // }
+
+  // function saveDataToLocalStorage() {
+  //   // Update or add the current blog data to the blogsData array
+  //   const updatedBlogsData = data.map((blog) =>
+  //     blog.id === id
+  //       ? { ...blog, comments: commentsList, likes: likesCount }
+  //       : blog
+  //   );
+
+  //   if (!currentBlogData) {
+  //     // If the current blog does not exist in blogsData, add it
+  //     updatedBlogsData.push({
+  //       id: id,
+  //       comments: commentsList,
+  //       likes: likesCount,
+  //     });
+  //   }
+
+  //   localStorage.setItem("object", JSON.stringify(updatedBlogsData));
+  // }
+      </script>
+      <!-- contact us -->
+      <div class="contact-div">
+        <div class="address">
+          <i class="material-icons checked">&#xe55f;</i>
+          <h2>ADDRESS</h2>
+          <p>+250,KIAGALI CITY, NYARUGENGE</p>
+        </div>
+        <div class="verticle">
+          <div class="val1"></div>
+          <div class="val"></div>
+          <div class="val1"></div>
+        </div>
+        <div class="phone-num">
+          <i class="material-icons checked">&#xe551;</i>
+          <h2>PHONE NUMBER</h2>
+          <p>+250787299001, +250729981083</p>
+        </div>
+        <div class="verticle">
+          <div class="val1"></div>
+          <div class="val"></div>
+          <div class="val1"></div>
+        </div>
+        <div class="email">
+          <i class="material-icons checked">&#xe554;</i>
+          <h2>EMAIL-ADDRESS</h2>
+          <p>pacifiquemboni@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-body">
+        <div class="social-footer">
+          <img src="images/social/github.png" />
+          <img src="images/social/gmail.png" />
+          <img src="images/social/facebook.png" />
+          <img src="images/social/discord.png" />
+          <img src="images/social/linkedin.png" />
+        </div>
+        <br />
+        <hr />
+        <h1>2024 pacifiquemboni. All Rights Reserved</h1>
+      </div>
+    </div>
+    <script>
+      // fixing header
+      window.onscroll = function () {
+        myFunction();
+      };
+
+      var header = document.getElementById("mobile-navbar");
+      var navbar = document.getElementById("mobilemenu");
+      var sticky = header.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
+    </script>
+  </body>
+</html>
