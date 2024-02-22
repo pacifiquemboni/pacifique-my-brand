@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
         <script src="validate.js"></script>
+        <script src="adduser.js"></script>
+        <!-- <script src="login.js" defer></script> -->
         
     </head>
     <body>
@@ -44,25 +46,71 @@
                 
                     <div class="login">
                         <div class="login-img">
-                            <img src="images/profile/login.jpg" alt="">
+                            <h1>LOGIN</h1>
                         </div>
+                        <div id="loginactions">
+                            <h1 id="userlgnh1" class="active">User Login</h1>
+                            <button id="userlgn" onclick="switchUser()">user Login</button>
+                            <h1 id="adminlgnh1" class="active">Admin Login</h1>
+                            <button id="adminlgn" onclick="switchAdmin()">Admin</button>
+                        </div>
+                        
                         <div class="login-form">
-                            <form name="myloginform" onsubmit="return validateloginform()">
+                            <form id="LoginForm" class="userLogin" onsubmit="return validateLoginForm()" oninput="validateLoginForm()">
                                 
-                                <input type="text" placeholder="Enter username" id="username" name="name">
-                                <input type="password" placeholder="Enter password" id="password" name="password">
+                                <input type="text" placeholder="Enter userName ->> eg:username@example.com" id="loginUserName" name="name" oninput="validateLoginForm()">
+                                <div id="userNameError"></div>
+                                <input type="password" placeholder="Enter password" id="loginPassword" name="password" oninput="return validateLoginForm()">
+                                <div id="passwordError"></div>
                                 <!-- <input type="submit" value="register">   -->
                             
                             <p>Forget password?</p>
+
+                            <div class="results"></div>
                             
                             <div class="login-btn">
-                                <button type="submit">Login</button>
-                                <a href="board.html">Login</a> 
+                                <button type="button" onclick="userLogin()">User Login</button>
+                             </div> 
+                              <div class="signup">
+                                If you don’t have account. <a href="signup.html">Sign-Up</a>
                              </div>   
                             </form>
-                             <div class="signup">
-                                If you don’t have account. <a href="signup.html">Sign-Up</a>
-                             </div> 
+                            
+                             <!-- ADMIN LOgin -->
+                             <div id="adminlogin">
+                                <form id="adminLoginForm" onsubmit="return validateLoginForm()" oninput="validateLoginForm()">
+                                
+                                    <input type="text" placeholder="Enter userName ->> eg:username@example.com" id="AdminUserName" name="name" oninput="validateLoginForm()">
+                                    <div id="adminuserNameError"></div>
+                                    <input type="password" placeholder="Enter password" id="AdminloginPassword" name="password" oninput="return validateLoginForm()">
+                                    <div id="adminpasswordError"></div>
+                              
+                                <div class="adminresults"></div>
+                                
+                                <div class="login-btn">
+                                    <button type="button" onclick="adminLogin()">Admin Login</button>
+                                 </div>   
+                                </form>
+                                 <script>
+                                    function switchAdmin(){
+                                        document.getElementById("userlgnh1").style.display ='none';
+                                        document.getElementById("adminlgnh1").style.display ='block';
+                                        document.getElementById("adminlgn").style.display ='none';
+                                        document.getElementById("userlgn").style.display ='block';
+                                        document.getElementById("adminlogin").style.display ='block';
+                                        document.querySelector(".userLogin").style.display ='none';
+                                    }
+                                    function switchUser(){
+                                        document.getElementById("userlgnh1").style.display ='block';
+                                        document.getElementById("adminlgnh1").style.display ='none';
+                                        document.getElementById("adminlgn").style.display ='block';
+                                        document.getElementById("userlgn").style.display ='none';
+                                        document.getElementById("adminlogin").style.display ='none';
+                                        document.querySelector(".userLogin").style.display ='block';
+                                    }
+                                 </script>
+                                 
+                             </div>
                              
                         </div>
                     </div>

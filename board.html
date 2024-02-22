@@ -24,7 +24,7 @@
                     </div>
                     <ul class="dash-mobile-menu" id="dash-mobileMenu">
                 <li><a href="newBlog.html"><img src="images/formicon/Add.png" alt=""> New Blog</a></li>
-                <li  class="dash-active"><a href="stats.html"><img src="images/formicon/stats.png" alt=""> Stats</a></li>
+                <li><a href="stats.html"><img src="images/formicon/stats.png" alt=""> Stats</a></li>
                 <li><a href="users.html"><img src="images/formicon/User.png" alt=""> Users
                  
                     <div class="status"><img src="images/formicon/status.png"  alt=""></div> </a></li>
@@ -32,7 +32,7 @@
                  
                     <div class="status"><img src="images/formicon/status.png"  alt=""></div> </a></li>
                 <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt=""> All Blogs</a></li>
-                <li> <a href="dashsettings.html"><img src="images/formicon/Setting.png" alt=""> Settings</a></li>
+                
     
                     </ul>
                     <div class="dash-nav-footer ">
@@ -74,57 +74,48 @@
                         </div>
                     </div>
                 </div>
-                <div class="stats-section">
+                <div class="settings-section">
                     <div class="heading">
-                        <h1>Statistics</h1>
-                        <img src="images/formicon/stats.png" alt=""> 
+                      <h1>Settings</h1>
+                      <img src="images/formicon/Setting.png" alt="" />
                     </div>
-                    <hr><br><br>
-                    <div class="cards">
-                            <div class="users-stats card">
-                                <img src="images/formicon/Group.png" alt="">
-                            <h1>Clients</h1>
-                            <h1 ><span class="countup">200</span>+</h1>
-                        </div>
-                        <div class="blogs-stats card">
-                            <img src="images/formicon/allblogs.png" alt="">
-                            <h1>Blogs</h1>
-                            <h1 ><span class="countup">100</span>+</h1>
-                        </div>
-                        <div class="reaction-stats card">
-                            <img src="images/formicon/social.png" alt="">
-                            <h1>Reactions</h1>
-                            <h1 ><span class="countup">500</span>+</h1>
-                        </div>
+          
+                    <hr />
+                    <br />
+                    <div class="change-password">
+                      <h2>Change Password</h2>
+                      <form>
+                        <label for="current-password">Current Password:</label>
+                        <input
+                          type="password"
+                          id="current-password"
+                          name="current-password"
+                          required
+                        />
+          
+                        <label for="new-password">New Password:</label>
+                        <input
+                          type="password"
+                          id="new-password"
+                          name="new-password"
+                          required
+                        />
+          
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input
+                          type="password"
+                          id="confirm-password"
+                          name="confirm-password"
+                          required
+                        />
+          
+                        <button type="submit">Change Password</button>
+                      </form>
                     </div>
-                    <div class="chart">
-                        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-                        <script>
-                            const xValues = ["Clients", "Blogs", "Reaction", ""];
-                            const yValues = [200, 100, 500, 0];
-                            const barColors = ["yellow", "green","white","blue"];
-                            
-                            new Chart("myChart", {
-                              type: "bar",
-                              data: {
-                                labels: xValues,
-                                datasets: [{
-                                  backgroundColor: barColors,
-                                  data: yValues
-                                }]
-                              },
-                              options: {
-                                legend: {display: false},
-                                title: {
-                                  display: true,
-                                  text: "Statistics Chart"
-                                }
-                              }
-                            });
-                            </script>
-                    </div>
-                    
                 </div>
+
+
+
             </div>
         </div>    
     </body>

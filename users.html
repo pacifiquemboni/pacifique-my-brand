@@ -9,10 +9,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
-        <script src="validate.js"></script>
+        <script src="validate.js" defer></script>
+        <script src="adduser.js" defer></script>
         
     </head>
-    <body>
+    <body onload=" readUserData()">
         <div class="dashboard">
                 
             <div class="dash-nav">
@@ -24,11 +25,10 @@
                     <ul class="dash-mobile-menu" id="dash-mobileMenu">
                 <li><a href="newBlog.html"><img src="images/formicon/Add.png" alt=""> New Blog</a></li>
                 <li ><a href="stats.html"><img src="images/formicon/stats.png" alt=""> Stats</a></li>
-                <li class="dash-active"><a href="users.html"><img src="images/formicon/User.png" alt=""> Users</a></li>
+                <li><a href="users.html" class="dash-active"><img src="images/formicon/User.png" alt=""> Users</a></li>
                 <li><a href="dashmessages.html"><img src="images/formicon/Message.png" alt=""> Messages</a></li>
                 <li><a href="blogs.html"><img src="images/formicon/allblogs.png" alt=""> All Blogs</a></li>
-                <li> <a href="dashsettings.html"><img src="images/formicon/Setting.png" alt=""> Settings</a></li>
-    
+                
                     </ul>
                     <div class="dash-nav-footer ">
                         <a href="board.html">
@@ -55,107 +55,127 @@
             <hr class="dash-hr">
             
             <div class="dash-main">
-                
-               <div class="user-table">
-                <div class="heading">
-                    <h1>Registered Users</h1>
-                    <img src="images/formicon/User.png" alt="">
-                </div>
-                
-                <hr>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>FullName</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>john.doe@example.com</td>
-                            <td>password123</td>
-                            <td class="action-buttons">
-                                <img src="images/formicon/reset.png" alt="">
-                                <img src="images/formicon/Edit.png" alt="">
-                                <img src="images/formicon/Trash.png" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jane Smith</td>
-                            <td>jane.smith@example.com</td>
-                            <td>securepass456</td>
-                            <td class="action-buttons">
-                                <img src="images/formicon/reset.png" alt="">
-                                <img src="images/formicon/Edit.png" alt="">
-                                <img src="images/formicon/Trash.png" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>User 3</td>
-                            <td>user3@example.com</td>
-                            <td>userpass3</td>
-                            <td class="action-buttons">
-                                <img src="images/formicon/reset.png" alt="">
-                                <img src="images/formicon/Edit.png" alt="">
-                                <img src="images/formicon/Trash.png" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>User 4</td>
-                            <td>user4@example.com</td>
-                            <td>userpass4</td>
-                            <td class="action-buttons">
-                                <img src="images/formicon/reset.png" alt="">
-                                <img src="images/formicon/Edit.png" alt="">
-                                <img src="images/formicon/Trash.png" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>User 5</td>
-                            <td>user5@example.com</td>
-                            <td>userpass5</td>
-                            <td class="action-buttons">
-                                <img src="images/formicon/reset.png" alt="">
-                                <img src="images/formicon/Edit.png" alt="">
-                                <img src="images/formicon/Trash.png" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>User 6</td>
-                            <td>user6@example.com</td>
-                            <td>userpass6</td>
-                            <td class="action-buttons">
-                                <img src="images/formicon/reset.png" alt="">
-                                <img src="images/formicon/Edit.png" alt="">
-                                <img src="images/formicon/Trash.png" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>User 7</td>
-                            <td>user7@example.com</td>
-                            <td>userpass7</td>
-                            <td class="action-buttons">
-                                <img src="images/formicon/reset.png" alt="">
-                                <img src="images/formicon/Edit.png" alt="">
-                                <img src="images/formicon/Trash.png" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>User 8</td>
-                            <td>user8@example.com</td>
-                            <td>userpass8</td>
-                            <td class="action-buttons">
-                                <img src="images/formicon/reset.png" alt="">
-                                <img src="images/formicon/Edit.png" alt="">
-                                <img src="images/formicon/Trash.png" alt="">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-               </div>
+
+                           
+                        <div class="user-table">
+                            <button type="button" id="adduserbtn" onclick="createUser()">+ Add User</button>
+                            <div class="login-form">
+                                
+                                <form
+                                  id="sign-upForm"
+                                  class="sign-upForm"
+                                  oninput="return validateSignForm() && validateSignForm()"
+                                >
+                                  <h1>Add New User</h1>
+                                  <input
+                                    type="text"
+                                    placeholder="User names"
+                                    id="signUserName"
+                                    name="name"
+                                  /><br />
+                                  <div id="signUserNameError"></div>
+                                  <input
+                                    type="text"
+                                    placeholder="User E-mail"
+                                    id="signEmail"
+                                    name="email"
+                                    oninput="firstPassValidate()"
+                                  /><br />
+                                  <div id="emailError"></div>
+                                  <input type="text" placeholder="User' password" id="password" oninput="firstPassValidate()"/>
+                                    <div id="signPasswordError"></div>
+                                    <div id="upper" class="rederror"></div>
+                                    <div id="upperyes" class="greenerror"></div>
+                                    <div id="lower" class="rederror"></div>
+                                    <div id="loweryes" class="greenerror"></div>
+                                    <div id="specialchar" class="rederror"></div>
+                                    <div id="specialcharyes" class="greenerror"></div>
+                                    <div id="number" class="rederror"></div>
+                                    <div id="numberyes" class="greenerror"></div>
+                                    <div id="space" class="rederror"></div>
+                                    <div id="spaceyes" class="greenerror"></div>
+                                    <input
+                                    type="text"
+                                    placeholder="confirm password"
+                                    id="password2"
+                                    name="password2"
+                                    oninput="firstPassValidate()"
+                                  />
+                                  <div id="signConfirmPasswordError"></div>
+                              
+                    
+                                  <div class="login-btn">
+                                    <a href="#"><button type="button" value="submit" onclick="validateSignForm() && addUser() ">Add-User</button></a>
+                                  </div>
+                                </form>
+                              </div>
+
+                              <!-- Editing a user form -->
+                              <div class="login-form">
+                                
+                                <form
+                                  id="sign-upForm"
+                                  class="sign-upEditForm"
+                                  oninput="return validateSignForm() && validateSignForm()"
+                                >
+                                  <h1>Edit User</h1>
+                                  <input type="text" class="id" hidden>
+                                  <input
+                                    type="text"
+                                    placeholder="User names"
+                                    id="signUserName"
+                                    class="uname"
+                                    name="name"
+                                  /><br />
+                                  <div id="signUserNameError"></div>
+                                  <input
+                                    type="text"
+                                    placeholder="User E-mail"
+                                    id="signEmail"
+                                    class="uemail"
+                                    name="email"
+                                    oninput="firstPassValidate()"
+                                  /><br />
+                                  <div id="emailError"></div>
+                                  
+                                    <input
+                                    type="text"
+                                    placeholder="confirm password"
+                                    id="password2"
+                                    class="upassword2"
+                                    name="password2"
+                                    oninput="firstPassValidate()"
+                                  />
+                                  <div id="signConfirmPasswordError"></div>
+                              
+                    
+                                  <div class="login-btn">
+                                    <a href="#"><button type="button" value="submit" onclick="updateUser() ">Update-User</button></a>
+                                  </div>
+                                </form>
+                              </div>
+                        <div class="heading">
+                            <h1>Registered Users</h1>
+                            <img src="images/formicon/User.png" alt="">
+                        </div>
+                        
+                        <hr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>FullName</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userdata-table">
+                            
+                            </tbody>
+                        </table>
+                    </div> 
+               
+               
             </div>
         </div>    
     </body>
