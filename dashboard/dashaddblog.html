@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="dashcss.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Iceland"
+    />
+    <title>Dash Blogs</title>
+    <script src="../validate.js"></script>
+
+    <script src="addblog.js" defer></script>
+  </head>
+  <body onload="fetchBlogs()">
+    <div id="body">
+      <header>
+        <input type="checkbox" name="" id="check" />
+        <label for="check">
+          <img src="./bar.png" alt="" id="menubtn" style="width: 50px" />
+          <img src="./x.png" alt="" id="menucancel" style="width: 20px" />
+        </label>
+        <div class="sidebar">
+          <header>Dashboard</header>
+          <ul>
+            <li class="active">
+              <a href="dashaddblog.html"
+                ><img src="./formicon/Add.png" class="fas" alt="" /> New Blog</a
+              >
+            </li>
+            <li>
+              <a href="projectspage.html"
+                ><img src="./formicon/project.png" class="fas" alt="" />
+                Projects</a
+              >
+            </li>
+            <li>
+              <a href="stats.html"
+                ><img src="./formicon/stats.png" class="fas" alt="" />
+                Statatistics</a
+              >
+            </li>
+            <li>
+              <a href="users.html"
+                ><img src="./formicon/User.png" class="fas" alt="" />Users</a
+              >
+            </li>
+            <li>
+              <a href="messages.html"
+                ><img src="./formicon/Message.png" class="fas" alt="" />
+                Messages</a
+              >
+            </li>
+          </ul>
+          <li>
+            <a href="#" class="logout">
+              <img src="./formicon/logout.png" class="fas" alt="" />
+              <span class="nav-item">logout</span>
+            </a>
+          </li>
+        </div>
+      </header>
+      <!-- <div id="section-header">
+          
+      </div> -->
+      <div id="section">
+        
+        <div class="dash-main">
+          <div class="dash-form">
+            <div
+                  id="toastNotificationerro"
+                  class="toast hidden"
+                  style="
+                    background-color: #dc3545;
+                    height: 50px;
+                    text-align: center;
+                  "
+                ></div>
+            <div class="login-form">
+              <form id="blogform" class="blogform1">
+                
+                <div id="toastNotification" class="toast hidden"></div>
+  
+                <div class="heading">
+                  <h1>Add New Blog</h1>
+                </div>
+                <div id="success"></div>
+                <label for="message">Blog Title :</label>
+                <input
+                  type="text"
+                  placeholder="Enter Blog Title"
+                  id="blogTitle" 
+                  
+                />
+                <label for="message">Blog intro :</label>
+                <input
+                  type="text"
+                  placeholder="Enter Blog Intoduction"
+                  id="blogIntro"
+                  
+                />
+                <div id="blogTitleError"></div>
+                <label for="message">Blog Body :</label>
+                <!-- <input type="text" id="dash-textarea"> -->
+                <textarea
+                  placeholder="blog body"
+                  id="dashtextarea"
+                  class="dash-textarea"
+                  
+                ></textarea>
+  
+                <input type="text" placeholder="image url" id="blogImage" hidden/>
+                <div id="uploadImage" style="color: green"></div>
+                <div id="my-editor"></div>
+  
+                <div id="dashBodyError"></div>
+                <!-- <div
+                  id="toastNotification"
+                  class="toast hidden"
+                 
+                ></div> -->
+                <div class="dash-btn">
+                  <form
+                    id="imageForm"
+                    class="fileupload"
+                    enctype="multipart/form-data"
+                  >
+                    <img src="../images/formicon/Upload.png" />
+                    <input
+                      type="file"
+                      id="imageInput"
+                      name="image"
+                      accept="image/*"
+                      onchange="handleFileChange() "
+                    />
+  
+                    <button type="button" onclick="imageUpload()">
+                      Upload Image
+                    </button>
+                  </form>
+                  <button
+                    type="submit"
+                    value="submit"
+                    id="postbtn"
+                    style="display: block"
+                  >
+                    PostBlog
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="dash-right">
+            <div class="heading">
+              <h3>Image Preview</h3>
+            </div>
+            <img id="previewImage" />
+          </div>
+  
+          <div id="blog-table">
+            <button type="button" id="addblogbtn" onclick="create()">
+              + Add Blog
+            </button>
+            <br /><br />
+            <div class="heading">
+              <h1>Added blogs:</h1>
+            </div>
+            <table>
+              <thead>
+                <th class="image">Image</th>
+                <th>Blog Title</th>
+                <th>Blog Author</th>
+                <th>Blog Introduction</th>
+                <!-- <th>Blog Body</th> -->
+                <th>Actions</th>
+              </thead>
+              <tbody id="blogdata_table"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+
+    
+  </body>
+  <script>
+    function handleFileChange() {
+      var fileInput = document.getElementById("imageInput");
+      var previewImage = document.getElementById("previewImage");
+
+      if (fileInput && fileInput.files && fileInput.files.length > 0) {
+        var selectedFile = fileInput.files[0];
+
+        // Read the file as a Data URL (Base64 encoded)
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          // Display the preview image
+          previewImage.src = e.target.result;
+          previewImage.style.display = "block";
+
+          // Save the Base64 data to localStorage
+          localStorage.setItem("imageData", e.target.result);
+        };
+
+        reader.readAsDataURL(selectedFile);
+      } else {
+        console.log("No file selected");
+      }
+    }
+
+    // You can load the image data from localStorage on page load if needed
+    var imageDataFromStorage = localStorage.getItem("imageData");
+    if (imageDataFromStorage) {
+      var previewImage = document.getElementById("previewImage");
+      previewImage.src = imageDataFromStorage;
+      previewImage.style.display = "block";
+    }
+  </script>
+</html>

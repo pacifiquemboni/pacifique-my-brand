@@ -186,7 +186,7 @@ function validatecontactform() {
   if (
     atposition < 1 ||
     dotposition < atposition + 2 ||
-    dotposition + 2 >= x.length
+    dotposition + 2 >= contactEmail.length
   ) {
     document.getElementById("contactEmailError").innerHTML =
       "Please enter a valid e-mail address";

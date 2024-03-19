@@ -3,14 +3,15 @@
     <head>
         <title>my work</title>
         <link rel="stylesheet" href="./index.css">
+        <!-- <link rel="stylesheet" href="./dashboard/dashcss.css"> -->
         <link rel="stylesheet" href="./responsive.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceland">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c8abb356dd.js" crossorigin="anonymous"></script>
-        
+        <script src="./dashboard/addproj.js"></script>
     </head>
-    <body>
+    <body onload="fetchprojects2()">
         <div class="mobile-navbar" id="mobile-navbar">
             <div class="logo">A<span>T</span>C<span>.</span></div>
             <div class="menu-icon" onclick="toggleMenu()">
@@ -36,8 +37,11 @@
             
             <div class="mywork">
                 <h1>My Work</h1>
+                <div id="myworkprojects-cards">
+
+                </div>
             </div>
-            <!-- contact us -->
+            <!-- contact us
         <div class="contact-div">
             <div class="address">
                 <i class="material-icons checked">&#xe55f;</i>
@@ -66,11 +70,14 @@
                 <h2>EMAIL-ADDRESS</h2>
                 <p>pacifiquemboni@gmail.com</p>
             </div>
-        </div>
+        </div> -->
        
         </div>
         <div class="footer">
             <div class="footer-body">
+                
+                <br>
+                <hr>
                 <div class="social-footer">
                     <img src="images/social/github.png">
                     <img src="images/social/gmail.png">
@@ -78,9 +85,8 @@
                     <img src="images/social/discord.png">
                     <img src="images/social/linkedin.png">
                 </div>
-                <br>
-                <hr>
                 <h1>2024 pacifiquemboni. All Rights Reserved</h1>
+                
             </div>
         </div>
         <script>

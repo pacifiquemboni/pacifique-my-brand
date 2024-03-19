@@ -56,11 +56,8 @@
           <div class="login-form sign-up-Form">
             <form
               id="sign-upForm"
-             
-              
               oninput="return validateSignForm() && validateSignForm()"
             >
-              
               <input
                 type="text"
                 placeholder="Your names"
@@ -76,18 +73,23 @@
                 oninput="firstPassValidate()"
               /><br />
               <div id="emailError"></div>
-              <input type="text" placeholder="password" id="password" oninput="firstPassValidate()"/>
-                <div id="signPasswordError"></div>
-                <div id="upper" class="rederror"></div>
-                <div id="upperyes" class="greenerror"></div>
-                <div id="lower" class="rederror"></div>
-                <div id="loweryes" class="greenerror"></div>
-                <div id="specialchar" class="rederror"></div>
-                <div id="specialcharyes" class="greenerror"></div>
-                <div id="number" class="rederror"></div>
-                <div id="numberyes" class="greenerror"></div>
-                <div id="space" class="rederror"></div>
-                <div id="spaceyes" class="greenerror"></div>
+              <input
+                type="text"
+                placeholder="password"
+                id="password"
+                oninput="firstPassValidate()"
+              />
+              <div id="signPasswordError"></div>
+              <div id="upper" class="rederror"></div>
+              <div id="upperyes" class="greenerror"></div>
+              <div id="lower" class="rederror"></div>
+              <div id="loweryes" class="greenerror"></div>
+              <div id="specialchar" class="rederror"></div>
+              <div id="specialcharyes" class="greenerror"></div>
+              <div id="number" class="rederror"></div>
+              <div id="numberyes" class="greenerror"></div>
+              <div id="space" class="rederror"></div>
+              <div id="spaceyes" class="greenerror"></div>
               <input
                 type="text"
                 placeholder="confirm password"
@@ -98,12 +100,48 @@
               <div id="signConfirmPasswordError"></div>
 
               <div class="login-btn">
-                <a href="#"><button type="button" value="submit" onclick="validateSignForm() && addUser() ">Sign-Up</button></a>
+                <a href="#"
+                  ><button
+                    type="button"
+                    onclick="validateSignForm() && submitForm() "
+                  >
+                    Sign-Up
+                  </button></a
+                >
               </div>
             </form>
+            <script>
+              function submitForm() {
+                const names = document.getElementById("signUserName").value;
+                const email = document.getElementById("signEmail").value;
+                const password = document.getElementById('password').value;
+                const confpass = document.getElementById('password2').value;
+  
+                // Example: Sending data to the server using Fetch API
+                fetch("http://127.0.0.1:5000/user", {
+                  //https://pacifique-mybrand-endpoints.onrender.com
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ names, email , password , confpass }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log("Data sent successfully:", data);
+                    // You can add further actions or UI updates here
+                    alert("you have successfullu registered to our system")
+                    location.reload();
+                  })
+                  .catch((error) => {
+                    console.error("Error sending data:", error);
+                  });
+              }
+            </script>
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+            <script src="script.js"></script>
           </div>
         </div>
-        
       </div>
 
       <!-- contact us -->
@@ -147,7 +185,7 @@
         <br />
         <hr />
         <h1>2024 pacifiquemboni. All Rights Reserved</h1>
-        <a href="board.html">dash</a>
+        <!-- <a href="board.html">dash</a> -->
       </div>
     </div>
     <script>

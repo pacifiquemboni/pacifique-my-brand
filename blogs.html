@@ -21,9 +21,9 @@
       src="https://kit.fontawesome.com/c8abb356dd.js"
       crossorigin="anonymous"
     ></script>
-    <script src="addblog.js" defer></script>
+    <script src="dashboard/addblog.js"></script>
   </head>
-  <body onload="readAll()">
+  <body onload="fetchBlogs2()">
     <div class="mobile-navbar" id="mobile-navbar">
       <div class="logo">A<span>T</span>C<span>.</span></div>
       <div class="menu-icon" onclick="toggleMenu()">
@@ -50,12 +50,14 @@
     <div class="body">
       <!-- blogs section -->
       <div class="myblog-div">
+        <div id="toastNotification" class="toast hidden"></div>
         <div class="blogs myblogs" id="myblogs">
+
           <!-- this is where blogs will br displayed -->
         </div>
       </div>
 
-      <!-- contact us -->
+      <!-- contact us
       <div class="contact-div">
         <div class="address">
           <i class="material-icons checked">&#xe55f;</i>
@@ -82,10 +84,13 @@
           <h2>EMAIL-ADDRESS</h2>
           <p>pacifiquemboni@gmail.com</p>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="footer">
       <div class="footer-body">
+        
+        <br />
+        <hr />
         <div class="social-footer">
           <img src="images/social/github.png" />
           <img src="images/social/gmail.png" />
@@ -93,9 +98,8 @@
           <img src="images/social/discord.png" />
           <img src="images/social/linkedin.png" />
         </div>
-        <br />
-        <hr />
         <h1>2024 pacifiquemboni. All Rights Reserved</h1>
+        
       </div>
     </div>
     <script>
