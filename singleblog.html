@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Contact us</title>
+    <title>single-blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./responsive.css" />
@@ -22,10 +22,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="validate.js"></script>
-  
-    <script src="addblog.js"></script>
+    <!-- <script src="addcomment.js"></script> -->
+    <!-- <script src="addblog.js"></script> -->
   </head>
-  <body>
+  <body onload="fetchcomments() && fetchLikes()">
     <div class="mobile-navbar" id="mobile-navbar">
       <div class="logo">A<span>T</span>C<span>.</span></div>
       <div class="menu-icon" onclick="toggleMenu()">
@@ -50,6 +50,7 @@
         mobileMenu.classList.toggle("show");
       }
     </script>
+    <script src="singleblog.js"></script>
     <div class="body">
       <div class="single-blog">
         <h1 id="title"></h1>
@@ -58,82 +59,305 @@
         <!-- <img src="images/blog/node.png" alt="" /> -->
         <h2>Blogs > <span id="title2" class="active"></span></h2>
 
-        <h1>By <span id="blog-author"></span></h1>
+        <h1>By : <span id="blog-author"></span></h1>
 
+        <strong><div id="blogIntro"></div></strong>
+        <br /><br />
         <div id="blogbody"></div>
         <div class="blog-footer">
           <div class="like">
-            <i class="fa fa-comment" ></i>
-            <p >comment</p>
+            <button type="button">
+              <i class="fa fa-comment"></i>
+            </button>
+            
+            <p>Comment(<span id="count"></span>)</p>
           </div>
+
           <div class="like">
-            <i class="fa fa-thumbs-up"></i>
-            <p>Like</p>
+            <form id="likeform">
+              <input type="text" id="blogid" hidden/>
+              <button type="button" id="like-button">
+                <i class="fa fa-thumbs-up"></i>
+              </button>
+            </form>
+            <p id="likes-count" hidden></p>
+            <p>likes(<span id="countlike"></span>)</p>
           </div>
+          <script>
+  let isLiked = false; // Initial state of the like button
+
+  // Function to toggle the like status and update UI
+  const toggleLike = async () => {
+    isLiked = !isLiked; // Toggle the like status
+    const blogId = document.getElementById("blogid").value;
+
+    try {
+      const response = await fetch("http://localhost:5000/like", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ blogId, isLiked })
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update like status");
+      }
+
+      const responseData = await response.json();
+      console.log(responseData.message); // Log the success message from the server
+    } catch (error) {
+      console.error("Error updating like status:", error);
+      // Handle errors here
+    }
+
+    // Update UI based on the like status
+    const likeButton = document.getElementById("like-button");
+    const likesCountElement = document.getElementById("likes-count");
+    
+    if (isLiked) {
+      likeButton.classList.add("liked"); // Add a class to indicate liking
+      likesCountElement.textContent = "Liked"; // Update like count text
+    } else {
+      likeButton.classList.remove("liked"); // Remove the class for unliking
+      likesCountElement.textContent = "Like"; // Update like count text
+    }
+  };
+
+  // Event listener for the like button click
+  document.getElementById("like-button").addEventListener("click", () => {
+    toggleLike(); // Toggle the like status and update backend
+  });
+</script>
+          
+          <!-- <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const likeButton = document.querySelector("#like-button");
+              const likesCountElement = document.querySelector("#likes-count");
+
+              // Get the current blog ID from the URL
+              let urlParams = new URLSearchParams(window.location.search);
+              const blogId = parseInt(urlParams.get("id"));
+
+              // Load existing likes from local storage
+              let storedLikes =
+                JSON.parse(localStorage.getItem("blogLikes")) || {};
+              let isLiked = storedLikes[blogId] || false;
+
+              displayLikes(isLiked ? 1 : 0);
+
+              likeButton.addEventListener("click", function () {
+                // Toggle like status
+                isLiked = !isLiked;
+
+                // Update likes count based on the toggle
+                const likesCount = isLiked ? 1 : 0;
+
+                // Save updated likes to local storage
+                storedLikes[blogId] = isLiked;
+                localStorage.setItem("blogLikes", JSON.stringify(storedLikes));
+
+                // Display updated likes count
+                displayLikes(likesCount);
+              });
+
+              function displayLikes(count) {
+                likesCountElement.textContent = `${count} Likes`;
+              }
+            });
+          </script> -->
         </div>
         <hr />
         <div class="blogcomment">
-          <div class="formcomment">
-            <form action="">
-              <input type="text" id="name" placeholder="names" />
-              <input type="text" id="email" placeholder="email" />
-              <textarea
-                name=""
-                id="blogcomment"
-                style="width: 100%; height: 100px"
-              >
-              </textarea>
-            </form>
-          </div>
-
+          <div id="toastNotification" class="toast hidden"></div>
+          <form id="comment-form" class="formcomment">
+            <input type="text" hidden id="blogid" placeholder="blogId" />
+            <input type="text" id="name" placeholder="Names" />
+            <textarea
+              name=""
+              id="blogcomment"
+              placeholder="Write your comment"
+            ></textarea>
+            <button type="submit">Submit Comment</button>
+          </form>
           <fieldset>
             <legend>Comments:</legend>
-            <div class="comment-results">
-              <div class="comment-profile">
-                <img src="images/profile/mucyo.png" alt="" />
-              </div>
-              <div class="comment-name">pacifique mbonimana</div>
-              <div class="comment-message">that is incredible👍👍👍</div>
-              <div class="comment-like">like</div>
-              <div class="comment-reply">reply</div>
-              <div class="comment-time">07:30am</div>
-            </div>
-            <div class="comment-results">
-              <div class="comment-profile">
-                <img src="images/profile/mucyo.png" alt="" />
-              </div>
-              <div class="comment-name">pacifique mbonimana</div>
-              <div class="comment-message">that is incredible👍👍👍</div>
-              <div class="comment-like">like</div>
-              <div class="comment-reply">reply</div>
-              <div class="comment-time">07:30am</div>
-            </div>
+            <div id="comments-list"></div>
           </fieldset>
-          <!-- <div id="blog-comments">
-            <h2>Comments</h2>
-            <ul id="comments-list"></ul>
-            <textarea id="dashtextarea" placeholder="Add a comment"></textarea>
-            <button onclick="addComment()">Add Comment</button>
-          </div>
-          
-          <div id="blog-likes">
-            <h2>Likes</h2>
-            <p id="likes-count">0 Likes</p>
-            <button onclick="likeBlog()">Like</button>
-          </div> -->
         </div>
       </div>
       <script>
+        const addComment = async (comment) => {
+          try {
+            const token = localStorage.getItem("token");
+            if (!token) {
+              throw new Error("Token not found in localStorage");
+            }
+
+            // Make a POST request to add the comment
+            const response = await fetch(`http://localhost:5000/comment`, {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(comment),
+            });
+
+            if (!response.ok) {
+              throw new Error("Failed to add comment");
+            }
+
+            showToast("good! comment added successfully", "success");
+            resetForm();
+          } catch (error) {
+            console.error(error);
+            // Handle errors here
+          }
+        };
+
+        document
+          .getElementById("comment-form")
+          .addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Extract the new comment from the input field
+            const comment = document.getElementById("blogcomment").value;
+            const blogid = document.getElementById("blogid").value;
+            const names = document.getElementById("name").value;
+            const newcomment = {
+              blogid: blogid,
+              names: names,
+              comment: comment,
+            };
+            await addComment(newcomment);
+          });
+        function showToast(message, type = "success", duration = 3000) {
+          const toast = document.getElementById("toastNotification");
+          toast.textContent = message;
+          toast.classList.add("show", type); // Add 'type' class for styling
+          setTimeout(() => {
+            toast.classList.remove("show", type);
+          }, duration);
+        }
+        function resetForm() {
+          document.getElementById("comment-form").reset(); // Reset the form
+        }
+      </script>
+      <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const commentForm = document.querySelector("#comment-form");
+          const commentsList = document.querySelector("#comments-list");
+      
+          // Get the current blog ID from the URL
+          let urlParams = new URLSearchParams(window.location.search);
+          const blogId = parseInt(urlParams.get("id"));
+      
+          // Load existing comments from the server
+          displayComments();
+      
+          commentForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+      
+            // Get input values
+            const commentInput = document.querySelector("#blogcomment");
+      
+            // Create a new comment object
+            const newComment = {
+              message: commentInput.value,
+              time: getCurrentTime(),
+            };
+      
+            // Clear input field
+            commentInput.value = "";
+      
+            // Add comment to backend
+            await addComment(newComment);
+      
+            // Reload comments from the server
+            displayComments();
+          });
+      
+          async function displayComments() {
+            try {
+              // Fetch comments from the server
+              const response = await fetch(`/blogs/${blogId}/comments`);
+              if (!response.ok) {
+                throw new Error('Failed to fetch comments');
+              }
+              const comments = await response.json();
+      
+              // Clear existing comments
+              commentsList.innerHTML = "";
+      
+              // Display each comment
+              comments.forEach((comment) => {
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("comment-results");
+      
+                commentElement.innerHTML = `
+                  <div class="comment-profile">
+                    <img src="images/profile/mucyo.png" alt="" />
+                  </div>
+                  <div class="comment-message">${comment.message}</div>
+                  <div class="comment-like"></div>
+                  <div class="comment-reply"><h1></h1></div>
+                  <div class="comment-time">${comment.time}</div>
+                `;
+      
+                commentsList.appendChild(commentElement);
+              });
+            } catch (error) {
+              console.log(error);
+            }
+          }
+      
+          function getCurrentTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, "0");
+            const minutes = now.getMinutes().toString().padStart(2, "0");
+            return `${hours}:${minutes}`;
+          }
+      
+          async function addComment(comment) {
+            try {
+              const token = localStorage.getItem("token");
+              if (!token) {
+                throw new Error("Token not found in localStorage");
+              }
+      
+              // Make a POST request to add the comment
+              const response = await fetch(`http://localhost:5000/blogs/${blogId}/comments`, {
+                method: "POST",
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(comment),
+              });
+      
+              if (!response.ok) {
+                throw new Error("Failed to add comment");
+              }
+            } catch (error) {
+              console.error(error);
+              // Handle errors here
+            }
+          }
+        });
+      </script>
+       -->
+
+      <!-- <script>
         var file = document.getElementById("blog-Image");
         var author = document.getElementById("blog-author");
         var blogbody = document.getElementById("blogbody");
         let urlParams = new URLSearchParams(window.location.search);
         const id = parseInt(urlParams.get("id"));
-       
-        document.addEventListener("DOMContentLoaded", () => {
-           let data = JSON.parse(localStorage.getItem("object"));
 
-          
+        document.addEventListener("DOMContentLoaded", () => {
+          let data = JSON.parse(localStorage.getItem("object"));
+
           let targetBlog = data.find((blog) => {
             return blog.id === id;
           });
@@ -146,69 +370,88 @@
 
           author.innerHTML = targetBlog.author;
           blogbody.innerHTML = targetBlog.body;
-         
         });
-  //       let currentBlogData = data.find((blog) => blog.id === id);
-  //       let commentsList = (currentBlogData && currentBlogData.comments) || [];
-  //       let likesCount = (currentBlogData && currentBlogData.likes) || 0;
 
-  //       displayComments();
-  //      displayLikes();
+      </script> -->
+      <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const commentForm = document.querySelector("#comment-form");
+          const commentsList = document.querySelector("#comments-list");
 
-  //      function addComment() {
-  //   const commentInput = document.getElementById("dashtextarea");
-  //  const comment = commentInput.value;
+          // Get the current blog ID from the URL
+          let urlParams = new URLSearchParams(window.location.search);
+          const blogId = parseInt(urlParams.get("id"));
 
-  //   if (commentInput !== "") {
-  //     commentsList.push(comment);
-  //     saveDataToLocalStorage();
-  //     displayComments();
-  //     commentInput.value = "";
-  //   }
-  // }
-  // function displayComments() {
-  //   const commentsListElement = document.getElementById("blog-comments");
-  //   const commentsUl = commentsListElement.querySelector("#comments-list");
-  //   commentsUl.innerHTML = "";
+          // Load existing comments from local storage
+          const storedComments =
+            JSON.parse(localStorage.getItem("blogComments")) || {};
+          displayComments(storedComments[blogId] || []);
 
-  //   commentsList.forEach((comment) => {
-  //     const li = document.createElement("li");
-  //     li.textContent = comment;
-  //     commentsUl.appendChild(li);
-  //   });
-  // }
+          commentForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-  // function likeBlog() {
-  //   likesCount++;
-  //   saveDataToLocalStorage();
-  //   displayLikes();
-  // }
+            // Get input values
+            const nameInput = document.querySelector("#name");
+            const emailInput = document.querySelector("#email");
+            const commentInput = document.querySelector("#blogcomment");
 
-  // function displayLikes() {
-  //   const likesCountElement = document.getElementById("likes-count");
-  //   likesCountElement.textContent = `${likesCount} Likes`;
-  // }
+            // Create a new comment object
+            const newComment = {
+              name: nameInput.value,
+              email: emailInput.value,
+              message: commentInput.value,
+              time: getCurrentTime(),
+            };
 
-  // function saveDataToLocalStorage() {
-  //   // Update or add the current blog data to the blogsData array
-  //   const updatedBlogsData = data.map((blog) =>
-  //     blog.id === id
-  //       ? { ...blog, comments: commentsList, likes: likesCount }
-  //       : blog
-  //   );
+            // Save the new comment to local storage
+            storedComments[blogId] = storedComments[blogId] || [];
+            storedComments[blogId].push(newComment);
+            localStorage.setItem(
+              "blogComments",
+              JSON.stringify(storedComments)
+            );
 
-  //   if (!currentBlogData) {
-  //     // If the current blog does not exist in blogsData, add it
-  //     updatedBlogsData.push({
-  //       id: id,
-  //       comments: commentsList,
-  //       likes: likesCount,
-  //     });
-  //   }
+            // Display comments
+            displayComments(storedComments[blogId]);
 
-  //   localStorage.setItem("object", JSON.stringify(updatedBlogsData));
-  // }
-      </script>
+            // Clear input fields
+            nameInput.value = "";
+            emailInput.value = "";
+            commentInput.value = "";
+          });
+
+          function displayComments(comments) {
+            // Clear existing comments
+            commentsList.innerHTML = "";
+
+            // Display each comment
+            comments.forEach((comment) => {
+              const commentElement = document.createElement("div");
+              commentElement.classList.add("comment-results");
+
+              commentElement.innerHTML = `
+                <div class="comment-profile">
+                  <img src="images/profile/mucyo.png" alt="" />
+                </div>
+                <div class="comment-name">${comment.name}</div>
+                <div class="comment-message">${comment.message}</div>
+                <div class="comment-like"></div>
+                <div class="comment-reply"><h1></h1></div>
+                <div class="comment-time">${comment.time}</div>
+              `;
+
+              commentsList.appendChild(commentElement);
+            });
+          }
+
+          function getCurrentTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, "0");
+            const minutes = now.getMinutes().toString().padStart(2, "0");
+            return `${hours}:${minutes}`;
+          }
+        });
+      </script> -->
       <!-- contact us -->
       <div class="contact-div">
         <div class="address">
@@ -240,6 +483,9 @@
     </div>
     <div class="footer">
       <div class="footer-body">
+        <br />
+        <hr />
+        <h1>2024 pacifiquemboni. All Rights Reserved</h1>
         <div class="social-footer">
           <img src="images/social/github.png" />
           <img src="images/social/gmail.png" />
@@ -247,9 +493,6 @@
           <img src="images/social/discord.png" />
           <img src="images/social/linkedin.png" />
         </div>
-        <br />
-        <hr />
-        <h1>2024 pacifiquemboni. All Rights Reserved</h1>
       </div>
     </div>
     <script>

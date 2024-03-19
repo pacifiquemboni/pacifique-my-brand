@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="dashcss.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Iceland"
+    />
+    <title>Dash Blogs</title>
+    <script
+    src="https://kit.fontawesome.com/c8abb356dd.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="validate.js"></script>
+  <script src="message.js"></script>
+  </head>
+  <body onload="fetchMessages()">
+    <header>
+      <input type="checkbox" name="" id="check" />
+      <label for="check">
+        <img src="./bar.png" alt="" id="menubtn" style="width: 50px" />
+        <img src="./x.png" alt="" id="menucancel" style="width: 20px" />
+      </label>
+      <div class="sidebar">
+        <header>Dashboard</header>
+        <ul>
+          <li >
+            <a href="dashaddblog.html"
+              ><img src="./formicon/Add.png" class="fas" alt="" /> New Blog</a
+            >
+          </li>
+          <li>
+            <a href="projectspage.html"
+              ><img src="./formicon/project.png" class="fas" alt="" />
+              Projects</a
+            >
+          </li>
+          <li>
+            <a href="stats.html"
+              ><img src="./formicon/stats.png" class="fas" alt="" />
+              Statatistics</a
+            >
+          </li>
+          <li>
+            <a href="users.html"
+              ><img src="./formicon/User.png" class="fas" alt="" />Users</a
+            >
+          </li>
+          <li class="active">
+            <a href="messages.html"
+              ><img src="./formicon/Message.png" class="fas" alt="" />
+              Messages</a
+            >
+          </li>
+        </ul>
+        <li>
+          <a href="#" class="logout">
+            <img src="./formicon/logout.png" class="fas" alt="" />
+            <span class="nav-item">logout</span>
+          </a>
+        </li>
+      </div>
+    </header>
+
+    <div id="section">
+      <div class="dash-main">
+        <div class="user-table">
+          <div class="heading">
+            <h1>All Messages</h1>
+            <!-- <img src="images/formicon/Message.png" alt="" /> -->
+          </div>
+
+          <hr />
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="message-table">
+              <!-- Sample data (replace with your actual data) -->
+             
+            </tbody>
+          </table>
+          <div id="smsError">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+</html>
