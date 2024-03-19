@@ -22,7 +22,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="validate.js"></script>
-    
   </head>
   <body>
     <div class="mobile-navbar" id="mobile-navbar">
@@ -98,6 +97,8 @@
               onsubmit="return validatecontactform()"
               oninput="validatecontactform()"
             >
+              <div id="toastNotification" class="toast hidden"></div>
+              <div id="toastNotification" class="toast hidden"></div>
               <input
                 type="text"
                 placeholder="Your names"
@@ -119,13 +120,61 @@
                 placeholder="message"
                 id="message"
                 name="message"
-                
               ></textarea>
-
+              <script src="./message.js"></script>
               <div class="login-btn">
-                <button type="submit">Send</button>
+                <button type="button" onclick="submitForm()">Send</button>
               </div>
             </form>
+            <script>
+              function submitForm() {
+                const names = document.getElementById("contactUserName").value;
+                const email = document.getElementById("contactEmail").value;
+                const message = document.getElementById("message").value;
+
+                // Example: Sending data to the server using Fetch API
+                fetch("http://127.0.0.1:5000/sendmessage", {
+                  //https://pacifique-mybrand-endpoints.onrender.com
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ names, email, message }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log("Data sent successfully:", data);
+                    // You can add further actions or UI updates here
+
+                    showToast("message sent successfully thank you!");
+                    resetForm(); // Reset the form after displaying toast
+                  })
+                  .catch((error) => {
+                    console.error("Error sending data:", error);
+                  });
+
+                  function showToast(message, type = 'success', duration = 3000) {
+                const toast = document.getElementById("toastNotification");
+                toast.textContent = message;
+                toast.classList.add("show", type); // Add 'type' class for styling
+                setTimeout(() => {
+                  toast.classList.remove("show", type);
+                }, duration);
+              }
+              function showToastErr(message, type = 'success', duration = 3000) {
+                const toast = document.getElementById("toastNotification");
+                toast.textContent = message;
+                toast.classList.add("show", type); // Add 'type' class for styling
+                setTimeout(() => {
+                  toast.classList.remove("show", type);
+                }, duration);
+              }
+
+                function resetForm() {
+                  document.getElementById("mycontactform").reset(); // Reset the form
+                }
+              }
+            </script>
           </div>
         </div>
       </div>
