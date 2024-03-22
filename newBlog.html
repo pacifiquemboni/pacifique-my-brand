@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
@@ -10,7 +10,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Iceland"
     />
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -24,12 +24,11 @@
       crossorigin="anonymous"
     ></script>
     <script src="validate.js"></script>
-   
-         
-   
+
     <script src="addblog.js" defer></script>
   </head>
-  <body onload="readAllDash()">
+  <body onload="fetchBlogs()">
+    <!-- onload="readAllDash()" -->
     <div class="dashboard">
       <div class="dash-nav">
         <div class="dash-mobile-navbar">
@@ -84,133 +83,144 @@
         </script>
       </div>
       <hr class="dash-hr" />
-      <div id="new-div" >
-        <div class="dash-main">
-          <div class="dash-form">
-            <div class="login-form">
-              <button type="button" id="addblogbtn" onclick="create()">+ Add Blog</button>
-                <!-- add blog form -->
-              <form id="blogform" onsubmit="return validateblogform()">
-                <div class="heading">
-                  <h1>Add New Blog</h1>
-                </div>
-                <div id="success"></div>
-                <label for="message">Blog Title :</label>
-                <input
-                  type="text"
-                  placeholder="Enter Blog Title"
-                  id="blogTitle"
-                />
-                <div id="blogTitleError"></div>
-                <label for="message">Blog Body :</label>
-                <!-- <input type="text" id="dash-textarea"> -->
-                <textarea
-                  placeholder="blog body"
-                  id="dashtextarea"
-                  class="dash-textarea" 
-                ></textarea> 
-                <div id="my-editor"></div>
-               
-                <div id="dashBodyError"></div>
-                <div class="dash-btn">
-                  <div class="fileupload">
-                    <img src="images/formicon/Upload.png" />
-                    <input
-                      type="file"
-                      id="fileInput"
-                      accept="image/*"
-                      onchange="validateblogform() && handleFileChange() "
-                    />
-                  </div>
 
-                  <button
-                    type="button"
-                    value="submit"
-                    onclick="validateblogform() && add()"
-                    name="post-blog"
-                  >
-                    PostBlog
-                  </button>
-                </div>
-              </form>
+      <div class="dash-main">
+        <div class="dash-form">
+          <div class="login-form">
+            <!-- add blog form -->
+            <div id="toastNotification" class="toast hidden"></div>
+          <div id="toastNotification" class="toast hidden"></div>
+            <form id="blogform" class="blogform1">
+              <div class="heading">
+                <h1>Add New Blog</h1>
+              </div>
+              <div id="success"></div>
+              <label for="message">Blog Title :</label>
+              <input
+                type="text"
+                placeholder="Enter Blog Title"
+                id="blogTitle"
+              />
+              <label for="message">Blog intro :</label>
+              <input
+                type="text"
+                placeholder="Enter Blog Intoduction"
+                id="blogIntro"
+              />
+              <div id="blogTitleError"></div>
+              <label for="message">Blog Body :</label>
+              <!-- <input type="text" id="dash-textarea"> -->
+              <textarea
+                placeholder="blog body"
+                id="dashtextarea"
+                class="dash-textarea"
+              ></textarea>
 
-              <!-- update blog form -->
-              <form id="updateblogform" onsubmit="return validateblogform()">
-                <div class="heading">
-                  <h1>Update Blog</h1>
-                </div>
-                <div id="success"></div>
-                <label for="message">Update Blog Title :</label>
-                <input
-                  type="text"
-                  placeholder="Enter Blog Title"
-                  id="ublogTitle"
+              <input
+                type="text"
+                placeholder="image url"
+                id="blogImage"
+                
+              />
+              <div id="uploadImage" style="color: green;"></div>
+              <div id="my-editor"></div>
+
+              <div id="dashBodyError"></div>
+              <div class="dash-btn">
+                <form
+                  id="imageForm"
+                  class="fileupload"
+                  enctype="multipart/form-data"
+                ><img src="images/formicon/Upload.png" />
+                  <input
+                    type="file"
+                    id="imageInput"
+                    name="image"
+                    accept="image/*"
+                    onchange="handleFileChange() "
+                  />
                   
-                />
-                <input type="text" id="id" hidden>
-                <div id="blogTitleError"></div>
-                <label for="message">Update Blog Body :</label>
-                <!-- <input type="text" id="dash-textarea"> -->
-                <textarea
-                  placeholder="blog body"
-                  id="udashtextarea"
-                  class="dash-textarea"
-                ></textarea>
-                <div id="dashBodyError"></div>
-                <div class="dash-btn">
-               
-
-                  <button
-                    type="button"
-                    value="submit"
-                    onclick="update()"
-                    
-                  >
-                    UpdateBlog
+                  <button type="button" onclick="imageUpload()">
+                    Upload Image
                   </button>
-                </div>
-              </form>
-            </div>
+                </form>
+                <button type="submit" value="submit" id="postbtn" style="display: none;">PostBlog</button>
+              </div>
+            </form>
+
+            <!-- update blog form -->
+            <form id="updateblogform" onsubmit="return validateblogform()">
+              <div class="heading">
+                <h1>Update Blog</h1>
+              </div>
+              <div id="success"></div>
+              <label for="message">Update Blog Title :</label>
+              <input
+                type="text"
+                placeholder="Enter Blog Title"
+                id="ublogTitle"
+              />
+              <input type="text" id="id" hidden />
+              <div id="blogTitleError"></div>
+              <label for="message">Update Blog Body :</label>
+              <!-- <input type="text" id="dash-textarea"> -->
+              <textarea
+                placeholder="blog body"
+                id="udashtextarea"
+                class="dash-textarea"
+              ></textarea>
+              <div id="dashBodyError"></div>
+              <div class="dash-btn">
+                <button type="button" value="submit" onclick="update()">
+                  UpdateBlog
+                </button>
+              </div>
+            </form>
           </div>
-          <div class="dash-right">
-            <div class="heading">
-              <h3>Image Preview</h3>
-            </div>
-            <img id="previewImage" />
+        </div>
+        <div class="dash-right">
+          <div class="heading">
+            <h3>Image Preview</h3>
           </div>
-          <div class="updatedash-right">
-            <div class="heading">
-              <h3>Image Preview</h3>
-            </div>
-            <img id="upreviewImage" />
-          </div> 
-          <div id="blog-table">
-            <div class="heading">
-              <h1>Recent blogs:</h1>
-            </div>
-            <table>
-              <thead>
-                <th class="image">Image</th>
-                <th>Blog Title</th>
-                <th>Blog Author</th>
-                <th>Blog Body</th>
-                <th>Actions</th>
-              </thead>
-              <tbody id="blogdata_table"></tbody>
-            </table>
+          <img id="previewImage" />
+        </div>
+        <div class="updatedash-right">
+          <div class="heading">
+            <h3>Image Preview</h3>
           </div>
+          <img id="upreviewImage" />
+        </div>
+
+        <div id="blog-table">
+          <button type="button" id="addblogbtn" onclick="create()">
+            + Add Blog
+          </button>
+          <div class="heading">
+            <h1>Recent blogs:</h1>
+          </div>
+          <table>
+            <thead>
+              <th class="image">Image</th>
+              <th>Blog Title</th>
+              <th>Blog Author</th>
+              <th>Blog Introduction</th>
+              <!-- <th>Blog Body</th> -->
+              <th>Actions</th>
+            </thead>
+            <tbody id="blogdata_table"></tbody>
+          </table>
         </div>
       </div>
     </div>
 
     <script>
       function handleFileChange() {
-        var fileInput = document.getElementById("fileInput");
+        var fileInput = document.getElementById("imageInput");
         var previewImage = document.getElementById("previewImage");
 
-        var selectedFile = fileInput.files[0];
+        if (fileInput && fileInput.files && fileInput.files.length > 0) {
+          var selectedFile = fileInput.files[0];
 
-        if (selectedFile) {
           // Read the file as a Data URL (Base64 encoded)
           var reader = new FileReader();
 
@@ -237,6 +247,5 @@
         previewImage.style.display = "block";
       }
     </script>
- 
   </body>
 </html>

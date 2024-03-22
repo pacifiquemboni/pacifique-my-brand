@@ -24,7 +24,7 @@
     <script src="validate.js" defer></script>
     <script src="adduser.js" defer></script>
   </head>
-  <body>
+  <body onload="CheckLoggedInUser()">
     <div class="mobile-navbar" id="mobile-navbar">
       <div class="logo">A<span>T</span>C<span>.</span></div>
       <div class="menu-icon" onclick="toggleMenu()">
@@ -36,11 +36,27 @@
         <li><a href="skills.html">Skills</a></li>
         <li><a href="mywork.html">MyWork</a></li>
         <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li id="login"><a href="login.html">Login</a></li>
+        <div
+          id="userdashboard"
+          style="display: none; color: #fea609"
+          onclick="logout()"
+        >
+          Logout
+          <img
+            width="10"
+            height="10"
+            src="https://img.icons8.com/ios-filled/50/FA5252/logout-rounded.png"
+            alt="logout-rounded"
+          />
+        </div>
       </ul>
+      <div id="dashboard" style="display: none" onclick="navigateToDashboard()">
+        Admin Dashboard
+      </div>
       <h1 class="active">Sign-Up</h1>
     </div>
-
+    <script src="login.js"></script>
     <script>
       function toggleMenu() {
         var mobileMenu = document.getElementById("mobileMenu");
@@ -56,11 +72,9 @@
           <div class="login-form sign-up-Form">
             <form
               id="sign-upForm"
-             
-              
               oninput="return validateSignForm() && validateSignForm()"
             >
-              
+            <div id="toastNotification" class="toast hidden"></div>
               <input
                 type="text"
                 placeholder="Your names"
@@ -76,18 +90,23 @@
                 oninput="firstPassValidate()"
               /><br />
               <div id="emailError"></div>
-              <input type="text" placeholder="password" id="password" oninput="firstPassValidate()"/>
-                <div id="signPasswordError"></div>
-                <div id="upper" class="rederror"></div>
-                <div id="upperyes" class="greenerror"></div>
-                <div id="lower" class="rederror"></div>
-                <div id="loweryes" class="greenerror"></div>
-                <div id="specialchar" class="rederror"></div>
-                <div id="specialcharyes" class="greenerror"></div>
-                <div id="number" class="rederror"></div>
-                <div id="numberyes" class="greenerror"></div>
-                <div id="space" class="rederror"></div>
-                <div id="spaceyes" class="greenerror"></div>
+              <input
+                type="text"
+                placeholder="password"
+                id="password"
+                oninput="firstPassValidate()"
+              />
+              <div id="signPasswordError"></div>
+              <div id="upper" class="rederror"></div>
+              <div id="upperyes" class="greenerror"></div>
+              <div id="lower" class="rederror"></div>
+              <div id="loweryes" class="greenerror"></div>
+              <div id="specialchar" class="rederror"></div>
+              <div id="specialcharyes" class="greenerror"></div>
+              <div id="number" class="rederror"></div>
+              <div id="numberyes" class="greenerror"></div>
+              <div id="space" class="rederror"></div>
+              <div id="spaceyes" class="greenerror"></div>
               <input
                 type="text"
                 placeholder="confirm password"
@@ -98,12 +117,63 @@
               <div id="signConfirmPasswordError"></div>
 
               <div class="login-btn">
-                <a href="#"><button type="button" value="submit" onclick="validateSignForm() && addUser() ">Sign-Up</button></a>
+                <a href="#"
+                  ><button
+                    type="button"
+                    onclick="validateSignForm() && submitForm() "
+                  >
+                    Sign-Up
+                  </button></a
+                >
               </div>
             </form>
+            <script>
+              function submitForm() {
+                const names = document.getElementById("signUserName").value;
+                const email = document.getElementById("signEmail").value;
+                const password = document.getElementById("password").value;
+                const confpass = document.getElementById("password2").value;
+
+                 showToast('Registering .....')
+                // Example: Sending data to the server using Fetch API
+                fetch("https://pacifique-mybrand-endpoints.onrender.com/user", {
+                  //https://pacifique-mybrand-endpoints.onrender.com
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ names, email, password, confpass }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log("Data sent successfully:", data);
+                    // You can add further actions or UI updates here
+                    showToast("you have successfullu registered to our system");
+                    resetForm();
+                    setTimeout(()=>{
+                      window.location.href='login.html'
+                    },1000)
+                  })
+                  .catch((error) => {
+                    console.error("Error sending data:", error);
+                  });
+              }
+              function showToast(message, type = "success", duration = 3000) {
+                  const toast = document.getElementById("toastNotification");
+                  toast.textContent = message;
+                  toast.classList.add("show", type); // Add 'type' class for styling
+                  setTimeout(() => {
+                    toast.classList.remove("show", type);
+                  }, duration);
+                }
+                function resetForm() {
+                  document.getElementById("sign-upForm").reset(); // Reset the form
+                }
+            </script>
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+            <script src="script.js"></script>
           </div>
         </div>
-        
       </div>
 
       <!-- contact us -->
@@ -147,7 +217,7 @@
         <br />
         <hr />
         <h1>2024 pacifiquemboni. All Rights Reserved</h1>
-        <a href="board.html">dash</a>
+        <!-- <a href="board.html">dash</a> -->
       </div>
     </div>
     <script>

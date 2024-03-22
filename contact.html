@@ -22,9 +22,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="validate.js"></script>
-    
   </head>
-  <body>
+  <body onload="CheckLoggedInUser()">
     <div class="mobile-navbar" id="mobile-navbar">
       <div class="logo">A<span>T</span>C<span>.</span></div>
       <div class="menu-icon" onclick="toggleMenu()">
@@ -36,13 +35,29 @@
         <li><a href="skills.html">Skills</a></li>
         <li><a href="mywork.html">MyWork</a></li>
         <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li id="login"><a href="login.html">Login</a></li>
+        <div
+          id="userdashboard"
+          style="display: none; color: #fea609"
+          onclick="logout()"
+        >
+          Logout
+          <img
+            width="10"
+            height="10"
+            src="https://img.icons8.com/ios-filled/50/FA5252/logout-rounded.png"
+            alt="logout-rounded"
+          />
+        </div>
       </ul>
+      <div id="dashboard" style="display: none" onclick="navigateToDashboard()">
+        Admin Dashboard
+      </div>
       <a href="contact.html"
         ><button><span class="active">Contact me</span></button></a
       >
     </div>
-
+    <script src="login.js"></script>
     <script>
       function toggleMenu() {
         var mobileMenu = document.getElementById("mobileMenu");
@@ -98,6 +113,8 @@
               onsubmit="return validatecontactform()"
               oninput="validatecontactform()"
             >
+              <div id="toastNotification" class="toast hidden"></div>
+              <div id="toastNotification" class="toast hidden"></div>
               <input
                 type="text"
                 placeholder="Your names"
@@ -119,19 +136,75 @@
                 placeholder="message"
                 id="message"
                 name="message"
-                
               ></textarea>
-
+              <script src="./message.js"></script>
               <div class="login-btn">
-                <button type="submit">Send</button>
+                <button type="button" onclick="submitForm()">Send</button>
               </div>
             </form>
+            <script>
+              function submitForm() {
+                const names = document.getElementById("contactUserName").value;
+                const email = document.getElementById("contactEmail").value;
+                const message = document.getElementById("message").value;
+
+                showToast("sending.....")
+                // Example: Sending data to the server using Fetch API
+                fetch(
+                  "https://pacifique-mybrand-endpoints.onrender.com/sendmessage",
+                  {
+                    //https://pacifique-mybrand-endpoints.onrender.com
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ names, email, message }),
+                  }
+                )
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log("Data sent successfully:", data);
+                    // You can add further actions or UI updates here
+
+                    showToast("message sent successfully thank you!");
+                    resetForm(); // Reset the form after displaying toast
+                  })
+                  .catch((error) => {
+                    console.error("Error sending data:", error);
+                  });
+
+                function showToast(message, type = "success", duration = 3000) {
+                  const toast = document.getElementById("toastNotification");
+                  toast.textContent = message;
+                  toast.classList.add("show", type); // Add 'type' class for styling
+                  setTimeout(() => {
+                    toast.classList.remove("show", type);
+                  }, duration);
+                }
+                function showToastErr(
+                  message,
+                  type = "success",
+                  duration = 3000
+                ) {
+                  const toast = document.getElementById("toastNotification");
+                  toast.textContent = message;
+                  toast.classList.add("show", type); // Add 'type' class for styling
+                  setTimeout(() => {
+                    toast.classList.remove("show", type);
+                  }, duration);
+                }
+
+                function resetForm() {
+                  document.getElementById("mycontactform").reset(); // Reset the form
+                }
+              }
+            </script>
           </div>
         </div>
       </div>
 
       <!-- contact us -->
-      <div class="contact-div">
+      <!-- <div class="contact-div">
         <div class="address">
           <i class="material-icons checked">&#xe55f;</i>
           <h2>ADDRESS</h2>
@@ -157,10 +230,11 @@
           <h2>EMAIL-ADDRESS</h2>
           <p>pacifiquemboni@gmail.com</p>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="footer">
       <div class="footer-body">
+        <hr />
         <div class="social-footer">
           <img src="images/social/github.png" />
           <img src="images/social/gmail.png" />
@@ -168,8 +242,6 @@
           <img src="images/social/discord.png" />
           <img src="images/social/linkedin.png" />
         </div>
-        <br />
-        <hr />
         <h1>2024 pacifiquemboni. All Rights Reserved</h1>
       </div>
     </div>
