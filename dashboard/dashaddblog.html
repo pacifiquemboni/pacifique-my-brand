@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" type="image/png" href="images/me.jpg">
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="dashcss.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -112,13 +113,6 @@
           // For example, you can redirect to the login page
           window.location.href = "../login.html"; // Change the URL to your login page
         };
-
-        // Add event listener to the logout button or link
-        document
-          .getElementById("logout-button")
-          .addEventListener("click", () => {
-            logout(); // Call the logout function when the button or link is clicked
-          });
       </script>
       <!-- <div id="section-header">
         <div id="dashbar">
@@ -234,9 +228,9 @@
 
           <div id="confirmationModal" class="modal">
             <div class="modal-content">
-              <p>Are you sure you want to delete this blog?</p>
-              <button id="confirmButton">Yes</button>
-              <button id="cancelButton">No</button>
+              <p>Are you sure you want to delete this project?</p>
+              <button id="confirmButton">Confirm</button>
+              <button id="cancelButton">Cancel</button>
             </div>
           </div>
 

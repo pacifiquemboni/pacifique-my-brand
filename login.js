@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("loginPassword").value.trim();
     // Basic input validation
     if (!email || !password) {
-      showError("Please enter both email and password.");
+      showToast("Please enter both email and password.",'error');
       return;
     }
     // use fetch api

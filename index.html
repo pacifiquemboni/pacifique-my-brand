@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My-Brand</title>
+    <title> My-Brand</title>
+    <link rel="icon" type="image/png" href="images/me.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./responsive.css" />
@@ -84,6 +85,12 @@
               Download cv
             </button></a
           >
+          <a href="#contact-div">
+            <button>
+              Hire Me
+            </button>
+          </a>
+          
           <br /><br />
           <div class="social">
             <a href="https://github.com/pacifiquemboni" target="_blank"
@@ -227,20 +234,20 @@
           </div>
         </div>
       </div>
-      <hr />
+      
 
       <!-- blog section -->
-      <div class="blog-div">
+      <!-- <div class="blog-div">
         <div class="blog-body">
           <center><h1>Blogs</h1></center>
           <div class="myblog-div">
             <div class="blogs myblogs" id="myblogs">
-              <!-- this is where blogs will br displayed -->
+              
             </div>
           </div>
         </div>
       </div>
-      <br /><br /><br />
+      <br /><br /><br /> -->
       <hr />
       <center><h1>Clients’ Experience</h1></center>
       <div class="slideshow-container">
@@ -374,6 +381,7 @@
           dots[slideIndex - 1].className += " activeslide";
         }
       </script>
+      <hr />
       <center><h1>Subscribe To Our News Letters</h1></center>
       <script src="https://smtpjs.com/v3/smtp.js"></script>
       <div class="subscribe">
@@ -398,9 +406,10 @@
 
               const names = document.getElementById("name").value;
               const email = document.getElementById("useremail").value;
-
+              showToast("subscribing ......")
               // Example: Sending data to the server using Fetch API
               fetch(
+                
                 "https://pacifique-mybrand-endpoints.onrender.com/subscribe",
                 {
                   method: "POST",
@@ -484,7 +493,7 @@
         }
       </script> -->
       <!-- contact us -->
-      <div class="contact-div">
+      <div class="contact-div" id="contact-div">
         <div class="address">
           <i class="material-icons checked">&#xe55f;</i>
           <h2>ADDRESS</h2>
@@ -514,14 +523,6 @@
     </div>
     <div class="footer">
       <div class="footer-body">
-        <div class="social-footer">
-          <img src="images/social/github.png" />
-          <img src="images/social/gmail.png" />
-          <img src="images/social/facebook.png" />
-          <img src="images/social/discord.png" />
-          <img src="images/social/linkedin.png" />
-        </div>
-        <br />
         <hr />
         <h1>2024 pacifiquemboni. All Rights Reserved</h1>
       </div>

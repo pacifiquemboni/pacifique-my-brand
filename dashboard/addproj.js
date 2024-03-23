@@ -9,11 +9,14 @@ const imageUpload = async () => {
   try {
     const formData = new FormData();
     formData.append("image", imageInput.files[0]);
-    showToast('Uploading image...Wait for next success message', 'success');
-    const response = await fetch("https://pacifique-mybrand-endpoints.onrender.com/api/upload/upload", {
-      method: "POST",
-      body: formData,
-    });
+    showToast("Uploading image...Wait for next success message", "success");
+    const response = await fetch(
+      "https://pacifique-mybrand-endpoints.onrender.com/api/upload/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
     if (!response.ok) {
       // console.log("image added success fully");
@@ -23,7 +26,10 @@ const imageUpload = async () => {
 
     const responseData = await response.json();
     // uploadMessage.innerHTML = `Image uploaded successfully, now go ahead post your blog`;
-      showToast('Image uploaded successfully, now go ahead post your blog', 'success')
+    showToast(
+      "Image uploaded successfully, now go ahead post your blog",
+      "success"
+    );
     console.log("Image uploaded successfully:", responseData.data);
     document.getElementById("blogImage").value = responseData.data;
     document.getElementById("postbtn").style.display = "block";
@@ -37,7 +43,9 @@ const imageUpload = async () => {
 const fetchprojects = async () => {
   try {
     // Fetch bookmarks with the token included in the request headers
-    const response = await fetch("https://pacifique-mybrand-endpoints.onrender.com/projects");
+    const response = await fetch(
+      "https://pacifique-mybrand-endpoints.onrender.com/projects"
+    );
     // Check if the response is successful
     if (!response.ok) {
       throw new Error("Failed to fetch projects");
@@ -54,11 +62,16 @@ const fetchprojects = async () => {
 // Function to delete a blog
 const deleteproject = async (id) => {
   try {
-    // Ask for confirmation before deleting
-    const confirmation = confirm("Are you sure you want to delete this blog?");
+    // Get the modal
+    const modal = document.getElementById("confirmationModal");
+    modal.style.display = "block";
+    // Get the confirm and cancel buttons
+    const confirmButton = document.getElementById("confirmButton");
+    const cancelButton = document.getElementById("cancelButton");
 
-    // If user confirms, proceed with deletion
-    if (confirmation) {
+    confirmButton.addEventListener("click", async () => {
+      // Close the modal
+      modal.style.display = "none";
       const token = localStorage.getItem("token");
 
       // Check if the token exists
@@ -67,13 +80,16 @@ const deleteproject = async (id) => {
       }
 
       // Send DELETE request to delete the blog
-      const response = await fetch(`https://pacifique-mybrand-endpoints.onrender.com/projects/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://pacifique-mybrand-endpoints.onrender.com/projects/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       // Check if deletion was successful
       if (!response.ok) {
@@ -82,17 +98,21 @@ const deleteproject = async (id) => {
 
       // Refresh the list of projects after deletion
       fetchprojects();
-    }
+    });
+    cancelButton.addEventListener("click", () => {
+      // Close the modal
+      fetchprojects();
+      modal.style.display = "none";
+    });
   } catch (error) {
     console.error("Error deleting project:", error.message);
   }
 };
 
-
 // function to create a project element in dashboard
 const createProjectElement = (project) => {
   let projectElement = document.createElement("div");
-  projectElement.classList.add('card')
+  projectElement.classList.add("card");
   projectElement.innerHTML = `
 
   
@@ -138,10 +158,12 @@ const fetchprojects2 = async () => {
   try {
     let projectsList = document.getElementById("myworkprojects-cards");
     setTimeout(() => {
-      projectsList.innerHTML='Loading projects please wait.........'
+      projectsList.innerHTML = "Loading projects please wait.........";
     });
     // Fetch bookmarks with the token included in the request headers
-    const response = await fetch("https://pacifique-mybrand-endpoints.onrender.com/projects");
+    const response = await fetch(
+      "https://pacifique-mybrand-endpoints.onrender.com/projects"
+    );
     // Check if the response is successful
     if (!response.ok) {
       throw new Error("Failed to fetch projects");
@@ -194,86 +216,86 @@ const displayProjects2 = () => {
 document.addEventListener("DOMContentLoaded", () => {
   const projectForm = document.getElementById("projectform");
   if (projectForm) {
-      projectForm.addEventListener("submit", async (event) => {
-        const name = document.getElementById("ProjectName").value;
-        const description = document.getElementById("dashtextarea").value;
-        const started = document.getElementById("started").value;
-        const ended = document.getElementById("ended").value;
-        const fileInput = document.getElementById("blogImage").value;
-    
-        if (!name || !description) {
-          showToast(
-            "Please provide both title, intro, body for the blog.",
-            "error"
-          );
-          return;
-        }
-        if (!fileInput) {
-          showToast("Please select an image for the blog.", "error");
-          return;
-        }
-    
-        const proj = {
-          name: name,
-          description: description,
-          started: started,
-          ended: ended,
-          image: fileInput,
-        };
-        await addProject(proj);
-      });
+    projectForm.addEventListener("submit", handleProjectFormSubmit);
   } else {
-      console.error("Element with ID 'projectform' not found.");
+    console.error("Element with ID 'projectform' not found.");
   }
 });
 
+const handleProjectFormSubmit = async (event) => {
+  event.preventDefault(); // Prevent default form submission behavior
 
-//function to add a blog
+  const name = document.getElementById("ProjectName").value;
+  const description = document.getElementById("dashtextarea").value;
+  const started = document.getElementById("started").value;
+  const ended = document.getElementById("ended").value;
+  const fileInput = document.getElementById("blogImage").value;
+
+  if (!name || !description) {
+    showToast(
+      "Please provide both title and description for the project.",
+      "error"
+    );
+    return;
+  }
+  if (!fileInput) {
+    showToast("Please select an image for the project.", "error");
+    return;
+  }
+
+  const proj = {
+    name: name,
+    description: description,
+    started: started,
+    ended: ended,
+    image: fileInput,
+  };
+  await addProject(proj);
+};
+
 const addProject = async (proj) => {
   try {
     const token = localStorage.getItem("token");
 
-    // Check if the token exists
     if (!token) {
       throw new Error("Token not found in localStorage");
     }
-    const response = await fetch("https://pacifique-mybrand-endpoints.onrender.com/project", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(proj),
-    });
+
+    const response = await fetch(
+      "https://pacifique-mybrand-endpoints.onrender.com/project",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(proj),
+      }
+    );
+
     if (!response.ok) {
       const errorMessage = await response.text();
       throw new Error(errorMessage.message);
     }
-    alert("project posted successfully");
-    fetchprojects(); // Refresh bookmarks after adding
-    location.reload();
+
+    showToast("Project posted successfully");
+    fetchprojects(); // Refresh projects after adding
   } catch (error) {
-    console.error("Error fetching projects", error);
-    showToast("project arleady posted", "error");
+    console.error("Error posting project", error);
+    showToast("Project could not be posted", "error");
   }
 };
 
+// function showToast(message, type = "success", duration = 10000) {
+//   const toast = document.getElementById("toastNotification");
+//   toast.textContent = message;
+//   toast.classList.add("show", type); // Add 'type' class for styling
+//   setTimeout(() => {
+//     toast.classList.remove("show", type);
+//   }, duration);
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function showToast(message, type = 'success', duration = 10000) {
+function showToast(message, type = "success", duration = 10000) {
   const toast = document.getElementById("toastNotification");
   toast.textContent = message;
   toast.classList.add("show", type); // Add 'type' class for styling
@@ -281,6 +303,6 @@ function showToast(message, type = 'success', duration = 10000) {
     toast.classList.remove("show", type);
   }, duration);
 }
-function show(){
+function show() {
   document.getElementById("projectform").style.display = "block";
 }

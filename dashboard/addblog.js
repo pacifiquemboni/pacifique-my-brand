@@ -68,7 +68,7 @@ const getSingleBlog = async (id) => {
     // Check if the token exists
     if (!token) {
       // throw new Error('Token not found in localStorage');
-      showToast("Login First", "error");
+      showToast("Login First",'error');
       setTimeout(() => {
         window.location.href = `login.html`;
       }, 2000);
@@ -160,7 +160,7 @@ const imageUpload = async () => {
   try {
     const formData = new FormData();
     formData.append("image", imageInput.files[0]);
-    showToast("Uploading image...", "success",3000,'../images/loading3.gif');
+    showToast("Uploading image...", "success",3000,'./loading3.gif');
     const response = await fetch(
       "https://pacifique-mybrand-endpoints.onrender.com/api/upload/upload",
       {
